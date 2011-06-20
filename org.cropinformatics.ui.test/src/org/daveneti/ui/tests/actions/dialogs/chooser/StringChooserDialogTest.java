@@ -21,8 +21,8 @@ package org.daveneti.ui.tests.actions.dialogs.chooser;
 import java.util.Iterator;
 import java.util.List;
 
-import org.daveneti.ui.actions.BaseWorkbenchWindowActionDelegate;
-import org.daveneti.ui.dialogs.twin.ChooserDialog;
+import org.cropinformatics.ui.actions.BaseWorkbenchWindowActionDelegate;
+import org.cropinformatics.ui.dialogs.twin.ChooserDialog;
 import org.daveneti.ui.test.TestUtils;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.window.Window;

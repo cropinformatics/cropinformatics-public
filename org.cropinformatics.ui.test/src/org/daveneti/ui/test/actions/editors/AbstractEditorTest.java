@@ -18,8 +18,8 @@
  *******************************************************************************/
 package org.daveneti.ui.test.actions.editors;
 
-import org.daveneti.ui.Activator;
-import org.daveneti.ui.actions.BaseWorkbenchWindowActionDelegate;
+import org.cropinformatics.ui.Activator;
+import org.cropinformatics.ui.actions.BaseWorkbenchWindowActionDelegate;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.action.IAction;

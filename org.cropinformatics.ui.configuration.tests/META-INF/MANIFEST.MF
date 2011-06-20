@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.daveneti.ui.configuration.tests;singleton:=true
+Bundle-SymbolicName: org.cropinformatics.ui.configuration.tests;singleton:=true
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
@@ -9,7 +9,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.daveneti.ui.configuration.tests
 Require-Bundle: org.eclipse.core.runtime,
- org.daveneti.ui.configuration;visibility:=reexport,
+ org.cropinformatics.ui.configuration;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

@@ -22,10 +22,10 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.daveneti.common.Identification;
-import org.daveneti.ui.actions.BaseWorkbenchWindowActionDelegate;
-import org.daveneti.ui.configuration.utils.ConfigurationUtils;
-import org.daveneti.ui.dialogs.list.IdentificationSingleListTableDialog;
+import org.cropinformatics.common.Identification;
+import org.cropinformatics.ui.actions.BaseWorkbenchWindowActionDelegate;
+import org.cropinformatics.ui.configuration.utils.ConfigurationUtils;
+import org.cropinformatics.ui.dialogs.list.IdentificationSingleListTableDialog;
 import org.daveneti.ui.test.TestUtils;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.window.Window;

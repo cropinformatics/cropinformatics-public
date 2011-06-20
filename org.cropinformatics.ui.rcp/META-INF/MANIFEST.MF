@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %bundleName
-Bundle-SymbolicName: org.daveneti.ui.rcp
+Bundle-SymbolicName: org.cropinformatics.ui.rcp
 Bundle-Version: 0.2.0
 Bundle-Vendor: %providerName
-Fragment-Host: org.daveneti.ui;bundle-version="[0.3.0,0.4.0)"
+Fragment-Host: org.cropinformatics.ui;bundle-version="[0.3.0,0.4.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.eclipse.nebula.widgets.datechooser;bundle-version="1.0.0",
  org.eclipse.nebula.widgets.formattedtext;bundle-version="1.0.0"
-Export-Package: org.daveneti.ui.components.impl,
- org.daveneti.ui.configuration.utils,
- org.daveneti.ui.utils
+Export-Package: org.cropinformatics.ui.components.impl,
+ org.cropinformatics.ui.configuration.utils,
+ org.cropinformatics.ui.utils

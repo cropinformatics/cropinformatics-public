@@ -22,8 +22,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.daveneti.ui.actions.BaseWorkbenchWindowActionDelegate;
-import org.daveneti.ui.dialogs.list.StringListTableDialog;
+import org.cropinformatics.ui.actions.BaseWorkbenchWindowActionDelegate;
+import org.cropinformatics.ui.dialogs.list.StringListTableDialog;
 import org.daveneti.ui.test.TestUtils;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.window.Window;

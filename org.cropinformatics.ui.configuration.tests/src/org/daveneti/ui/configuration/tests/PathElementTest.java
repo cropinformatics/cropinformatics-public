@@ -8,7 +8,7 @@ package org.daveneti.ui.configuration.tests;
 
 import junit.framework.TestCase;
 
-import org.daveneti.ui.configuration.PathElement;
+import org.cropinformatics.ui.configuration.PathElement;
 
 /**
  * <!-- begin-user-doc -->

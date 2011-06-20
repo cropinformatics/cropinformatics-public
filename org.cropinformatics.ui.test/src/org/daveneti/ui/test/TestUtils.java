@@ -23,8 +23,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 
-import org.daveneti.common.BaseIdentification;
-import org.daveneti.common.Identification;
+import org.cropinformatics.common.BaseIdentification;
+import org.cropinformatics.common.Identification;
 
 public class TestUtils
 {

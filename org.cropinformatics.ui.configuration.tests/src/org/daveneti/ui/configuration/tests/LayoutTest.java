@@ -9,8 +9,8 @@ package org.daveneti.ui.configuration.tests;
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
-import org.daveneti.ui.configuration.ConfigurationFactory;
-import org.daveneti.ui.configuration.Layout;
+import org.cropinformatics.ui.configuration.ConfigurationFactory;
+import org.cropinformatics.ui.configuration.Layout;
 
 /**
  * <!-- begin-user-doc -->

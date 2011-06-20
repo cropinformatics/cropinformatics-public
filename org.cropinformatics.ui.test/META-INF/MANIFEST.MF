@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.daveneti.ui.test;singleton:=true
+Bundle-SymbolicName: org.cropinformatics.ui.test;singleton:=true
 Bundle-Version: 0.2.0
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime,
- org.daveneti.common;bundle-version="[0.3.0,0.4.0)",
- org.daveneti.ui;bundle-version="[0.3.0,0.4.0)",
- org.daveneti.ui.configuration;bundle-version="[0.3.0,0.4.0)"
+ org.cropinformatics.common;bundle-version="[0.3.0,0.4.0)",
+ org.cropinformatics.ui;bundle-version="[0.3.0,0.4.0)",
+ org.cropinformatics.ui.configuration;bundle-version="[0.3.0,0.4.0)"
 Bundle-Vendor: %providerName
 Export-Package: org.daveneti.ui.test.actions.dialogs.list,
  org.daveneti.ui.test.actions.editors,

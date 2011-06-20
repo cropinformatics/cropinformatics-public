@@ -18,9 +18,9 @@ package org.daveneti.ui.test.actions.dialogs.mapping;
 import java.util.Iterator;
 import java.util.List;
 
-import org.daveneti.common.Mapping;
-import org.daveneti.ui.actions.BaseWorkbenchWindowActionDelegate;
-import org.daveneti.ui.dialogs.twin.MappingDialog;
+import org.cropinformatics.common.Mapping;
+import org.cropinformatics.ui.actions.BaseWorkbenchWindowActionDelegate;
+import org.cropinformatics.ui.dialogs.twin.MappingDialog;
 import org.daveneti.ui.test.TestUtils;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.window.Window;

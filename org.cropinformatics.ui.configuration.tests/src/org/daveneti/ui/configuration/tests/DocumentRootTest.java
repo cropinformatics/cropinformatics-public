@@ -9,8 +9,8 @@ package org.daveneti.ui.configuration.tests;
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
-import org.daveneti.ui.configuration.ConfigurationFactory;
-import org.daveneti.ui.configuration.DocumentRoot;
+import org.cropinformatics.ui.configuration.ConfigurationFactory;
+import org.cropinformatics.ui.configuration.DocumentRoot;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +19,7 @@ import org.daveneti.ui.configuration.DocumentRoot;
  * <p>
  * The following features are tested:
  * <ul>
- *   <li>{@link org.daveneti.ui.configuration.DocumentRoot#getConfigurationList() <em>Configuration List</em>}</li>
+ *   <li>{@link org.cropinformatics.ui.configuration.DocumentRoot#getConfigurationList() <em>Configuration List</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -103,10 +103,10 @@ public class DocumentRootTest extends TestCase
 	}
 
 	/**
-	 * Tests the '{@link org.daveneti.ui.configuration.DocumentRoot#getConfigurationList() <em>Configuration List</em>}' feature getter.
+	 * Tests the '{@link org.cropinformatics.ui.configuration.DocumentRoot#getConfigurationList() <em>Configuration List</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.daveneti.ui.configuration.DocumentRoot#getConfigurationList()
+	 * @see org.cropinformatics.ui.configuration.DocumentRoot#getConfigurationList()
 	 * @generated
 	 */
 	public void testGetConfigurationList()
@@ -117,10 +117,10 @@ public class DocumentRootTest extends TestCase
 	}
 
 	/**
-	 * Tests the '{@link org.daveneti.ui.configuration.DocumentRoot#setConfigurationList(org.daveneti.ui.configuration.ConfigurationListType) <em>Configuration List</em>}' feature setter.
+	 * Tests the '{@link org.cropinformatics.ui.configuration.DocumentRoot#setConfigurationList(org.cropinformatics.ui.configuration.ConfigurationListType) <em>Configuration List</em>}' feature setter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.daveneti.ui.configuration.DocumentRoot#setConfigurationList(org.daveneti.ui.configuration.ConfigurationListType)
+	 * @see org.cropinformatics.ui.configuration.DocumentRoot#setConfigurationList(org.cropinformatics.ui.configuration.ConfigurationListType)
 	 * @generated
 	 */
 	public void testSetConfigurationList()

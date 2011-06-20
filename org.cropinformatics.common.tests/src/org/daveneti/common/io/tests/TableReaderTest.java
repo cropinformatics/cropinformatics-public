@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.util.Iterator;
 import java.util.List;
 
-import org.daveneti.common.io.impl.TextFileTableStringReader;
+import org.cropinformatics.common.io.impl.TextFileTableStringReader;
 import org.junit.Test;
 
 public class TableReaderTest

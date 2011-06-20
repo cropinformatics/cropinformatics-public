@@ -21,10 +21,10 @@ package org.daveneti.ui.test.actions.components;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import org.daveneti.ui.configuration.ContainerConfiguration;
-import org.daveneti.ui.configuration.DialogConfiguration;
-import org.daveneti.ui.configuration.utils.ConfigurationUtils;
-import org.daveneti.ui.dialogs.AbstractDialog;
+import org.cropinformatics.ui.configuration.ContainerConfiguration;
+import org.cropinformatics.ui.configuration.DialogConfiguration;
+import org.cropinformatics.ui.configuration.utils.ConfigurationUtils;
+import org.cropinformatics.ui.dialogs.AbstractDialog;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 

@@ -13,7 +13,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://www.daveneti.org/ui/configuration"
-            class="org.daveneti.ui.configuration.provider.ConfigurationItemProviderAdapterFactory"
+            class="org.cropinformatics.ui.configuration.provider.ConfigurationItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

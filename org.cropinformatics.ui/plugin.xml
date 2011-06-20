@@ -4,7 +4,7 @@
    <extension-point id="ConfigurationFactory" name="Configuration Factory" schema="schema/ConfigurationFactory.exsd"/>
    <extension-point id="ObjectAction" name="Object Action" schema="schema/ObjectAction.exsd"/>
    <extension
-         point="org.daveneti.ui.ConfigurationFactory">
+         point="org.cropinformatics.ui.ConfigurationFactory">
       <configurationFile
             file="config/configuration.xml">
       </configurationFile>
@@ -12,7 +12,7 @@
    <extension
      point="org.eclipse.ui.views">
       <view
-            class="org.daveneti.ui.views.UndoHistoryView"
+            class="org.cropinformatics.ui.views.UndoHistoryView"
             icon="icons/undo.png"
             id="org.daveneti.ui.views.UndoHistoryView"
             name="Undo History">
@@ -23,7 +23,7 @@
    <extension
          point="org.eclipse.equinox.preferences.preferences">
       <initializer
-            class="org.daveneti.ui.preferences.PreferenceInitializer">
+            class="org.cropinformatics.ui.preferences.PreferenceInitializer">
       </initializer>
    </extension>
 </plugin>

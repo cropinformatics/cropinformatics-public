@@ -17,7 +17,7 @@
       <wizard
             id="org.daveneti.ui.configuration.presentation.ConfigurationModelWizardID"
             name="%_UI_ConfigurationModelWizard_label"
-            class="org.daveneti.ui.configuration.presentation.ConfigurationModelWizard"
+            class="org.cropinformatics.ui.configuration.presentation.ConfigurationModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/ConfigurationModelFile.gif">
          <description>%_UI_ConfigurationModelWizard_description</description>
@@ -31,8 +31,8 @@
             name="%_UI_ConfigurationEditor_label"
             icon="icons/full/obj16/ConfigurationModelFile.gif"
             extensions="configuration"
-            class="org.daveneti.ui.configuration.presentation.ConfigurationEditor"
-            contributorClass="org.daveneti.ui.configuration.presentation.ConfigurationActionBarContributor">
+            class="org.cropinformatics.ui.configuration.presentation.ConfigurationEditor"
+            contributorClass="org.cropinformatics.ui.configuration.presentation.ConfigurationActionBarContributor">
       </editor>
    </extension>
 

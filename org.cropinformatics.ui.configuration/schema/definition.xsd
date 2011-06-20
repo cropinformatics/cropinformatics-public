@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xs:schema xmlns="http://www.daveneti.org/ui/configuration"
+<xs:schema xmlns="http://www.cropinformatics.org/ui/configuration"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://www.daveneti.org/ui/configuration">
+	targetNamespace="http://www.cropinformatics.org/ui/configuration">
 	<xs:annotation>
 		<xs:documentation>This XML Schema specifies an XML format for definition of Configurable GUI components
 		Start exploring this schema by the root element which is the 'ConfigurationList' element.

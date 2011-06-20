@@ -9,11 +9,11 @@ package org.daveneti.ui.configuration.tests;
 import java.io.File;
 import java.io.IOException;
 
-import org.daveneti.ui.configuration.ConfigurationFactory;
-import org.daveneti.ui.configuration.ConfigurationListType;
-import org.daveneti.ui.configuration.ConfigurationPackage;
-import org.daveneti.ui.configuration.DocumentRoot;
-import org.daveneti.ui.configuration.util.ConfigurationResourceFactoryImpl;
+import org.cropinformatics.ui.configuration.ConfigurationFactory;
+import org.cropinformatics.ui.configuration.ConfigurationListType;
+import org.cropinformatics.ui.configuration.ConfigurationPackage;
+import org.cropinformatics.ui.configuration.DocumentRoot;
+import org.cropinformatics.ui.configuration.util.ConfigurationResourceFactoryImpl;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;

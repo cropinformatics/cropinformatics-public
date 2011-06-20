@@ -13,14 +13,14 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://www.daveneti.org/ui/configuration"
-            class="org.daveneti.ui.configuration.ConfigurationPackage"
+            class="org.cropinformatics.ui.configuration.ConfigurationPackage"
             genModel="model/configuration.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="configuration"
-            class="org.daveneti.ui.configuration.util.ConfigurationResourceFactoryImpl"/>
+            class="org.cropinformatics.ui.configuration.util.ConfigurationResourceFactoryImpl"/>
    </extension>
 
 </plugin>

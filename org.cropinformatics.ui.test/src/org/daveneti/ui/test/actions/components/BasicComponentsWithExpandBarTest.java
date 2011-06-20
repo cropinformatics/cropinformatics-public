@@ -18,8 +18,8 @@
  *******************************************************************************/
 package org.daveneti.ui.test.actions.components;
 
-import org.daveneti.ui.actions.BaseWorkbenchWindowActionDelegate;
-import org.daveneti.ui.configuration.utils.ConfigurationUtils;
+import org.cropinformatics.ui.actions.BaseWorkbenchWindowActionDelegate;
+import org.cropinformatics.ui.configuration.utils.ConfigurationUtils;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.window.Window;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;

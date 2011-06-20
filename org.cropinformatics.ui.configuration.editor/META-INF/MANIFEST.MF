@@ -1,17 +1,17 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.daveneti.ui.configuration.editor;singleton:=true
+Bundle-SymbolicName: org.cropinformatics.ui.configuration.editor;singleton:=true
 Bundle-Version: 0.3.0
 Bundle-ClassPath: .
-Bundle-Activator: org.daveneti.ui.configuration.presentation.ConfigurationEditorPlugin$Implementation
+Bundle-Activator: org.cropinformatics.ui.configuration.presentation.ConfigurationEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.daveneti.ui.configuration.presentation
+Export-Package: org.cropinformatics.ui.configuration.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
- org.daveneti.ui.configuration.edit;visibility:=reexport,
+ org.cropinformatics.ui.configuration.edit;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport

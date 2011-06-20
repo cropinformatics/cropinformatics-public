@@ -8,8 +8,8 @@ package org.daveneti.ui.configuration.tests;
 
 import junit.textui.TestRunner;
 
-import org.daveneti.ui.configuration.ComponentConfiguration;
-import org.daveneti.ui.configuration.ConfigurationFactory;
+import org.cropinformatics.ui.configuration.ComponentConfiguration;
+import org.cropinformatics.ui.configuration.ConfigurationFactory;
 
 /**
  * <!-- begin-user-doc -->
