@@ -72,7 +72,7 @@ public class ConfigurationValidator extends EObjectValidator
 	 * @see org.eclipse.emf.common.util.Diagnostic#getCode()
 	 * @generated
 	 */
-	public static final String DIAGNOSTIC_SOURCE = "org.daveneti.ui.configuration";
+	public static final String DIAGNOSTIC_SOURCE = "org.cropinformatics.ui.configuration";
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.

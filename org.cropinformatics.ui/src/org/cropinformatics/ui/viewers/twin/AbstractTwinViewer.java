@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright 2007 International Rice Research Institute (IRRI) and 
  * Centro Internacional de Mejoramiento de Maiz y Trigo (CIMMYT). 
- * Original author Guy Davenport (guy@daveneti.com) under contract by
+ * Original author Guy Davenport (guy.davenport@cropinformatics.com) under contract by
  * CIMMYT. Additional modifications by Guy Davenport after 21 November 2010
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -97,7 +97,7 @@ public abstract class AbstractTwinViewer<L extends Object, R extends Object> ext
   }
 
   /* (non-Javadoc)
-   * @see org.daveneti.ui.viewers.twin.TwinViewer#getLeftItems()
+   * @see org.cropinformatics.ui.viewers.twin.TwinViewer#getLeftItems()
    */
   public final List<L> getLeftItems()
   {
@@ -108,7 +108,7 @@ public abstract class AbstractTwinViewer<L extends Object, R extends Object> ext
   }
   
   /* (non-Javadoc)
-   * @see org.daveneti.ui.viewers.twin.TwinViewer#setLeftItems(java.util.List)
+   * @see org.cropinformatics.ui.viewers.twin.TwinViewer#setLeftItems(java.util.List)
    */
   public boolean setLeftItems(List<L> leftItems)
   {
@@ -187,7 +187,7 @@ public abstract class AbstractTwinViewer<L extends Object, R extends Object> ext
   }
 
   /* (non-Javadoc)
-   * @see org.daveneti.ui.viewers.twin.TwinViewer#getRightItems()
+   * @see org.cropinformatics.ui.viewers.twin.TwinViewer#getRightItems()
    */
   public final List<R> getRightItems()
   {
@@ -198,7 +198,7 @@ public abstract class AbstractTwinViewer<L extends Object, R extends Object> ext
   }
   
   /* (non-Javadoc)
-   * @see org.daveneti.ui.viewers.twin.TwinViewer#setRightItems(java.util.List)
+   * @see org.cropinformatics.ui.viewers.twin.TwinViewer#setRightItems(java.util.List)
    */
   public boolean setRightItems(List<R> rightItems)
   {
@@ -277,7 +277,7 @@ public abstract class AbstractTwinViewer<L extends Object, R extends Object> ext
   }
 
   /* (non-Javadoc)
-   * @see org.daveneti.ui.viewers.twin.TwinViewer#getLeftFilteredItems()
+   * @see org.cropinformatics.ui.viewers.twin.TwinViewer#getLeftFilteredItems()
    */
   public final List<L> getLeftFilteredItems()
   {
@@ -292,7 +292,7 @@ public abstract class AbstractTwinViewer<L extends Object, R extends Object> ext
   }
   
   /* (non-Javadoc)
-   * @see org.daveneti.ui.viewers.twin.TwinViewer#getRightFilteredItems()
+   * @see org.cropinformatics.ui.viewers.twin.TwinViewer#getRightFilteredItems()
    */
   public final List<R> getRightFilteredItems()
   {
@@ -307,7 +307,7 @@ public abstract class AbstractTwinViewer<L extends Object, R extends Object> ext
   }
   
   /* (non-Javadoc)
-   * @see org.daveneti.ui.viewers.twin.TwinViewer#addLeftFilter(org.daveneti.ui.viewers.list.ListViewerFilter)
+   * @see org.cropinformatics.ui.viewers.twin.TwinViewer#addLeftFilter(org.cropinformatics.ui.viewers.list.ListViewerFilter)
    */
   public final boolean addLeftFilter(ListViewerFilter filter)
   {
@@ -315,7 +315,7 @@ public abstract class AbstractTwinViewer<L extends Object, R extends Object> ext
   }
 
   /* (non-Javadoc)
-   * @see org.daveneti.ui.viewers.twin.TwinViewer#removeLeftFilter(org.daveneti.ui.viewers.list.ListViewerFilter)
+   * @see org.cropinformatics.ui.viewers.twin.TwinViewer#removeLeftFilter(org.cropinformatics.ui.viewers.list.ListViewerFilter)
    */
   public final boolean removeLeftFilter(ListViewerFilter filter)
   {
@@ -323,7 +323,7 @@ public abstract class AbstractTwinViewer<L extends Object, R extends Object> ext
   }
   
   /* (non-Javadoc)
-   * @see org.daveneti.ui.viewers.twin.TwinViewer#getLeftFilters()
+   * @see org.cropinformatics.ui.viewers.twin.TwinViewer#getLeftFilters()
    */
   public final List<ListViewerFilter> getLeftFilters()
   {
@@ -331,7 +331,7 @@ public abstract class AbstractTwinViewer<L extends Object, R extends Object> ext
   }
 
   /* (non-Javadoc)
-   * @see org.daveneti.ui.viewers.twin.TwinViewer#setLeftFilters(java.util.List)
+   * @see org.cropinformatics.ui.viewers.twin.TwinViewer#setLeftFilters(java.util.List)
    */
   public final boolean setLeftFilters(List<ListViewerFilter> filters)
   {
@@ -339,7 +339,7 @@ public abstract class AbstractTwinViewer<L extends Object, R extends Object> ext
   }
   
   /* (non-Javadoc)
-   * @see org.daveneti.ui.viewers.twin.TwinViewer#addRightFilter(org.daveneti.ui.viewers.list.ListViewerFilter)
+   * @see org.cropinformatics.ui.viewers.twin.TwinViewer#addRightFilter(org.cropinformatics.ui.viewers.list.ListViewerFilter)
    */
   public final boolean addRightFilter(ListViewerFilter filter)
   {
@@ -347,7 +347,7 @@ public abstract class AbstractTwinViewer<L extends Object, R extends Object> ext
   }
 
   /* (non-Javadoc)
-   * @see org.daveneti.ui.viewers.twin.TwinViewer#removeRightFilter(org.daveneti.ui.viewers.list.ListViewerFilter)
+   * @see org.cropinformatics.ui.viewers.twin.TwinViewer#removeRightFilter(org.cropinformatics.ui.viewers.list.ListViewerFilter)
    */
   public final boolean removeRightFilter(ListViewerFilter filter)
   {
@@ -355,7 +355,7 @@ public abstract class AbstractTwinViewer<L extends Object, R extends Object> ext
   }
   
   /* (non-Javadoc)
-   * @see org.daveneti.ui.viewers.twin.TwinViewer#getRightFilters()
+   * @see org.cropinformatics.ui.viewers.twin.TwinViewer#getRightFilters()
    */
   public final List<ListViewerFilter> getRightFilters()
   {
@@ -363,7 +363,7 @@ public abstract class AbstractTwinViewer<L extends Object, R extends Object> ext
   }
 
   /* (non-Javadoc)
-   * @see org.daveneti.ui.viewers.twin.TwinViewer#setRightFilters(java.util.List)
+   * @see org.cropinformatics.ui.viewers.twin.TwinViewer#setRightFilters(java.util.List)
    */
   public final boolean setRightFilters(List<ListViewerFilter> filters)
   {

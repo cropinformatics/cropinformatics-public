@@ -18,7 +18,7 @@ package org.cropinformatics.common;
 /**
  * Exception thrown in the process of conversion
  *
- * @author <A HREF="mailto:g.davenport@cgiar.org">Guy Davenport (guy@daveneti.com)</A>
+ * @author <A HREF="mailto:g.davenport@cgiar.org">Guy Davenport (guy.davenport@cropinformatics.com)</A>
  * @version $Id$
  *
  */

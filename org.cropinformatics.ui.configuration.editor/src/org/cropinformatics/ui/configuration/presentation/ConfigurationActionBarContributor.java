@@ -190,7 +190,7 @@ public class ConfigurationActionBarContributor
 	{
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(ConfigurationEditorPlugin.INSTANCE.getString("_UI_ConfigurationEditor_menu"), "org.daveneti.ui.configurationMenuID");
+		IMenuManager submenuManager = new MenuManager(ConfigurationEditorPlugin.INSTANCE.getString("_UI_ConfigurationEditor_menu"), "org.cropinformatics.ui.configurationMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));

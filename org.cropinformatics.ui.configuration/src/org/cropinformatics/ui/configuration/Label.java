@@ -43,7 +43,7 @@ public interface Label extends EObject
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getLabel_Value()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString"
 	 *        extendedMetaData="kind='element' name='value'"
 	 * @generated
 	 */
@@ -70,7 +70,7 @@ public interface Label extends EObject
 	 * @return the value of the '<em>Key</em>' attribute.
 	 * @see #setKey(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getLabel_Key()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString"
 	 *        extendedMetaData="kind='element' name='key'"
 	 * @generated
 	 */
@@ -97,7 +97,7 @@ public interface Label extends EObject
 	 * @return the value of the '<em>Plugin Id</em>' attribute.
 	 * @see #setPluginId(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getLabel_PluginId()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString"
 	 *        extendedMetaData="kind='element' name='pluginId'"
 	 * @generated
 	 */

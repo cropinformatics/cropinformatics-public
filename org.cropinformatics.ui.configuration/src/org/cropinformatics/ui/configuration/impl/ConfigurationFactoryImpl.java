@@ -66,7 +66,7 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements Configurat
 	{
 		try
 		{
-			ConfigurationFactory theConfigurationFactory = (ConfigurationFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.daveneti.org/ui/configuration"); 
+			ConfigurationFactory theConfigurationFactory = (ConfigurationFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.cropinformatics.org/ui/configuration"); 
 			if (theConfigurationFactory != null)
 			{
 				return theConfigurationFactory;

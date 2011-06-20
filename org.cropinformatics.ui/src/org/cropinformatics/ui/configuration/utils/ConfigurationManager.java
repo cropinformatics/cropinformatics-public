@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright 2007 International Rice Research Institute (IRRI) and 
  * Centro Internacional de Mejoramiento de Maiz y Trigo (CIMMYT). 
- * Original author Guy Davenport (guy@daveneti.com) under contract by
+ * Original author Guy Davenport (guy.davenport@cropinformatics.com) under contract by
  * CIMMYT. Additional modifications by Guy Davenport after 21 November 2010
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -31,7 +31,7 @@ public class ConfigurationManager
 {
   private static ConfigurationManager instance;
 
-  private static final String CONFIGURATION_FACTORY_EXTENSION_POINT_ID = "org.daveneti.ui.ConfigurationFactory";
+  private static final String CONFIGURATION_FACTORY_EXTENSION_POINT_ID = "org.cropinformatics.ui.ConfigurationFactory";
 
   private static final String CLASS_ATTRIBUTE_NAME = "class";
   

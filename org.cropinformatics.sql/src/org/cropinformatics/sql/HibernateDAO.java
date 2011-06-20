@@ -2,7 +2,7 @@
  * Copyright 2008 International Rice Research Institute (IRRI) and 
  * Centro Internacional de Mejoramiento de Maiz y Trigo (CIMMYT). 
  * Original authors Jeffrey Morales and Kevin L. Manansala under contract by
- * IRRI, and Guy Davenport (guy@daveneti.com) under contract by
+ * IRRI, and Guy Davenport (guy.davenport@cropinformatics.com) under contract by
  * CIMMYT. Additional modifications by Guy Davenport after 21 November 2010
  *
  * Licensed under the Apache License, Version 2.0 (the "License");

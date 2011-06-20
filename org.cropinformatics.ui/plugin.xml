@@ -14,7 +14,7 @@
       <view
             class="org.cropinformatics.ui.views.UndoHistoryView"
             icon="icons/undo.png"
-            id="org.daveneti.ui.views.UndoHistoryView"
+            id="org.cropinformatics.ui.views.UndoHistoryView"
             name="Undo History">
          <description>
             List actions that can be un-done</description>

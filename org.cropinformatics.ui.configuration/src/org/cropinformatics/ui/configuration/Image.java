@@ -43,7 +43,7 @@ public interface Image extends EObject
 	 * @return the value of the '<em>Path</em>' attribute.
 	 * @see #setPath(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getImage_Path()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString"
 	 *        extendedMetaData="kind='element' name='path'"
 	 * @generated
 	 */
@@ -70,7 +70,7 @@ public interface Image extends EObject
 	 * @return the value of the '<em>Key</em>' attribute.
 	 * @see #setKey(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getImage_Key()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString"
 	 *        extendedMetaData="kind='element' name='key'"
 	 * @generated
 	 */
@@ -97,7 +97,7 @@ public interface Image extends EObject
 	 * @return the value of the '<em>Plugin Id</em>' attribute.
 	 * @see #setPluginId(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getImage_PluginId()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString"
 	 *        extendedMetaData="kind='element' name='pluginId'"
 	 * @generated
 	 */

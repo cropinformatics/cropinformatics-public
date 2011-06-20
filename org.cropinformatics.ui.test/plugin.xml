@@ -2,7 +2,7 @@
 <?eclipse version="3.2"?>
 <plugin>
    <extension
-         point="org.daveneti.ui.ConfigurationFactory">
+         point="org.cropinformatics.ui.ConfigurationFactory">
       <configurationFile
             file="/config/configuration.xml">
       </configurationFile>
@@ -10,85 +10,85 @@
 <extension
          point="org.eclipse.ui.actionSets">
       <actionSet
-            id="org.daveneti.ui.test.actionSet"
+            id="org.cropinformatics.ui.test.actionSet"
             label="Test Action Set"
             visible="true">
          <menu
-               id="org.daveneti.ui.test.testMenu"
+               id="org.cropinformatics.ui.test.testMenu"
                label="Test Menu">
                <separator name="additions"/>
          </menu>
          <menu
-               id="org.daveneti.ui.test.testMenu.general"
+               id="org.cropinformatics.ui.test.testMenu.general"
                label="General"
-               path="org.daveneti.ui.test.testMenu/general">
+               path="org.cropinformatics.ui.test.testMenu/general">
                <separator name="additions"/>
          </menu>
          <action
-               class="org.daveneti.ui.test.actions.components.BasicComponentsTest"
+               class="org.cropinformatics.ui.tests.actions.components.BasicComponentsTest"
                icon="icons/sample.gif"
-               id="org.daveneti.ui.test.actions.components.BasicComponentsTest"
+               id="org.cropinformatics.ui.test.actions.components.BasicComponentsTest"
                label="Basic Components Action"
-               menubarPath="org.daveneti.ui.test.testMenu/org.daveneti.ui.test.testMenu.general/components"
+               menubarPath="org.cropinformatics.ui.test.testMenu/org.cropinformatics.ui.test.testMenu.general/components"
                tooltip="Basic Components Action">
          </action>
           <action
-               class="org.daveneti.ui.test.actions.components.BasicComponentsWithExpandBarTest"
+               class="org.cropinformatics.ui.tests.actions.components.BasicComponentsWithExpandBarTest"
                icon="icons/sample.gif"
-               id="org.daveneti.ui.test.actions.components.BasicComponentsWithExpandBarTest"
+               id="org.cropinformatics.ui.test.actions.components.BasicComponentsWithExpandBarTest"
                label="Basic Components Action (with Expand Bar)"
-               menubarPath="org.daveneti.ui.test.testMenu/org.daveneti.ui.test.testMenu.general/components"
+               menubarPath="org.cropinformatics.ui.test.testMenu/org.cropinformatics.ui.test.testMenu.general/components"
                tooltip="Basic Components Action (with Expand Bar)">
          </action>
          <action
-               class="org.daveneti.ui.test.actions.components.BasicComponentsWithTabFolderTest"
+               class="org.cropinformatics.ui.tests.actions.components.BasicComponentsWithTabFolderTest"
                icon="icons/sample.gif"
-               id="org.daveneti.ui.test.actions.components.BasicComponentsWithTabFolderTest"
+               id="org.cropinformatics.ui.test.actions.components.BasicComponentsWithTabFolderTest"
                label="Basic Components Action (with Tab Folder)"
-               menubarPath="org.daveneti.ui.test.testMenu/org.daveneti.ui.test.testMenu.general/components"
+               menubarPath="org.cropinformatics.ui.test.testMenu/org.cropinformatics.ui.test.testMenu.general/components"
                tooltip="Basic Components Action (with Tab Folder)">
          </action>
          <action
-               class="org.daveneti.ui.test.actions.components.BasicComponentsWithCTabFolderTest"
+               class="org.cropinformatics.ui.tests.actions.components.BasicComponentsWithCTabFolderTest"
                icon="icons/sample.gif"
-               id="org.daveneti.ui.test.actions.components.BasicComponentsWithCTabFolderTest"
+               id="org.cropinformatics.ui.test.actions.components.BasicComponentsWithCTabFolderTest"
                label="Basic Components Action (with CTab Folder)"
-               menubarPath="org.daveneti.ui.test.testMenu/org.daveneti.ui.test.testMenu.general/components"
+               menubarPath="org.cropinformatics.ui.test.testMenu/org.cropinformatics.ui.test.testMenu.general/components"
                tooltip="Basic Components Action (with CTab Folder)">
          </action>   
          
          <action
-               class="org.daveneti.ui.test.actions.dialogs.list.StringListDialogTest"
+               class="org.cropinformatics.ui.tests.actions.dialogs.list.StringListDialogTest"
                icon="icons/sample.gif"
-               id="org.daveneti.ui.test.actions.dialogs.list.StringListDialogTest"
+               id="org.cropinformatics.ui.test.actions.dialogs.list.StringListDialogTest"
                label="String Selection"
-               menubarPath="org.daveneti.ui.test.testMenu/org.daveneti.ui.test.testMenu.general/list"
+               menubarPath="org.cropinformatics.ui.test.testMenu/org.cropinformatics.ui.test.testMenu.general/list"
                tooltip="Test String Selection">
          </action>
          <action
-               class="org.daveneti.ui.test.actions.dialogs.list.IdentificationListDialogTest"
+               class="org.cropinformatics.ui.tests.actions.dialogs.list.IdentificationListDialogTest"
                icon="icons/sample.gif"
-               id="org.daveneti.ui.test.actions.dialogs.list.IdentificationListDialogTest"
+               id="org.cropinformatics.ui.test.actions.dialogs.list.IdentificationListDialogTest"
                label="Identification List"
-               menubarPath="org.daveneti.ui.test.testMenu/org.daveneti.ui.test.testMenu.general/list"
+               menubarPath="org.cropinformatics.ui.test.testMenu/org.cropinformatics.ui.test.testMenu.general/list"
                tooltip="Test Simple Identifier List">
          </action>
          
          <action
-               class="org.daveneti.ui.tests.actions.dialogs.chooser.StringChooserDialogTest"
+               class="org.cropinformatics.ui.tests.actions.dialogs.chooser.StringChooserDialogTest"
                icon="icons/sample.gif"
-               id="org.daveneti.ui.actions.dialogs.chooser.StringChooserDialog"
+               id="org.cropinformatics.ui.actions.dialogs.chooser.StringChooserDialog"
                label="Object Chooser Dialog With Filter Test"
-               menubarPath="org.daveneti.ui.test.testMenu/org.daveneti.ui.test.testMenu.general/chooser"
+               menubarPath="org.cropinformatics.ui.test.testMenu/org.cropinformatics.ui.test.testMenu.general/chooser"
                tooltip="String Chooser">
          </action>   
          
          <action
-               class="org.daveneti.ui.test.actions.dialogs.mapping.StringMappingDialogTest"
+               class="org.cropinformatics.ui.tests.actions.dialogs.mapping.StringMappingDialogTest"
                icon="icons/sample.gif"
-               id="org.daveneti.ui.test.actions.dialogs.mapping.StringMappingDialogTest"
+               id="org.cropinformatics.ui.test.actions.dialogs.mapping.StringMappingDialogTest"
                label="String Mapping"
-               menubarPath="org.daveneti.ui.test.testMenu/org.daveneti.ui.test.testMenu.general/mapping"
+               menubarPath="org.cropinformatics.ui.test.testMenu/org.cropinformatics.ui.test.testMenu.general/mapping"
                tooltip="Test String Mapping">
          </action>     
       </actionSet>

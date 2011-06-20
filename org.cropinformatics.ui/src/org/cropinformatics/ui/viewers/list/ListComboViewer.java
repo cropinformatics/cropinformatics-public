@@ -29,7 +29,7 @@ import org.eclipse.swt.widgets.Composite;
 /**
  * Super-class for all viewers that use a StructuredViewer to display the list
  * 
- * @author Guy Davenport (guy@daveneti.com)
+ * @author Guy Davenport (guy.davenport@cropinformatics.com)
  * @version $Id$
  * @see StructuredViewer
  * 

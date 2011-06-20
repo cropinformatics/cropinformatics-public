@@ -27,7 +27,7 @@ import org.eclipse.ui.actions.ActionFactory.IWorkbenchAction;
 
 /**
  * Base class for workbench window action delegates 
- * @author Guy Davenport (guy@daveneti.com)
+ * @author Guy Davenport (guy.davenport@cropinformatics.com)
  * @version $Id$
  *
  */

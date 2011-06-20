@@ -10,7 +10,7 @@
     importerID="org.eclipse.xsd.ecore.importer" complianceLevel="6.0" copyrightFields="false"
     editPluginID="org.cropinformatics.ui.configuration.edit" editorPluginID="org.cropinformatics.ui.configuration.editor">
   <foreignModel>../schema/definition.xsd</foreignModel>
-  <genPackages prefix="Configuration" basePackage="org.daveneti.ui" resource="XML"
+  <genPackages prefix="Configuration" basePackage="org.cropinformatics.ui" resource="XML"
       disposableProviderFactory="true" ecorePackage="configuration.ecore#/">
     <genDataTypes ecoreDataType="configuration.ecore#//NonEmptyString"/>
     <genClasses ecoreClass="configuration.ecore#//Colour">

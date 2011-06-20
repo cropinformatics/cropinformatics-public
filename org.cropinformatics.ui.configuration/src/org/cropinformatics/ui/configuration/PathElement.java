@@ -42,7 +42,7 @@ public interface PathElement extends EObject
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getPathElement_Id()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString"
 	 *        extendedMetaData="kind='element' name='id'"
 	 * @generated
 	 */

@@ -12,7 +12,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://www.daveneti.org/ui/configuration"
+            uri="http://www.cropinformatics.org/ui/configuration"
             class="org.cropinformatics.ui.configuration.ConfigurationPackage"
             genModel="model/configuration.genmodel"/>
    </extension>

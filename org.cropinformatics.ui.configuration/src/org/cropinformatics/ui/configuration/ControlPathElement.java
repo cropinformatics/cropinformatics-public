@@ -43,7 +43,7 @@ public interface ControlPathElement extends PathElement
 	 * @return the value of the '<em>Condition Property</em>' attribute.
 	 * @see #setConditionProperty(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getControlPathElement_ConditionProperty()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString" required="true"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString" required="true"
 	 *        extendedMetaData="kind='element' name='conditionProperty'"
 	 * @generated
 	 */
@@ -70,7 +70,7 @@ public interface ControlPathElement extends PathElement
 	 * @return the value of the '<em>Condition Page Id</em>' attribute.
 	 * @see #setConditionPageId(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getControlPathElement_ConditionPageId()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString"
 	 *        extendedMetaData="kind='element' name='conditionPageId'"
 	 * @generated
 	 */
@@ -96,7 +96,7 @@ public interface ControlPathElement extends PathElement
 	 * @return the value of the '<em>Default Value</em>' attribute.
 	 * @see #setDefaultValue(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getControlPathElement_DefaultValue()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString"
 	 *        extendedMetaData="kind='element' name='defaultValue'"
 	 * @generated
 	 */

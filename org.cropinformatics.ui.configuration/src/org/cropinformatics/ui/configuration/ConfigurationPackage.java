@@ -48,7 +48,7 @@ public interface ConfigurationPackage extends EPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.daveneti.org/ui/configuration";
+	String eNS_URI = "http://www.cropinformatics.org/ui/configuration";
 
 	/**
 	 * The package namespace name.

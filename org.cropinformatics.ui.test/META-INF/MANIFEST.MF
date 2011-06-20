@@ -9,7 +9,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.cropinformatics.ui;bundle-version="[0.3.0,0.4.0)",
  org.cropinformatics.ui.configuration;bundle-version="[0.3.0,0.4.0)"
 Bundle-Vendor: %providerName
-Export-Package: org.daveneti.ui.test.actions.dialogs.list,
- org.daveneti.ui.test.actions.editors,
- org.daveneti.ui.tests.actions.dialogs.chooser
+Export-Package: org.cropinformatics.ui.tests.actions.dialogs.chooser,
+ org.cropinformatics.ui.tests.actions.dialogs.list,
+ org.cropinformatics.ui.tests.actions.editors
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

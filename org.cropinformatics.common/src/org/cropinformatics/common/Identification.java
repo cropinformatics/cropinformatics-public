@@ -22,7 +22,7 @@ package org.cropinformatics.common;
  * A basic interface to identify GCP entities. <p>
  *
  * @author <A HREF="mailto:r.bruskiewich@cgiar.org">Richard Bruskiewich</A>
- * @version $Id: Identification.java 5472 2007-04-10 03:19:11Z Guy Davenport (guy@daveneti.com) $
+ * @version $Id: Identification.java 5472 2007-04-10 03:19:11Z Guy Davenport (guy.davenport@cropinformatics.com) $
  */
 public interface Identification 
 {

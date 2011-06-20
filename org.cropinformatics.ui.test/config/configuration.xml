@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
 <configuration:ConfigurationList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.daveneti.org/ui/configuration ../../org.daveneti.ui.configuration/schema/definition.xsd"
-  xmlns:configuration="http://www.daveneti.org/ui/configuration">
+  xsi:schemaLocation="http://www.cropinformatics.org/ui/configuration ../../org.cropinformatics.ui.configuration/schema/definition.xsd"
+  xmlns:configuration="http://www.cropinformatics.org/ui/configuration">
   <Configuration xsi:type="configuration:DialogConfiguration">
-    <id>org.daveneti.ui.test.actions.components.BasicComponentsDialog</id>
+    <id>org.cropinformatics.ui.test.actions.components.BasicComponentsDialog</id>
     <control xsi:type="configuration:ContainerConfiguration">
       <enclosed>true</enclosed>
       <layout>
@@ -52,7 +52,7 @@
     </control>
   </Configuration>
   <Configuration xsi:type="configuration:DialogConfiguration">
-    <id>org.daveneti.ui.test.actions.components.BasicComponentsDialogWithExpandBar</id>
+    <id>org.cropinformatics.ui.test.actions.components.BasicComponentsDialogWithExpandBar</id>
     <control xsi:type="configuration:ExpandBarConfiguration">
       <layout>
         <makeColumnsEqualWidth>false</makeColumnsEqualWidth>
@@ -89,7 +89,7 @@
     </control>
   </Configuration>
   <Configuration xsi:type="configuration:DialogConfiguration">
-    <id>org.daveneti.ui.test.actions.components.BasicComponentsDialogWithTabFolder</id>
+    <id>org.cropinformatics.ui.test.actions.components.BasicComponentsDialogWithTabFolder</id>
     <control xsi:type="configuration:TabFolderConfiguration">
        <components xsi:type="configuration:ContainerConfiguration">
           <id>booleanComponent</id>
@@ -209,7 +209,7 @@
     </control>
   </Configuration>
   <Configuration xsi:type="configuration:DialogConfiguration">
-    <id>org.daveneti.ui.test.actions.components.BasicComponentsDialogWithCTabFolder</id>
+    <id>org.cropinformatics.ui.test.actions.components.BasicComponentsDialogWithCTabFolder</id>
     <control xsi:type="configuration:TabFolderConfiguration">
       <layout>
         <makeColumnsEqualWidth>false</makeColumnsEqualWidth>
@@ -242,7 +242,7 @@
     </control>
   </Configuration>
   <Configuration xsi:type="configuration:DialogConfiguration">
-    <id>org.daveneti.ui.test.actions.dialogs.list.IdentificationListDialogTest</id>
+    <id>org.cropinformatics.ui.test.actions.dialogs.list.IdentificationListDialogTest</id>
     <control xsi:type="configuration:ListViewerConfiguration">
 	<components xsi:type="configuration:ContainerConfiguration">
 	   	<id>stringFilterAndRegexComponent</id>

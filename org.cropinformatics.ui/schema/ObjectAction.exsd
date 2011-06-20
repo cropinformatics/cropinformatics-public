@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="org.daveneti.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="org.cropinformatics.ui" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="org.daveneti.ui" id="ObjectAction" name="Object Action"/>
+         <meta.schema plugin="org.cropinformatics.ui" id="ObjectAction" name="Object Action"/>
       </appinfo>
       <documentation>
          [Enter description of this extension point.]
@@ -92,7 +92,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="identifier" basedOn="org.daveneti.ui.ObjectAction/@id"/>
+                  <meta.attribute kind="identifier" basedOn="org.cropinformatics.ui.ObjectAction/@id"/>
                </appinfo>
             </annotation>
          </attribute>

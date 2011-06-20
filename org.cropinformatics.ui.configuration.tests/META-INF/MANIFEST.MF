@@ -7,9 +7,9 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.daveneti.ui.configuration.tests
+Export-Package: org.cropinformatics.ui.configuration.tests
 Require-Bundle: org.eclipse.core.runtime,
  org.cropinformatics.ui.configuration;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.junit;visibility:=reexport
+ org.junit4;bundle-version="4.3.1"
 Bundle-ActivationPolicy: lazy

@@ -44,7 +44,7 @@ public interface SubPath extends EObject
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getSubPath_Id()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString"
 	 *        extendedMetaData="kind='element' name='id'"
 	 * @generated
 	 */
@@ -70,7 +70,7 @@ public interface SubPath extends EObject
 	 * @return the value of the '<em>Condition Value</em>' attribute.
 	 * @see #setConditionValue(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getSubPath_ConditionValue()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString" required="true"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString" required="true"
 	 *        extendedMetaData="kind='element' name='conditionValue'"
 	 * @generated
 	 */

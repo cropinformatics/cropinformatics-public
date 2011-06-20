@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="org.daveneti.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="org.cropinformatics.ui" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appInfo>
-         <meta.schema plugin="org.daveneti.ui" id="ConfigurationFactory" name="Configuration Factory"/>
+         <meta.schema plugin="org.cropinformatics.ui" id="ConfigurationFactory" name="Configuration Factory"/>
       </appInfo>
       <documentation>
          [Enter description of this extension point.]
@@ -56,7 +56,7 @@
                   
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn=":org.daveneti.ui.configuration.utils.ConfigurationFactory"/>
+                  <meta.attribute kind="java" basedOn=":org.cropinformatics.ui.configuration.utils.ConfigurationFactory"/>
                </appInfo>
             </annotation>
          </attribute>

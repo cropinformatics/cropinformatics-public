@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="ASCII"?>
 <configuration:ConfigurationList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.daveneti.org/ui/configuration ../../org.daveneti.ui.configuration/schema/definition.xsd"
-  xmlns:configuration="http://www.daveneti.org/ui/configuration">
+  xsi:schemaLocation="http://www.cropinformatics.org/ui/configuration ../../org.cropinformatics.ui.configuration/schema/definition.xsd"
+  xmlns:configuration="http://www.cropinformatics.org/ui/configuration">
   <Configuration xsi:type="configuration:ContainerConfiguration">
-    <id>org.daveneti.ui.components.impl.LabelledEditComponent</id>
+    <id>org.cropinformatics.ui.components.impl.LabelledEditComponent</id>
 	<components>
 	  <id>label</id>
 	</components>
   </Configuration>
   <Configuration xsi:type="configuration:ContainerConfiguration">
-    <id>org.daveneti.ui.components.impl.BooleanEditComponent</id>
-    <extends>org.daveneti.ui.components.impl.LabelledEditComponent</extends>
+    <id>org.cropinformatics.ui.components.impl.BooleanEditComponent</id>
+    <extends>org.cropinformatics.ui.components.impl.LabelledEditComponent</extends>
 	<components>
 	  <id>booleanButton</id>
 	</components>
   </Configuration>
   <Configuration xsi:type="configuration:ContainerConfiguration">
-    <id>org.daveneti.ui.components.impl.DateEditComponent</id>
-    <extends>org.daveneti.ui.components.impl.LabelledEditComponent</extends>
+    <id>org.cropinformatics.ui.components.impl.DateEditComponent</id>
+    <extends>org.cropinformatics.ui.components.impl.LabelledEditComponent</extends>
     <layout>
       <numColumns>2</numColumns>
     </layout>
@@ -26,8 +26,8 @@
 	</components>
   </Configuration>
   <Configuration xsi:type="configuration:ContainerConfiguration">
-    <id>org.daveneti.ui.components.impl.ComboViewerComponent</id>
-    <extends>org.daveneti.ui.components.impl.LabelledEditComponent</extends>
+    <id>org.cropinformatics.ui.components.impl.ComboViewerComponent</id>
+    <extends>org.cropinformatics.ui.components.impl.LabelledEditComponent</extends>
     <layout>
       <numColumns>2</numColumns>
     </layout>
@@ -36,8 +36,8 @@
     </components>
   </Configuration> 
   <Configuration xsi:type="configuration:ContainerConfiguration">
-    <id>org.daveneti.ui.components.impl.AbstractComboViewerEditComponent</id>
-    <extends>org.daveneti.ui.components.impl.LabelledEditComponent</extends>
+    <id>org.cropinformatics.ui.components.impl.AbstractComboViewerEditComponent</id>
+    <extends>org.cropinformatics.ui.components.impl.LabelledEditComponent</extends>
     <layout>
       <numColumns>2</numColumns>
     </layout>
@@ -46,15 +46,15 @@
     </components>
   </Configuration> 
   <Configuration xsi:type="configuration:ContainerConfiguration">
-    <id>org.daveneti.ui.components.impl.IntegerEditComponent</id>
-    <extends>org.daveneti.ui.components.impl.LabelledEditComponent</extends>
+    <id>org.cropinformatics.ui.components.impl.IntegerEditComponent</id>
+    <extends>org.cropinformatics.ui.components.impl.LabelledEditComponent</extends>
 	<components>
 	  <id>integerSpinner</id>
 	</components>
   </Configuration>
   <Configuration xsi:type="configuration:ContainerConfiguration">
-    <id>org.daveneti.ui.components.impl.FileComponent</id>
-    <extends>org.daveneti.ui.components.impl.LabelledEditComponent</extends>
+    <id>org.cropinformatics.ui.components.impl.FileComponent</id>
+    <extends>org.cropinformatics.ui.components.impl.LabelledEditComponent</extends>
     <enclosed>true</enclosed>
     <mandatory>true</mandatory>
     <layout>
@@ -71,26 +71,26 @@
 	</components>
   </Configuration> 
   <Configuration xsi:type="configuration:ContainerConfiguration">
-    <id>org.daveneti.ui.components.impl.OptionsComponent</id>
+    <id>org.cropinformatics.ui.components.impl.OptionsComponent</id>
 	<components>
 	  <id>label</id>
 	</components>
   </Configuration>
   <Configuration xsi:type="configuration:ContainerConfiguration">
-    <id>org.daveneti.ui.components.impl.OptionsComponentWithButtons</id>
-    <extends>org.daveneti.ui.components.impl.OptionsComponent</extends>
+    <id>org.cropinformatics.ui.components.impl.OptionsComponentWithButtons</id>
+    <extends>org.cropinformatics.ui.components.impl.OptionsComponent</extends>
     <enclosed>true</enclosed>
   </Configuration>  
   <Configuration xsi:type="configuration:ContainerConfiguration">
-    <id>org.daveneti.ui.components.impl.StringEditComponent</id>
-    <extends>org.daveneti.ui.components.impl.LabelledEditComponent</extends>
+    <id>org.cropinformatics.ui.components.impl.StringEditComponent</id>
+    <extends>org.cropinformatics.ui.components.impl.LabelledEditComponent</extends>
 	<components>
 	  <id>text</id>
 	</components>
   </Configuration>  
   <Configuration xsi:type="configuration:ContainerConfiguration">
-    <id>org.daveneti.ui.components.impl.DelimiterStringEditComponent</id>
-    <extends>org.daveneti.ui.components.impl.StringEditComponent</extends>
+    <id>org.cropinformatics.ui.components.impl.DelimiterStringEditComponent</id>
+    <extends>org.cropinformatics.ui.components.impl.StringEditComponent</extends>
     <enclosed>true</enclosed>
     <layout>
       <marginHeight>0</marginHeight>
@@ -105,7 +105,7 @@
 	</components>
   </Configuration>  
   <Configuration xsi:type="configuration:ContainerConfiguration">
-    <id>org.daveneti.ui.components.impl.IdentificationEditComponent</id>
+    <id>org.cropinformatics.ui.components.impl.IdentificationEditComponent</id>
     <name>Identification Edit Component</name>
     <components xsi:type="configuration:ComponentConfiguration">
       <id>nameComponent</id>
@@ -115,7 +115,7 @@
     </components>
   </Configuration>
   <Configuration xsi:type="configuration:ListViewerConfiguration">
-    <id>org.daveneti.ui.viewers.list.AbstractSingleListStructuredViewer</id>
+    <id>org.cropinformatics.ui.viewers.list.AbstractSingleListStructuredViewer</id>
     <name>Entity Manager Viewer</name>
     <layout>
     	<numColumns>2</numColumns>
@@ -197,7 +197,7 @@
 	 </components>	 
   </Configuration>
   <Configuration xsi:type="configuration:TwinViewerConfiguration">
-    <id>org.daveneti.ui.viewers.twin.AbstractTwinViewer</id>
+    <id>org.cropinformatics.ui.viewers.twin.AbstractTwinViewer</id>
     <enclosed>true</enclosed>
     <layout>
       <numColumns>3</numColumns>
@@ -213,7 +213,7 @@
     </components>
   </Configuration>
   <Configuration xsi:type="configuration:MappingViewerConfiguration">
-    <id>org.daveneti.ui.viewers.twin.AbstractMappingViewer</id>
+    <id>org.cropinformatics.ui.viewers.twin.AbstractMappingViewer</id>
     <enclosed>true</enclosed>
     <layout>
       <numColumns>3</numColumns>

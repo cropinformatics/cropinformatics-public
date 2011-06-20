@@ -39,7 +39,7 @@ public interface PagePathElement extends PathElement
 	 * @return the value of the '<em>Page Id</em>' attribute.
 	 * @see #setPageId(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getPagePathElement_PageId()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString" required="true"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString" required="true"
 	 *        extendedMetaData="kind='element' name='pageId'"
 	 * @generated
 	 */

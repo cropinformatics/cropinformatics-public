@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="configuration"
-    nsURI="http://www.daveneti.org/ui/configuration" nsPrefix="configuration">
+    nsURI="http://www.cropinformatics.org/ui/configuration" nsPrefix="configuration">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="This XML Schema specifies an XML format for definition of Configurable GUI components&#xA;&#x9;&#x9;Start exploring this schema by the root element which is the 'ConfigurationList' element.&#xA;      "/>
   </eAnnotations>

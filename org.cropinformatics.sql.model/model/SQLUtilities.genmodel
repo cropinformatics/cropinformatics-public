@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright 2007 International Rice Research Institute (IRRI) and Centro Internacional de Mejoramiento de Maiz y Trigo (CIMMYT). &#xA;Original author Guy Davenport (guy@daveneti.com) under contract by CIMMYT. Additional modifications by Guy Davenport after 21 November 2010. Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xA;"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright 2007 International Rice Research Institute (IRRI) and Centro Internacional de Mejoramiento de Maiz y Trigo (CIMMYT). &#xA;Original author Guy Davenport (guy.davenport@cropinformatics.com) under contract by CIMMYT. Additional modifications by Guy Davenport after 21 November 2010. Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xA;"
     modelDirectory="/org.cropinformatics.sql.model/src" modelPluginID="org.cropinformatics.sql.model"
     modelName="SQLUtilities" importerID="org.eclipse.xsd.ecore.importer" complianceLevel="6.0"
     copyrightFields="false">

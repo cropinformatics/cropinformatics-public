@@ -48,7 +48,7 @@ public interface Configuration extends EObject
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getConfiguration_Id()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString"
 	 *        extendedMetaData="kind='element' name='id'"
 	 * @generated
 	 */
@@ -75,7 +75,7 @@ public interface Configuration extends EObject
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getConfiguration_Name()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString"
 	 *        extendedMetaData="kind='element' name='name'"
 	 * @generated
 	 */
@@ -102,7 +102,7 @@ public interface Configuration extends EObject
 	 * @return the value of the '<em>Extends</em>' attribute.
 	 * @see #setExtends(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getConfiguration_Extends()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString"
 	 *        extendedMetaData="kind='element' name='extends'"
 	 * @generated
 	 */
@@ -239,7 +239,7 @@ public interface Configuration extends EObject
 	 * @return the value of the '<em>Help Context Id</em>' attribute.
 	 * @see #setHelpContextId(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getConfiguration_HelpContextId()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString"
 	 *        extendedMetaData="kind='element' name='helpContextId'"
 	 * @generated
 	 */
@@ -266,7 +266,7 @@ public interface Configuration extends EObject
 	 * @return the value of the '<em>Class Name</em>' attribute.
 	 * @see #setClassName(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getConfiguration_ClassName()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString"
 	 *        extendedMetaData="kind='element' name='className'"
 	 * @generated
 	 */
@@ -293,7 +293,7 @@ public interface Configuration extends EObject
 	 * @return the value of the '<em>Plugin Id</em>' attribute.
 	 * @see #setPluginId(String)
 	 * @see org.cropinformatics.ui.configuration.ConfigurationPackage#getConfiguration_PluginId()
-	 * @model dataType="org.daveneti.ui.configuration.NonEmptyString"
+	 * @model dataType="org.cropinformatics.ui.configuration.NonEmptyString"
 	 *        extendedMetaData="kind='element' name='pluginId'"
 	 * @generated
 	 */

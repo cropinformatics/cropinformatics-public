@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright 2007 International Rice Research Institute (IRRI) and 
  * Centro Internacional de Mejoramiento de Maiz y Trigo (CIMMYT). 
- * Original author Guy Davenport (guy@daveneti.com) under contract by
+ * Original author Guy Davenport (guy.davenport@cropinformatics.com) under contract by
  * CIMMYT. Additional modifications by Guy Davenport after 21 November 2010
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -53,7 +53,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends BaseUIPlugin
 { 
 	// The plug-in ID
-	public static final String	PLUGIN_ID	= "org.daveneti.ui"; //$NON-NLS-1$
+	public static final String	PLUGIN_ID	= "org.cropinformatics.ui"; //$NON-NLS-1$
 
 	// The shared instance
 	private static Activator	 plugin;

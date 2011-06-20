@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright 2007 International Rice Research Institute (IRRI) and 
  * Centro Internacional de Mejoramiento de Maiz y Trigo (CIMMYT). 
- * Original author Guy Davenport (guy@daveneti.com) under contract by
+ * Original author Guy Davenport (guy.davenport@cropinformatics.com) under contract by
  * CIMMYT. Additional modifications by Guy Davenport after 21 November 2010
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +23,7 @@ import org.cropinformatics.ui.configuration.ComponentConfiguration;
 /**
 /**
  * A component used for editing an object of type <T>
- * @author Guy Davenport (guy@daveneti.com)
+ * @author Guy Davenport (guy.davenport@cropinformatics.com)
  *
  * @param <T> the type of the object to be edited
  */
