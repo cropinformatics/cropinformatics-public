@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.cropinformatics.sql.utilities.schema.presentation.SchemaModelWizardID"
+            name="%_UI_SchemaModelWizard_label"
+            class="org.cropinformatics.sql.utilities.schema.presentation.SchemaModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SchemaModelFile.gif">
+         <description>%_UI_SchemaModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.cropinformatics.sql.utilities.schema.presentation.SchemaEditorID"
+            name="%_UI_SchemaEditor_label"
+            icon="icons/full/obj16/SchemaModelFile.gif"
+            extensions="schema"
+            class="org.cropinformatics.sql.utilities.schema.presentation.SchemaEditor"
+            contributorClass="org.cropinformatics.sql.utilities.schema.presentation.SchemaActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

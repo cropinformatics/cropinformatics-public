@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema
+  targetNamespace="http://www.cropinformatics.org/sqlProperties"
+  xmlns="http://www.cropinformatics.org/sqlProperties"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  >
+
+    <xs:annotation>
+      <xs:documentation>This XML Schema specifies an XML format for definition of SQL and SQL Databases</xs:documentation>
+    </xs:annotation>
+    
+    <xs:simpleType name="DBMS">
+		<xs:annotation>
+			<xs:documentation>DBMS</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="MySQL"/>
+			<xs:enumeration value="PgSQL"/>
+			<xs:enumeration value="HSQLDB"/>
+			<xs:enumeration value="SQLite"/>
+			<xs:enumeration value="MSAccess"/>
+		</xs:restriction>
+	</xs:simpleType>
+    
+	<xs:simpleType name="ParameterType">
+		<xs:annotation>
+			<xs:documentation>Parameter Types</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="Array"/>
+			<xs:enumeration value="AsciiStream"/>
+		    <xs:enumeration value="BigDecimal"/>
+			<xs:enumeration value="BinaryStream"/>
+			<xs:enumeration value="Blob"/>
+			<xs:enumeration value="Boolean"/>
+			<xs:enumeration value="Byte"/>
+			<xs:enumeration value="Bytes"/>
+		    <xs:enumeration value="CharacterStream"/>
+			<xs:enumeration value="Clob"/>
+			<xs:enumeration value="Date"/>
+			<xs:enumeration value="DateCalendar"/>
+			<xs:enumeration value="Double"/>
+			<xs:enumeration value="Float"/>
+			<xs:enumeration value="Int"/>
+			<xs:enumeration value="Long"/>
+			<xs:enumeration value="Object"/>
+			<xs:enumeration value="Ref"/>
+			<xs:enumeration value="Short"/>
+			<xs:enumeration value="String"/>
+			<xs:enumeration value="Token"/>
+			<xs:enumeration value="Time"/>
+			<xs:enumeration value="TimeCalendar"/>
+			<xs:enumeration value="Timestamp"/>
+			<xs:enumeration value="TimeStampCalendar"/>
+			<xs:enumeration value="UnicodeStream"/>
+			<xs:enumeration value="URL"/>
+		</xs:restriction>
+	</xs:simpleType>
+    
+	<xs:simpleType name="NonEmptyNoSpaces">
+		<xs:annotation>
+			<xs:documentation>A string representing a non-empty value that does not contain any spaces.</xs:documentation>
+    	</xs:annotation>
+    	<xs:restriction base="xs:token">
+      		<xs:pattern value="[^\s]+"/>
+    	</xs:restriction>
+  	</xs:simpleType>
+  	
+  	<xs:simpleType name="javaName">
+		<xs:annotation>
+			<xs:documentation>A string representing a java name.</xs:documentation>
+    	</xs:annotation>
+    	<xs:restriction base="xs:token">
+      		<xs:pattern value="^(([a-z])+.)+[A-Z]([A-Za-z])+$"/>
+    	</xs:restriction>
+  	</xs:simpleType>
+  	
+    <xs:complexType name="sqlParameter">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="index" type="xs:int" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="name" type="xs:token" minOccurs="1" maxOccurs="1"/>
+			</xs:choice>
+			<xs:element name="type" type="ParameterType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+  
+	<xs:complexType name="sql">
+		<xs:sequence>
+			<xs:element name="id" type="NonEmptyNoSpaces" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="hqlQuery" type="xs:boolean" minOccurs="1" maxOccurs="1" default="true" />
+			<xs:element name="parameters" type="sqlParameter" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="sqlQuery">
+		<xs:complexContent>
+			<xs:extension base="sql">
+				<xs:sequence>
+					<xs:element name="queryString" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+   
+	<xs:complexType name="sqlFile">
+		<xs:complexContent>
+			<xs:extension base="sql">
+				<xs:sequence>
+					<xs:element name="filePath" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+    
+ 	<xs:complexType name="sqlGroup">
+		<xs:sequence>
+			<xs:element name="id" type="NonEmptyNoSpaces" minOccurs="1" maxOccurs="1"/>
+      		<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        	<xs:element name="sqlQuery" type="sqlQuery" minOccurs="0" maxOccurs="unbounded"/>
+        	<xs:element name="sqlFile" type="sqlFile" minOccurs="0" maxOccurs="unbounded"/>
+        	<xs:element name="specificDBMSProperties" type="specificDBMSProperties" minOccurs="0" maxOccurs="unbounded"/>
+      	</xs:sequence>
+    </xs:complexType>
+  
+	<xs:complexType name="specificDBMSProperties">
+		<xs:sequence>
+			<xs:element name="DBMS" type="DBMS" minOccurs="1" maxOccurs="1"/>
+        	<xs:element name="sqlQuery" type="sqlQuery" minOccurs="0" maxOccurs="unbounded"/>
+        	<xs:element name="sqlFile" type="sqlFile" minOccurs="0" maxOccurs="unbounded"/>
+      	</xs:sequence>
+	</xs:complexType>
+
+  	<xs:simpleType name="serverAddress">
+		<xs:annotation>
+			<xs:documentation>A string representing a server name or ip address</xs:documentation>
+    	</xs:annotation>
+    	<xs:restriction base="xs:token">
+      		<xs:pattern value="[^\s]+"/>
+    	</xs:restriction>
+  	</xs:simpleType>
+  	
+	<xs:complexType name="databaseProperties">
+		<xs:annotation>
+			<xs:documentation>This is a root element of an XML document defining the Database Properties</xs:documentation>
+    	</xs:annotation>
+   		<xs:sequence>
+			<xs:element name="id" type="NonEmptyNoSpaces" minOccurs="1" maxOccurs="1"/>
+        	<xs:element name="driverClassName" type="javaName" minOccurs="0" maxOccurs="1"/>
+        	<xs:element name="dialect" type="javaName" minOccurs="0" maxOccurs="1"/>
+        	<xs:element name="serverURL" type="serverAddress" minOccurs="1" maxOccurs="1"/>
+        	<xs:element name="DBMS" type="DBMS" minOccurs="1" maxOccurs="1"/>
+        	<xs:element name="port" type="xs:int" minOccurs="0" maxOccurs="1"/>
+        	<xs:element name="databaseName" type="NonEmptyNoSpaces" minOccurs="1" maxOccurs="1"/>
+        	<xs:element name="username" type="NonEmptyNoSpaces" minOccurs="0" maxOccurs="1"/>
+        	<xs:element name="password" type="NonEmptyNoSpaces" minOccurs="0" maxOccurs="1"/>
+        	<xs:element name="namespace" type="NonEmptyNoSpaces" minOccurs="0" maxOccurs="1"/>
+        	<xs:element name="persistenceUnitName" type="NonEmptyNoSpaces" minOccurs="1" maxOccurs="1"/>
+        	<xs:element name="sqlProperties" type="sqlProperties" minOccurs="0" maxOccurs="1"/>
+        	<xs:element name="additionalProperties" type="property" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="property">
+     	<xs:sequence>
+        	<xs:element name="key" type="NonEmptyNoSpaces" minOccurs="1" maxOccurs="1"/>
+        	<xs:element name="value" type="NonEmptyNoSpaces" minOccurs="1" maxOccurs="1"/>
+      	</xs:sequence>
+	</xs:complexType>
+    
+    <xs:complexType name="sqlProperties">
+     	<xs:sequence>
+        	<xs:element name="sqlGroup" type="sqlGroup" minOccurs="1" maxOccurs="unbounded"/>
+      	</xs:sequence>
+	</xs:complexType>
+	
+    <xs:element name="sqlProperties" type="sqlProperties">
+		<xs:annotation>
+			<xs:documentation>This is a root element of an XML document defining the SQL Properties</xs:documentation>
+    	</xs:annotation>
+  	</xs:element>
+  	
+    <xs:complexType name="databaseAlias">
+     	<xs:sequence>
+        	<xs:element name="alias" type="NonEmptyNoSpaces" minOccurs="1" maxOccurs="1"/>
+        	<xs:element name="id" type="NonEmptyNoSpaces" minOccurs="1" maxOccurs="1"/>
+      	</xs:sequence>
+	</xs:complexType>
+  	
+  	<xs:element name="databasePropertiesList">
+		<xs:annotation>
+			<xs:documentation>This is a root element of an XML document defining databases</xs:documentation>
+    	</xs:annotation>
+   		<xs:complexType>
+     		<xs:sequence>
+     		    <xs:element name="databaseProperties" type="databaseProperties" minOccurs="0" maxOccurs="unbounded"/>
+     		    <xs:element name="databaseAlias" type="databaseAlias" minOccurs="0" maxOccurs="unbounded"/>
+      		</xs:sequence>
+    	</xs:complexType>
+  	</xs:element>
+
+</xs:schema>

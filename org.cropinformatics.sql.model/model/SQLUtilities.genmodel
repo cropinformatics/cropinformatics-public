@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright 2007 International Rice Research Institute (IRRI) and Centro Internacional de Mejoramiento de Maiz y Trigo (CIMMYT). &#xA;Original author Guy Davenport (guy@daveneti.com) under contract by CIMMYT. Additional modifications by Guy Davenport after 21 November 2010. Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xA;"
+    modelDirectory="/org.cropinformatics.sql.model/src" modelPluginID="org.cropinformatics.sql.model"
+    modelName="SQLUtilities" importerID="org.eclipse.xsd.ecore.importer" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>SQLUtilities.xsd</foreignModel>
+  <genPackages prefix="Properties" basePackage="org.cropinformatics.sql" resource="XML"
+      disposableProviderFactory="true" ecorePackage="properties.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="properties.ecore#//DBMS">
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//DBMS/MySQL"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//DBMS/PgSQL"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//DBMS/HSQLDB"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//DBMS/SQLite"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//DBMS/MSAccess"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="properties.ecore#//ParameterType">
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Array"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/AsciiStream"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/BigDecimal"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/BinaryStream"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Blob"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Byte"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Bytes"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/CharacterStream"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Clob"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Date"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/DateCalendar"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Double"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Float"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Int"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Long"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Object"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Ref"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Short"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/String"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Token"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Time"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/TimeCalendar"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/Timestamp"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/TimeStampCalendar"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/UnicodeStream"/>
+      <genEnumLiterals ecoreEnumLiteral="properties.ecore#//ParameterType/URL"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="properties.ecore#//DBMSObject"/>
+    <genDataTypes ecoreDataType="properties.ecore#//JavaName"/>
+    <genDataTypes ecoreDataType="properties.ecore#//NonEmptyNoSpaces"/>
+    <genDataTypes ecoreDataType="properties.ecore#//ParameterTypeObject"/>
+    <genDataTypes ecoreDataType="properties.ecore#//ServerAddress"/>
+    <genClasses ecoreClass="properties.ecore#//DatabaseAlias">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//DatabaseAlias/alias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//DatabaseAlias/id"/>
+    </genClasses>
+    <genClasses ecoreClass="properties.ecore#//DatabaseProperties">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//DatabaseProperties/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//DatabaseProperties/driverClassName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//DatabaseProperties/dialect"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//DatabaseProperties/serverURL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//DatabaseProperties/dBMS"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//DatabaseProperties/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//DatabaseProperties/databaseName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//DatabaseProperties/username"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//DatabaseProperties/password"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//DatabaseProperties/namespace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//DatabaseProperties/persistenceUnitName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference properties.ecore#//DatabaseProperties/sqlProperties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//DatabaseProperties/additionalProperties"/>
+    </genClasses>
+    <genClasses ecoreClass="properties.ecore#//DatabasePropertiesListType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//DatabasePropertiesListType/databaseProperties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//DatabasePropertiesListType/databaseAlias"/>
+    </genClasses>
+    <genClasses ecoreClass="properties.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference properties.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference properties.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//DocumentRoot/databasePropertiesList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//DocumentRoot/sqlProperties"/>
+    </genClasses>
+    <genClasses ecoreClass="properties.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//Property/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//Property/value"/>
+    </genClasses>
+    <genClasses ecoreClass="properties.ecore#//SpecificDBMSProperties">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//SpecificDBMSProperties/dBMS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//SpecificDBMSProperties/sqlQuery"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//SpecificDBMSProperties/sqlFile"/>
+    </genClasses>
+    <genClasses ecoreClass="properties.ecore#//Sql">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//Sql/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//Sql/hqlQuery"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//Sql/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="properties.ecore#//SqlFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//SqlFile/filePath"/>
+    </genClasses>
+    <genClasses ecoreClass="properties.ecore#//SqlGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//SqlGroup/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//SqlGroup/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//SqlGroup/sqlQuery"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//SqlGroup/sqlFile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//SqlGroup/specificDBMSProperties"/>
+    </genClasses>
+    <genClasses ecoreClass="properties.ecore#//SqlParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//SqlParameter/index"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//SqlParameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//SqlParameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="properties.ecore#//SqlProperties">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference properties.ecore#//SqlProperties/sqlGroup"/>
+    </genClasses>
+    <genClasses ecoreClass="properties.ecore#//SqlQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute properties.ecore#//SqlQuery/queryString"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
