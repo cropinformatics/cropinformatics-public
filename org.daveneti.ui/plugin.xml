@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="ConfigurationFactory" name="Configuration Factory" schema="schema/ConfigurationFactory.exsd"/>
+   <extension-point id="ObjectAction" name="Object Action" schema="schema/ObjectAction.exsd"/>
+   <extension
+         point="org.daveneti.ui.ConfigurationFactory">
+      <configurationFile
+            file="config/configuration.xml">
+      </configurationFile>
+   </extension>
+   <extension
+     point="org.eclipse.ui.views">
+      <view
+            class="org.daveneti.ui.views.UndoHistoryView"
+            icon="icons/undo.png"
+            id="org.daveneti.ui.views.UndoHistoryView"
+            name="Undo History">
+         <description>
+            List actions that can be un-done</description>
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.equinox.preferences.preferences">
+      <initializer
+            class="org.daveneti.ui.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+</plugin>

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %bundleName
+Bundle-SymbolicName: org.daveneti.common
+Bundle-Version: 0.3.0
+Bundle-Vendor: %providerName
+Require-Bundle: org.apache.commons.lang;bundle-version="2.3.0",
+ org.jexcelapi;bundle-version="2.6.12"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: org.daveneti.common,
+ org.daveneti.common.io,
+ org.daveneti.common.io.impl

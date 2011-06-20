@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.daveneti.ui.configuration/src"
+    modelPluginID="org.daveneti.ui.configuration" modelName="Configuration" importerID="org.eclipse.xsd.ecore.importer"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>../schema/definition.xsd</foreignModel>
+  <genPackages prefix="Configuration" basePackage="org.daveneti.ui" resource="XML"
+      disposableProviderFactory="true" ecorePackage="configuration.ecore#/">
+    <genDataTypes ecoreDataType="configuration.ecore#//NonEmptyString"/>
+    <genClasses ecoreClass="configuration.ecore#//Colour">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Colour/red"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Colour/green"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Colour/blue"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//ComponentConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ComponentConfiguration/style"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ComponentConfiguration/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ComponentConfiguration/image"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ComponentConfiguration/enclosed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ComponentConfiguration/editable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ComponentConfiguration/mandatory"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//Configuration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Configuration/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Configuration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Configuration/extends"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Configuration/visible"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Configuration/enabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Configuration/helpContextId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Configuration/className"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Configuration/pluginId"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//ConfigurationListType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ConfigurationListType/configuration"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//ContainerConfiguration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ContainerConfiguration/layout"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ContainerConfiguration/components"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//ControlConfiguration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ControlConfiguration/layoutData"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ControlConfiguration/foreground"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ControlConfiguration/background"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//ControlPathElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ControlPathElement/conditionProperty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ControlPathElement/conditionPageId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ControlPathElement/defaultValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ControlPathElement/subPaths"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//CTabFolderConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//CTabFolderConfiguration/tabPosition"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//DialogConfiguration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//DialogConfiguration/control"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//DialogConfiguration/resizable"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//DocumentRoot/configurationList"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//EditorConfiguration"/>
+    <genClasses ecoreClass="configuration.ecore#//ExpandBarConfiguration"/>
+    <genClasses ecoreClass="configuration.ecore#//Image">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Image/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Image/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Image/pluginId"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//Label">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Label/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Label/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Label/pluginId"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//Layout">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Layout/horizontalSpacing"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Layout/makeColumnsEqualWidth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Layout/marginBottom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Layout/marginHeight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Layout/marginLeft"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Layout/marginRight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Layout/marginTop"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Layout/marginWidth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Layout/numColumns"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Layout/verticalSpacing"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//LayoutData">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//LayoutData/grabExcessHorizontalSpace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//LayoutData/grabExcessVerticalSpace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//LayoutData/heightHint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//LayoutData/horizontalAlignment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//LayoutData/horizontalIndent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//LayoutData/horizontalSpan"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//LayoutData/minimumHeight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//LayoutData/minimumWidth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//LayoutData/verticalAlignment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//LayoutData/verticalIndent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//LayoutData/verticalSpan"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//LayoutData/widthHint"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//ListViewerConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ListViewerConfiguration/multipleSelectionInUse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ListViewerConfiguration/multipleCheckInUse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ListViewerConfiguration/duplicateAllowed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ListViewerConfiguration/checkSelectionInUse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ListViewerConfiguration/threadingInUse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ListViewerConfiguration/copyItemsInUse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ListViewerConfiguration/virtualInUse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ListViewerConfiguration/mantainingSelectionState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ListViewerConfiguration/mantainingCheckedState"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//MappingViewerConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//MappingViewerConfiguration/fromItemRemovedWhenMapped"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//MappingViewerConfiguration/fromItemAddedWhenUnmapped"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//MappingViewerConfiguration/toItemRemovedWhenMapped"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//MappingViewerConfiguration/toItemAddedWhenUnmapped"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//MatrixViewerConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//MatrixViewerConfiguration/cellSelectionInUse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//MatrixViewerConfiguration/linesVisible"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//MultipleListViewerConfiguration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//MultipleListViewerConfiguration/childConfiguration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//MultipleListViewerConfiguration/threadingInUse"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//PagePathElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//PagePathElement/pageId"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//PartConfiguration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//PartConfiguration/control"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//PathElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//PathElement/id"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//PerspectiveConfiguration"/>
+    <genClasses ecoreClass="configuration.ecore#//QueryResultViewerConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//QueryResultViewerConfiguration/runningQueryOnFirstUse"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//SubPath">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SubPath/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SubPath/conditionValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//SubPath/path"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//TabFolderConfiguration"/>
+    <genClasses ecoreClass="configuration.ecore#//TwinViewerConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//TwinViewerConfiguration/itemAddedLeftToRight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//TwinViewerConfiguration/itemAddedRightToLeft"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//TwinViewerConfiguration/itemRemovedLeftToRight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//TwinViewerConfiguration/itemRemovedRightToLeft"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//TwinViewerConfiguration/duplicateAllowed"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//ViewConfiguration"/>
+    <genClasses ecoreClass="configuration.ecore#//ViewerConfiguration"/>
+    <genClasses ecoreClass="configuration.ecore#//WizardConfiguration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//WizardConfiguration/pages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//WizardConfiguration/path"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//WizardPageConfiguration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//WizardPageConfiguration/control"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

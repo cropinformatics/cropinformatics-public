@@ -1,0 +1,9 @@
+GID,Germplasm ID,DBID
+ENTRYCODE,Germplasm Entry,Code
+ENTRYCD,Germplasm Entry,Code
+DESIG,Germplasm Name,DBCV
+DESIGNATION,Germplasm Name,DBCV
+SOURCE,Seed Source,Name
+CROSS,Cross History,Pedigree String
+GRPNAME,Cross History,Pedigree String
+ENTRYID,Germplasm Entry,ENTRYID

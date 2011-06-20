@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="ASCII"?>
+<configuration:ConfigurationList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.daveneti.org/ui/configuration ../../org.daveneti.ui.configuration/schema/definition.xsd"
+  xmlns:configuration="http://www.daveneti.org/ui/configuration">
+  <Configuration xsi:type="configuration:DialogConfiguration">
+    <id>org.daveneti.ui.test.actions.components.BasicComponentsDialog</id>
+    <control xsi:type="configuration:ContainerConfiguration">
+      <enclosed>true</enclosed>
+      <layout>
+        <makeColumnsEqualWidth>false</makeColumnsEqualWidth>
+        <numColumns>2</numColumns>
+      </layout>
+      <components xsi:type="configuration:ContainerConfiguration">
+        <id>optionsWithComboComponent</id>
+        <layoutData>
+          <grabExcessHorizontalSpace>true</grabExcessHorizontalSpace>
+          <grabExcessVerticalSpace>true</grabExcessVerticalSpace>
+          <horizontalAlignment>4</horizontalAlignment>
+          <horizontalSpan>2</horizontalSpan>
+          <verticalAlignment>4</verticalAlignment>
+        </layoutData>
+      </components>
+      <components xsi:type="configuration:ControlConfiguration">
+        <id>integerComponent</id>
+        <label>
+          <value>Group</value>
+        </label>
+        <layoutData>
+          <horizontalSpan>2</horizontalSpan>
+        </layoutData>
+      </components>
+      <components xsi:type="configuration:ContainerConfiguration">
+        <id>fileComponent</id>
+        <enclosed>true</enclosed>
+        <layoutData>
+          <grabExcessHorizontalSpace>true</grabExcessHorizontalSpace>
+          <grabExcessVerticalSpace>true</grabExcessVerticalSpace>
+          <horizontalAlignment>4</horizontalAlignment>
+          <horizontalSpan>2</horizontalSpan>
+          <verticalAlignment>4</verticalAlignment>
+        </layoutData>
+        <layout>
+          <makeColumnsEqualWidth>false</makeColumnsEqualWidth>
+          <marginHeight>0</marginHeight>
+          <marginWidth>0</marginWidth>
+          <numColumns>3</numColumns>
+        </layout>
+      </components>
+      <components xsi:type="configuration:ControlConfiguration">
+        <id>delimiterComponent</id>
+      </components>
+    </control>
+  </Configuration>
+  <Configuration xsi:type="configuration:DialogConfiguration">
+    <id>org.daveneti.ui.test.actions.components.BasicComponentsDialogWithExpandBar</id>
+    <control xsi:type="configuration:ExpandBarConfiguration">
+      <layout>
+        <makeColumnsEqualWidth>false</makeColumnsEqualWidth>
+        <numColumns>2</numColumns>
+      </layout>
+      <components xsi:type="configuration:ContainerConfiguration">
+        <id>optionsWithComboComponent</id>
+        <layoutData>
+          <grabExcessHorizontalSpace>true</grabExcessHorizontalSpace>
+          <grabExcessVerticalSpace>true</grabExcessVerticalSpace>
+          <horizontalAlignment>4</horizontalAlignment>
+          <horizontalSpan>2</horizontalSpan>
+          <verticalAlignment>4</verticalAlignment>
+        </layoutData>
+      </components>
+      <components xsi:type="configuration:ContainerConfiguration">
+        <id>fileComponent</id>
+        <layoutData>
+          <grabExcessHorizontalSpace>true</grabExcessHorizontalSpace>
+          <grabExcessVerticalSpace>true</grabExcessVerticalSpace>
+          <horizontalAlignment>4</horizontalAlignment>
+          <horizontalSpan>2</horizontalSpan>
+          <verticalAlignment>4</verticalAlignment>
+        </layoutData>
+        <layout>
+          <makeColumnsEqualWidth>false</makeColumnsEqualWidth>
+          <marginBottom>0</marginBottom>
+          <marginLeft>0</marginLeft>
+          <marginRight>0</marginRight>
+          <marginTop>0</marginTop>
+          <numColumns>3</numColumns>
+        </layout>
+      </components>
+    </control>
+  </Configuration>
+  <Configuration xsi:type="configuration:DialogConfiguration">
+    <id>org.daveneti.ui.test.actions.components.BasicComponentsDialogWithTabFolder</id>
+    <control xsi:type="configuration:TabFolderConfiguration">
+       <components xsi:type="configuration:ContainerConfiguration">
+          <id>booleanComponent</id>
+          <label>
+            <value>Boolean</value>
+          </label>
+          <layout>
+            <numColumns>2</numColumns>
+          </layout>
+      </components>
+      <components xsi:type="configuration:ContainerConfiguration">
+        <label>
+          <value>Integer</value>
+        </label>
+        <components xsi:type="configuration:ContainerConfiguration">
+          <id>integerComponent</id>
+          <label>
+            <value>Group</value>
+          </label>
+          <layout>
+            <numColumns>2</numColumns>
+          </layout>
+        </components>
+      </components>
+      <components xsi:type="configuration:ContainerConfiguration">
+        <id>dateComponent</id>
+        <label>
+          <value>Date</value>
+        </label>
+      </components>
+      <components xsi:type="configuration:ContainerConfiguration">
+        <label>
+          <value>Options (combo)</value>
+        </label>
+        <components xsi:type="configuration:ContainerConfiguration">
+          <id>optionsWithComboComponent</id>
+          <layoutData>
+            <grabExcessHorizontalSpace>true</grabExcessHorizontalSpace>
+            <grabExcessVerticalSpace>true</grabExcessVerticalSpace>
+            <horizontalAlignment>4</horizontalAlignment>
+            <horizontalSpan>2</horizontalSpan>
+            <verticalAlignment>4</verticalAlignment>
+          </layoutData>
+        </components>
+      </components>
+      <components xsi:type="configuration:ContainerConfiguration">
+        <label>
+          <value>String/Options (buttons)</value>
+        </label>
+        <components xsi:type="configuration:ContainerConfiguration">
+          <enclosed>true</enclosed>
+          <layout>
+            <numColumns>2</numColumns>
+          </layout>
+          <components xsi:type="configuration:ComponentConfiguration">
+            <id>stringComponent</id>
+          </components>
+          <components xsi:type="configuration:ComponentConfiguration">
+            <id>optionsWithButtonsComponent</id>
+            <enclosed>true</enclosed>
+          </components>
+          <components xsi:type="configuration:ComponentConfiguration">
+            <id>optionsWithButtonsComponent2</id>
+            <enclosed>true</enclosed>
+          </components>
+        </components>
+      </components>
+      <components xsi:type="configuration:ContainerConfiguration">
+        <label>
+          <value>File</value>
+        </label>
+        <components xsi:type="configuration:ContainerConfiguration">
+          <id>fileComponent</id>
+          <!-- enclosed>true</enclosed this casues a bad parent error-->
+          <layoutData>
+            <grabExcessHorizontalSpace>true</grabExcessHorizontalSpace>
+            <grabExcessVerticalSpace>true</grabExcessVerticalSpace>
+            <horizontalAlignment>4</horizontalAlignment>
+            <horizontalSpan>2</horizontalSpan>
+            <verticalAlignment>4</verticalAlignment>
+          </layoutData>
+          <layout>
+            <makeColumnsEqualWidth>false</makeColumnsEqualWidth>
+            <marginHeight>0</marginHeight>
+            <marginWidth>0</marginWidth>
+            <numColumns>3</numColumns>
+          </layout>
+        </components>
+      </components>
+      <components xsi:type="configuration:ContainerConfiguration">
+        <label>
+          <value>Model Components</value>
+        </label>
+        <components xsi:type="configuration:ContainerConfiguration">
+          <enclosed>true</enclosed>
+          <layoutData>
+            <grabExcessHorizontalSpace>true</grabExcessHorizontalSpace>
+            <grabExcessVerticalSpace>true</grabExcessVerticalSpace>
+            <horizontalAlignment>4</horizontalAlignment>
+            <horizontalSpan>2</horizontalSpan>
+            <verticalAlignment>4</verticalAlignment>
+          </layoutData>
+          <layout>
+            <makeColumnsEqualWidth>false</makeColumnsEqualWidth>
+            <marginHeight>0</marginHeight>
+            <marginWidth>0</marginWidth>
+            <numColumns>2</numColumns>
+          </layout>
+          <components xsi:type="configuration:ContainerConfiguration">
+            <id>identificationComponent</id>
+          </components>
+        </components>
+      </components>
+      <components xsi:type="configuration:ComponentConfiguration">
+        <id>textComponent</id>
+      </components>
+    </control>
+  </Configuration>
+  <Configuration xsi:type="configuration:DialogConfiguration">
+    <id>org.daveneti.ui.test.actions.components.BasicComponentsDialogWithCTabFolder</id>
+    <control xsi:type="configuration:TabFolderConfiguration">
+      <layout>
+        <makeColumnsEqualWidth>false</makeColumnsEqualWidth>
+        <numColumns>2</numColumns>
+      </layout>
+      <components xsi:type="configuration:ContainerConfiguration">
+        <id>optionsWithComboComponent</id>
+        <layoutData>
+          <grabExcessHorizontalSpace>true</grabExcessHorizontalSpace>
+          <grabExcessVerticalSpace>true</grabExcessVerticalSpace>
+          <horizontalAlignment>4</horizontalAlignment>
+          <horizontalSpan>2</horizontalSpan>
+          <verticalAlignment>4</verticalAlignment>
+        </layoutData>
+      </components>
+      <components xsi:type="configuration:ContainerConfiguration">
+        <id>fileComponent</id>
+        <layoutData>
+          <grabExcessHorizontalSpace>true</grabExcessHorizontalSpace>
+          <grabExcessVerticalSpace>true</grabExcessVerticalSpace>
+          <horizontalAlignment>4</horizontalAlignment>
+          <horizontalSpan>2</horizontalSpan>
+          <verticalAlignment>4</verticalAlignment>
+        </layoutData>
+        <layout>
+          <makeColumnsEqualWidth>false</makeColumnsEqualWidth>
+          <numColumns>3</numColumns>
+        </layout>
+      </components>
+    </control>
+  </Configuration>
+  <Configuration xsi:type="configuration:DialogConfiguration">
+    <id>org.daveneti.ui.test.actions.dialogs.list.IdentificationListDialogTest</id>
+    <control xsi:type="configuration:ListViewerConfiguration">
+	<components xsi:type="configuration:ContainerConfiguration">
+	   	<id>stringFilterAndRegexComponent</id>
+    	<visible>true</visible>
+    	<components xsi:type="configuration:ControlConfiguration">
+        	<id>stringFilterComponent</id>
+	 	</components>
+	    <components xsi:type="configuration:ControlConfiguration">
+        	<id>regexComponent</id>
+        	<visible>true</visible>
+	 	</components>
+	 </components>
+	 <components xsi:type="configuration:ControlConfiguration">
+        <id>filterComponent</id>
+	 </components>
+	 <components xsi:type="configuration:ContainerConfiguration">
+	   	<id>viewerAndReorderComponent</id>
+    	<layoutData>
+    		<verticalSpan>2</verticalSpan>
+    	</layoutData>
+    	<layout>
+    		<numColumns>2</numColumns>
+    	</layout>
+    	<components xsi:type="configuration:ControlConfiguration">
+        	<id>viewerComponent</id>
+	 	</components>
+	    <components xsi:type="configuration:ControlConfiguration">
+        	<id>reorderComponent</id>
+        	<visible>true</visible>
+	 	</components>
+	 </components>
+	 <components xsi:type="configuration:ControlConfiguration">
+        <id>clearComponent</id>
+        <visible>true</visible>
+	 </components>
+	 <components xsi:type="configuration:ControlConfiguration">
+        <id>allSelectComponent</id>
+	 </components>
+	 <components xsi:type="configuration:ControlConfiguration">
+        <id>addRemoveEditComponent</id>
+        <visible>true</visible>
+	 </components>
+	 <checkSelectionInUse>true</checkSelectionInUse>
+    </control>
+  </Configuration>
+</configuration:ConfigurationList>

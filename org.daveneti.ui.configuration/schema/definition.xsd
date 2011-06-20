@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="http://www.daveneti.org/ui/configuration"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.daveneti.org/ui/configuration">
+	<xs:annotation>
+		<xs:documentation>This XML Schema specifies an XML format for definition of Configurable GUI components
+		Start exploring this schema by the root element which is the 'ConfigurationList' element.
+      </xs:documentation>
+	</xs:annotation>
+
+	<xs:element name="ConfigurationList">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>List of configuration elements</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="Configuration"
+					type="Configuration"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="Configuration">
+		<xs:annotation>
+			<xs:documentation>Base element for all other configuration elements</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="nonEmptyString" minOccurs="0"/>
+			<xs:element name="name" minOccurs="0" type="nonEmptyString"/>
+			<xs:element name="extends" minOccurs="0" type="nonEmptyString"/>
+			<xs:element name="visible" minOccurs="0" default="true" type="xs:boolean"/>
+			<xs:element name="enabled" minOccurs="0" default="true" type="xs:boolean"/>
+			<xs:element name="helpContextId" minOccurs="0" type="nonEmptyString"/>
+			<xs:element name="className" minOccurs="0" type="nonEmptyString"/>
+			<xs:element name="pluginId" minOccurs="0" maxOccurs="1" type="nonEmptyString"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ComponentConfiguration">
+		<xs:annotation>
+			<xs:documentation>A simple configuration element that can be defined as part of a 
+			container configuration</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Configuration">
+				<xs:sequence>
+					<xs:element name="style" minOccurs="0" maxOccurs="1" type="xs:int"/>
+					<xs:element name="label" minOccurs="0" maxOccurs="1" type="Label"/>
+					<xs:element name="image" minOccurs="0" maxOccurs="1" type="Image"/>
+					<xs:element name="enclosed" minOccurs="0" default="false" type="xs:boolean"/>
+					<xs:element name="editable" default="true" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="mandatory" default="false" type="xs:boolean" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ControlConfiguration">
+		<xs:annotation>
+			<xs:documentation>A simple configuration element that has a layout</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ComponentConfiguration">
+				<xs:sequence>
+					<xs:element name="layoutData" minOccurs="0" maxOccurs="1" type="LayoutData"/>
+					<xs:element name="foreground" minOccurs="0" maxOccurs="1" type="Colour"/>
+					<xs:element name="background" minOccurs="0" maxOccurs="1" type="Colour"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ContainerConfiguration">
+		<xs:annotation>
+			<xs:documentation>A configuration element that can contain configuration elements</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ControlConfiguration">
+				<xs:sequence>
+					<xs:element name="layout" minOccurs="0" maxOccurs="1" type="Layout"/>
+					<xs:element name="components" minOccurs="0" maxOccurs="unbounded" type="ComponentConfiguration"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ExpandBarConfiguration">
+		<xs:annotation>
+			<xs:documentation>A type of composite that contains expandable items</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ContainerConfiguration"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="TabFolderConfiguration">
+		<xs:annotation>
+			<xs:documentation>A type of composite with tabs</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ContainerConfiguration">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CTabFolderConfiguration">
+		<xs:annotation>
+			<xs:documentation>A type of composite with tabs</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ContainerConfiguration">
+				<xs:sequence>
+					<xs:element name="tabPosition" type="xs:int" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ViewerConfiguration">
+		<xs:annotation>
+			<xs:documentation>Configuration for base element for all viewers</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ContainerConfiguration"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ListViewerConfiguration">
+		<xs:annotation>
+			<xs:documentation>Configuration for viewers that display lists</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ViewerConfiguration">
+				<xs:sequence>
+					<xs:element name="multipleSelectionInUse" default="false" type="xs:boolean"
+						minOccurs="0"/>
+					<xs:element name="multipleCheckInUse" default="false" type="xs:boolean"
+						minOccurs="0"/>
+					<xs:element name="duplicateAllowed" default="true" type="xs:boolean"
+						minOccurs="0"/>
+					<xs:element name="checkSelectionInUse" default="false" type="xs:boolean"
+						minOccurs="0"/>
+					<xs:element name="threadingInUse" default="false" type="xs:boolean"
+						minOccurs="0"/>
+					<xs:element name="copyItemsInUse" default="false" type="xs:boolean"
+						minOccurs="0"/>
+					<xs:element name="virtualInUse" default="false" type="xs:boolean" 
+						minOccurs="0"/>
+					<xs:element name="mantainingSelectionState" default="true" type="xs:boolean" 
+						minOccurs="0"/>
+					<xs:element name="mantainingCheckedState" default="true" type="xs:boolean" 
+						minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="TwinViewerConfiguration">
+		<xs:annotation>
+			<xs:documentation>Configuration for viewers that display two lists that interact with each other</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ViewerConfiguration">
+				<xs:sequence>
+					<xs:element name="itemAddedLeftToRight" default="true" type="xs:boolean"
+						minOccurs="0"/>
+					<xs:element name="itemAddedRightToLeft" default="true" type="xs:boolean"
+						minOccurs="0"/>
+					<xs:element name="itemRemovedLeftToRight" default="true" type="xs:boolean"
+						minOccurs="0"/>
+					<xs:element name="itemRemovedRightToLeft" default="true" type="xs:boolean"
+						minOccurs="0"/>
+					<xs:element name="duplicateAllowed" default="true" type="xs:boolean"
+						minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="MappingViewerConfiguration">
+		<xs:annotation>
+			<xs:documentation>Configuration for viewers that display mappings</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ViewerConfiguration">
+				<xs:sequence>
+					<xs:element name="fromItemRemovedWhenMapped" default="true" type="xs:boolean"
+						minOccurs="0"/>
+					<xs:element name="fromItemAddedWhenUnmapped" default="true" type="xs:boolean"
+						minOccurs="0"/>
+					<xs:element name="toItemRemovedWhenMapped" default="true" type="xs:boolean"
+						minOccurs="0"/>
+					<xs:element name="toItemAddedWhenUnmapped" default="true" type="xs:boolean"
+						minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="MultipleListViewerConfiguration">
+		<xs:annotation>
+			<xs:documentation>Configuration for viewers that display multiple lists</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ViewerConfiguration">
+				<xs:sequence>
+					<xs:element name="childConfiguration" minOccurs="0" maxOccurs="unbounded"
+						type="ListViewerConfiguration"/>
+					<xs:element name="threadingInUse" default="false" type="xs:boolean"
+						minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="MatrixViewerConfiguration">
+		<xs:annotation>
+			<xs:documentation>Configuration for viewers that display matrices and tables</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ViewerConfiguration">
+				<xs:sequence>
+					<xs:element name="cellSelectionInUse" default="false" type="xs:boolean"
+						minOccurs="0"/>
+					<xs:element name="linesVisible" default="true" type="xs:boolean"
+						minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="QueryResultViewerConfiguration">
+		<xs:annotation>
+			<xs:documentation>Configuration for viewers that display the results of queries</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ViewerConfiguration">
+				<xs:sequence>
+					<xs:element name="runningQueryOnFirstUse" default="false" type="xs:boolean"
+						minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="PartConfiguration">
+		<xs:annotation>
+			<xs:documentation>A configuration element that can container configuration elements</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Configuration">
+				<xs:sequence>
+					<xs:element name="control" type="ControlConfiguration" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="EditorConfiguration">
+		<xs:annotation>
+			<xs:documentation>A configuration element for an editor</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PartConfiguration"> </xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ViewConfiguration">
+		<xs:annotation>
+			<xs:documentation>A configuration element for a view</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PartConfiguration"> </xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="PerspectiveConfiguration">
+		<xs:annotation>
+			<xs:documentation>A configuration element for an perspective</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PartConfiguration"> </xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="WizardConfiguration">
+		<xs:annotation>
+			<xs:documentation>A configuration element for an wizard</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Configuration">
+				<xs:sequence>
+					<xs:element name="pages" minOccurs="0" maxOccurs="unbounded"
+						type="WizardPageConfiguration"/>
+					<xs:element name="path" minOccurs="0" maxOccurs="unbounded" type="PathElement"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="WizardPageConfiguration">
+		<xs:annotation>
+			<xs:documentation>A configuration element for a wizard page</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Configuration">
+				<xs:sequence>
+					<xs:element name="control" type="ControlConfiguration" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="DialogConfiguration">
+		<xs:annotation>
+			<xs:documentation>A configuration element for a wizard page</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Configuration">
+				<xs:sequence>
+					<xs:element name="control" type="ControlConfiguration" minOccurs="0"/>
+					<xs:element name="resizable" default="false" type="xs:boolean" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="LayoutData">
+		<xs:annotation>
+			<xs:documentation>Grid data properties determine the layout of a component with in a container</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="grabExcessHorizontalSpace" minOccurs="0" default="true"
+				type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>grabExcessHorizontalSpace specifies whether the width of the cell changes depending on the size of the parent Composite.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="grabExcessVerticalSpace" minOccurs="0" default="true"
+				type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>grabExcessVerticalSpace specifies whether the height of the cell changes depending on the size of the parent Composite.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="heightHint" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>heightHint specifies the preferred height in pixels.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="horizontalAlignment" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>horizontalAlignment specifies how controls will be positioned horizontally within a cell.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="horizontalIndent" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>horizontalIndent specifies the number of pixels of indentation that will be placed along the left side of the cell.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="horizontalSpan" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>horizontalSpan specifies the number of column cells that the control will take up.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="minimumHeight" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>minimumHeight specifies the minimum height in pixels.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="minimumWidth" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>minimumWidth specifies the minimum width in pixels.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="verticalAlignment" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>verticalAlignment specifies how controls will be positioned vertically within a cell.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="verticalIndent" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>verticalIndent specifies the number of pixels of indentation that will be placed along the top side of the cell.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="verticalSpan" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>verticalSpan specifies the number of row cells that the control will take up.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="widthHint" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>widthHint specifies the preferred width in pixels.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Layout">
+		<xs:annotation>
+			<xs:documentation>Grid layout properties determine the how the componenta will be positions in thw container</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="horizontalSpacing" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Specifies the number of pixels between the right edge of one cell and the left edge of its neighbouring cell to the right.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="makeColumnsEqualWidth" minOccurs="0" default="false" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>makeColumnsEqualWidth specifies whether all columns in the layout will be forced to have the same width.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="marginBottom" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>marginBottom specifies the number of pixels of vertical margin that will be placed along the bottom edge of the layout.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="marginHeight" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>marginHeight specifies the number of pixels of vertical margin that will be placed along the top and bottom edges of the layout.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="marginLeft" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>marginLeft specifies the number of pixels of horizontal margin that will be placed along the left edge of the layout.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="marginRight" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>marginRight specifies the number of pixels of horizontal margin that will be placed along the right edge of the layout.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="marginTop" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>marginTop specifies the number of pixels of vertical margin that will be placed along the top edge of the layout.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="marginWidth" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>marginWidth specifies the number of pixels of horizontal margin that will be placed along the left and right edges of the layout.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="numColumns" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>numColumns specifies the number of cell columns in the layout.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="verticalSpacing" minOccurs="0" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>verticalSpacing specifies the number of pixels between the bottom edge of one cell and the top edge of its neighbouring cell underneath.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+
+	</xs:complexType>
+
+	<xs:complexType name="PathElement" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Defines part of a path</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="nonEmptyString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="PagePathElement">
+		<xs:annotation>
+			<xs:documentation>Part of a workflow path that references a specific page</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PathElement">
+				<xs:sequence>
+					<xs:element name="pageId" type="nonEmptyString">
+						<xs:annotation>
+							<xs:documentation>The id of the page</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ControlPathElement">
+		<xs:annotation>
+			<xs:documentation>Part of a workflow path that references a specific page</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PathElement">
+				<xs:sequence>
+					<xs:element name="conditionProperty" type="nonEmptyString">
+						<xs:annotation>
+							<xs:documentation>The condition propery that indicates which subpath should be taken</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="conditionPageId" minOccurs="0" type="nonEmptyString">
+						<xs:annotation>
+							<xs:documentation>The id of the wizard page which holds the condition property. If  not defined
+							the property is assumed to be taken from the wizard itself</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="defaultValue" type="nonEmptyString" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Specifies the default value of the condition propery indicates this path should be taken</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="subPaths" minOccurs="1" maxOccurs="unbounded" type="SubPath">
+						<xs:annotation>
+							<xs:documentation>Specifies the child sub paths</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="SubPath">
+		<xs:annotation>
+			<xs:documentation>Sub-path which is part of a workflow path</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="nonEmptyString" minOccurs="0"/>
+			<xs:element name="conditionValue" type="nonEmptyString">
+				<xs:annotation>
+					<xs:documentation>Specifies the value of the condition propery indicates this path should be taken</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="path" minOccurs="0" maxOccurs="unbounded" type="PathElement">
+				<xs:annotation>
+					<xs:documentation>Specifies the elemennts in the sub path</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Colour">
+		<xs:annotation>
+			<xs:documentation>Defines an RGBA colour</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="red" type="xs:int" default="0"/>
+			<xs:element name="green" type="xs:int" default="0"/>
+			<xs:element name="blue" type="xs:int" default="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Label">
+		<xs:annotation>
+			<xs:documentation>Defines an RGBA colour</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="value" minOccurs="0" maxOccurs="1" type="nonEmptyString"/>
+			<xs:element name="key" minOccurs="0" maxOccurs="1" type="nonEmptyString"/>
+			<xs:element name="pluginId" minOccurs="0" maxOccurs="1" type="nonEmptyString"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Image">
+		<xs:annotation>
+			<xs:documentation>Defines an RGBA colour</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="path" minOccurs="0" maxOccurs="1" type="nonEmptyString"/>
+				<xs:element name="key" minOccurs="0" maxOccurs="1" type="nonEmptyString"/>
+			</xs:choice>
+			<xs:element name="pluginId" minOccurs="0" maxOccurs="1" type="nonEmptyString"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="nonEmptyString">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

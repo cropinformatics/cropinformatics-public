@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="ASCII"?>
+<configuration:ConfigurationList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.daveneti.org/ui/configuration ../../org.daveneti.ui.configuration/schema/definition.xsd"
+  xmlns:configuration="http://www.daveneti.org/ui/configuration">
+  <Configuration xsi:type="configuration:ContainerConfiguration">
+    <id>org.daveneti.ui.components.impl.LabelledEditComponent</id>
+	<components>
+	  <id>label</id>
+	</components>
+  </Configuration>
+  <Configuration xsi:type="configuration:ContainerConfiguration">
+    <id>org.daveneti.ui.components.impl.BooleanEditComponent</id>
+    <extends>org.daveneti.ui.components.impl.LabelledEditComponent</extends>
+	<components>
+	  <id>booleanButton</id>
+	</components>
+  </Configuration>
+  <Configuration xsi:type="configuration:ContainerConfiguration">
+    <id>org.daveneti.ui.components.impl.DateEditComponent</id>
+    <extends>org.daveneti.ui.components.impl.LabelledEditComponent</extends>
+    <layout>
+      <numColumns>2</numColumns>
+    </layout>
+    <components>
+	  <id>dateChooser</id>
+	</components>
+  </Configuration>
+  <Configuration xsi:type="configuration:ContainerConfiguration">
+    <id>org.daveneti.ui.components.impl.ComboViewerComponent</id>
+    <extends>org.daveneti.ui.components.impl.LabelledEditComponent</extends>
+    <layout>
+      <numColumns>2</numColumns>
+    </layout>
+    <components>
+      <id>comboViewer</id>
+    </components>
+  </Configuration> 
+  <Configuration xsi:type="configuration:ContainerConfiguration">
+    <id>org.daveneti.ui.components.impl.AbstractComboViewerEditComponent</id>
+    <extends>org.daveneti.ui.components.impl.LabelledEditComponent</extends>
+    <layout>
+      <numColumns>2</numColumns>
+    </layout>
+    <components>
+      <id>comboViewer</id>
+    </components>
+  </Configuration> 
+  <Configuration xsi:type="configuration:ContainerConfiguration">
+    <id>org.daveneti.ui.components.impl.IntegerEditComponent</id>
+    <extends>org.daveneti.ui.components.impl.LabelledEditComponent</extends>
+	<components>
+	  <id>integerSpinner</id>
+	</components>
+  </Configuration>
+  <Configuration xsi:type="configuration:ContainerConfiguration">
+    <id>org.daveneti.ui.components.impl.FileComponent</id>
+    <extends>org.daveneti.ui.components.impl.LabelledEditComponent</extends>
+    <enclosed>true</enclosed>
+    <mandatory>true</mandatory>
+    <layout>
+      <marginHeight>0</marginHeight>
+      <marginWidth>0</marginWidth>
+      <numColumns>3</numColumns>
+      <verticalSpacing>0</verticalSpacing>
+    </layout>
+	<components>
+	  <id>fileText</id>
+	</components>
+	<components>
+	  <id>browseButton</id>
+	</components>
+  </Configuration> 
+  <Configuration xsi:type="configuration:ContainerConfiguration">
+    <id>org.daveneti.ui.components.impl.OptionsComponent</id>
+	<components>
+	  <id>label</id>
+	</components>
+  </Configuration>
+  <Configuration xsi:type="configuration:ContainerConfiguration">
+    <id>org.daveneti.ui.components.impl.OptionsComponentWithButtons</id>
+    <extends>org.daveneti.ui.components.impl.OptionsComponent</extends>
+    <enclosed>true</enclosed>
+  </Configuration>  
+  <Configuration xsi:type="configuration:ContainerConfiguration">
+    <id>org.daveneti.ui.components.impl.StringEditComponent</id>
+    <extends>org.daveneti.ui.components.impl.LabelledEditComponent</extends>
+	<components>
+	  <id>text</id>
+	</components>
+  </Configuration>  
+  <Configuration xsi:type="configuration:ContainerConfiguration">
+    <id>org.daveneti.ui.components.impl.DelimiterStringEditComponent</id>
+    <extends>org.daveneti.ui.components.impl.StringEditComponent</extends>
+    <enclosed>true</enclosed>
+    <layout>
+      <marginHeight>0</marginHeight>
+      <marginWidth>0</marginWidth>
+      <numColumns>4</numColumns>
+    </layout>
+	<components>
+	  <id>tabButton</id>
+	</components>
+	<components>
+	  <id>commaButton</id>
+	</components>
+  </Configuration>  
+  <Configuration xsi:type="configuration:ContainerConfiguration">
+    <id>org.daveneti.ui.components.impl.IdentificationEditComponent</id>
+    <name>Identification Edit Component</name>
+    <components xsi:type="configuration:ComponentConfiguration">
+      <id>nameComponent</id>
+    </components>
+    <components xsi:type="configuration:ComponentConfiguration">
+      <id>descriptionComponent</id>
+    </components>
+  </Configuration>
+  <Configuration xsi:type="configuration:ListViewerConfiguration">
+    <id>org.daveneti.ui.viewers.list.AbstractSingleListStructuredViewer</id>
+    <name>Entity Manager Viewer</name>
+    <layout>
+    	<numColumns>2</numColumns>
+    </layout>
+	<components xsi:type="configuration:ContainerConfiguration">
+	   	<id>stringFilterAndRegexComponent</id>
+    	<visible>false</visible>
+    	<enclosed>true</enclosed>
+    	<layoutData>
+    		<verticalSpan>2</verticalSpan>
+    	</layoutData>
+    	<layout>
+    		<numColumns>2</numColumns>
+    	</layout>
+    	<components xsi:type="configuration:ControlConfiguration">
+        	<id>stringFilterComponent</id>
+	 	</components>
+	    <components xsi:type="configuration:ControlConfiguration">
+        	<id>regexComponent</id>
+        	<visible>false</visible>
+	 	</components>
+	 </components>
+	 <components xsi:type="configuration:ContainerConfiguration">
+	   	<id>viewerAndReorderComponent</id>
+    	<enclosed>true</enclosed>
+    	<layoutData>
+    		<verticalSpan>2</verticalSpan>
+    	</layoutData>
+    	<layout>
+    		<numColumns>2</numColumns>
+    	</layout>
+    	<components xsi:type="configuration:ControlConfiguration">
+        	<id>viewerComponent</id>
+	 	</components>
+	    <components xsi:type="configuration:ControlConfiguration">
+        	<id>reorderComponent</id>
+        	<visible>false</visible>
+	 	</components>
+	 </components>
+	 <components xsi:type="configuration:ContainerConfiguration">
+	   	<id>clearComponent</id>
+	   	<visible>false</visible>
+    	<enclosed>true</enclosed>
+    	<layoutData>
+    		<verticalSpan>2</verticalSpan>
+    	</layoutData>
+    	<layout>
+    		<numColumns>3</numColumns>
+    	</layout>
+    	<components xsi:type="configuration:ControlConfiguration">
+        	<id>clearSelectionComponent</id>
+	 	</components>
+	    <components xsi:type="configuration:ControlConfiguration">
+        	<id>checkAllComponent</id>
+	 	</components>
+	 	<components xsi:type="configuration:ControlConfiguration">
+        	<id>clearCheckComponent</id>
+	 	</components>
+	 </components>
+	 <components xsi:type="configuration:ContainerConfiguration">
+	   	<id>addRemoveEditComponent</id>
+	   	<visible>false</visible>
+    	<enclosed>true</enclosed>
+    	<layoutData>
+    		<verticalSpan>2</verticalSpan>
+    	</layoutData>
+    	<layout>
+    		<numColumns>3</numColumns>
+    	</layout>
+    	<components xsi:type="configuration:ControlConfiguration">
+        	<id>addItemComponent</id>
+	 	</components>
+	    <components xsi:type="configuration:ControlConfiguration">
+        	<id>removeItemComponent</id>
+	 	</components>
+	 	<components xsi:type="configuration:ControlConfiguration">
+        	<id>editItemComponent</id>
+	 	</components>
+	 </components>	 
+  </Configuration>
+  <Configuration xsi:type="configuration:TwinViewerConfiguration">
+    <id>org.daveneti.ui.viewers.twin.AbstractTwinViewer</id>
+    <enclosed>true</enclosed>
+    <layout>
+      <numColumns>3</numColumns>
+    </layout>
+    <components xsi:type="configuration:ListViewerConfiguration">
+      <id>leftViewerComponent</id>
+    </components>
+    <components xsi:type="configuration:ContainerConfiguration">
+      <id>mappingButtonsComponent</id>
+    </components>
+    <components xsi:type="configuration:ListViewerConfiguration">
+      <id>rightViewerComponent</id>
+    </components>
+  </Configuration>
+  <Configuration xsi:type="configuration:MappingViewerConfiguration">
+    <id>org.daveneti.ui.viewers.twin.AbstractMappingViewer</id>
+    <enclosed>true</enclosed>
+    <layout>
+      <numColumns>3</numColumns>
+    </layout>
+    <components xsi:type="configuration:ListViewerConfiguration">
+      <id>fromViewerComponent</id>
+    </components>
+    <components xsi:type="configuration:ContainerConfiguration">
+      <id>mappingButtonsComponent</id>
+      <layoutData>
+        <verticalSpan>2</verticalSpan>
+      </layoutData>
+    </components>
+    <components xsi:type="configuration:ListViewerConfiguration">
+      <id>mappedViewerComponent</id>
+      <layoutData>
+        <verticalSpan>2</verticalSpan>
+      </layoutData>
+    </components>  
+    <components xsi:type="configuration:ListViewerConfiguration">
+      <id>toViewerComponent</id>
+    </components>
+  </Configuration>
+</configuration:ConfigurationList>
