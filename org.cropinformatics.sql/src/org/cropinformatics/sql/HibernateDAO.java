@@ -42,6 +42,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
+import org.hibernate.criterion.DetachedCriteria;
 
 /**
  * This class will create 
@@ -105,7 +106,7 @@ public class HibernateDAO
 	{
 		return sqlUtilities;
 	}
-	
+
 	/**
 	 * Executes a hql query against the persistent store and returns the results.
 	 * @param queryString the query to execute.
@@ -164,7 +165,7 @@ public class HibernateDAO
 			throw new SQLUtilitiesException("Unable to execute query: " + queryString, ex);
 		}
 	}
-	
+
 	/**
 	 * Executes a query against the persistent store and returns the results.
 	 * @param queryString the query to execute.
@@ -245,7 +246,7 @@ public class HibernateDAO
 			throw new SQLUtilitiesException("Unable to execute query: " + queryString, ex);
 		}
 	}
-	
+
 	/**
 	 * Executes a query against the persistent store and returns the results.
 	 * @param queryString the query to execute.
@@ -344,7 +345,7 @@ public class HibernateDAO
 
 					if (arguments == null || parameterNames.length != arguments.length)
 						throw new SQLUtilitiesException("Number of arguments must match number of parameters") ;
-					
+
 					result = invokeQuery(queryString, parameterNames, arguments, query.isHqlQuery()) ;
 				}
 			}
@@ -382,23 +383,23 @@ public class HibernateDAO
 	@SuppressWarnings("rawtypes")
 	public List executeQuery(SQL query, Object argument, Integer startRow,
 			Integer endRow) throws SQLUtilitiesException
-	{
+			{
 		return executeQuery(query, argument, startRow, endRow, true) ;
-	}
+			}
 
 	@SuppressWarnings("rawtypes")
 	public List executeQuery(SQL query, Object[] arguments, Integer startRow,
 			Integer endRow) throws SQLUtilitiesException
-	{
+			{
 		return executeQuery(query, arguments, startRow, endRow, true) ;
-	}
+			}
 
 	@SuppressWarnings("rawtypes")
 	public List executeQuery(SQL query, Object argument, Integer startRow,
 			Integer endRow, boolean usingStringReplacement) throws SQLUtilitiesException
-	{
+			{
 		return executeQuery(query, new Object[] {argument}, startRow, endRow, usingStringReplacement) ;
-	}
+			}
 
 	@SuppressWarnings("rawtypes")
 	public List executeQuery(SQL query, Object[] arguments, Integer startRow,Integer endRow, boolean usingStringReplacement) throws SQLUtilitiesException
@@ -521,7 +522,7 @@ public class HibernateDAO
 			throw new SQLUtilitiesException("Query string not defined!") ;
 		}
 	}
-	
+
 	public synchronized void executeSQLUpdate(String queryString) throws SQLUtilitiesException
 	{
 		if (queryString != null && queryString.length() > 0)
@@ -660,7 +661,7 @@ public class HibernateDAO
 				SqlParameter[] parameters = query.getParameters().toArray(new SqlParameter[query.getParameters().size()]) ;
 
 				queryString = SimpleSQLPropertyUtilities.parameterise(queryString, parameters, arguments) ;
-				
+
 				invokeUpdate(queryString, query.isHqlQuery()) ;
 			}
 			else
@@ -817,7 +818,7 @@ public class HibernateDAO
 	{
 		return getCurrentSession().beginTransaction() ;
 	}
-	
+
 	/**
 	 * Gets the Current Entity Manager and then commits a transaction
 	 */
@@ -826,7 +827,7 @@ public class HibernateDAO
 		if (getCurrentSession().getTransaction().isActive())
 			getCurrentSession().getTransaction().commit() ;
 	}
-	
+
 	/**
 	 * Gets the Current Entity Manager and then rollbacks a transaction
 	 */
@@ -859,7 +860,7 @@ public class HibernateDAO
 	{
 		getCurrentSession().saveOrUpdate(attachedEntity);
 	}	
-	
+
 	public Object merge(Object detachedEntity) throws HibernateException
 	{
 		return getCurrentSession().merge(detachedEntity) ;
@@ -884,123 +885,128 @@ public class HibernateDAO
 	{
 		return getCurrentSession().createCriteria(classObject) ;
 	}
+	
+	public Criteria createCriteria(DetachedCriteria query) 
+	{
+		return query.getExecutableCriteria(getCurrentSession()) ;
+	}
 
 	public final Object persistQueryWithTransaction(String object) throws HibernateException
-  {			
+	{			
 		Serializable returnedEntity = null ;
-			
+
 		if (object != null)
 		{
 			try
-      {
+			{
 				beginTransaction() ;
-				
-	      persist(object) ;
-	      
-	      commitTransaction() ;
-      }
-	    catch (HibernateException e)
-	    {
-	    	rollbackTransaction() ;
 
-		    throw e ; 
-	    }
+				persist(object) ;
+
+				commitTransaction() ;
+			}
+			catch (HibernateException e)
+			{
+				rollbackTransaction() ;
+
+				throw e ; 
+			}
 		}
-    
+
 		return returnedEntity ;
-  }
+	}
 
 
 	public final void updateWithTransaction(Object object) throws HibernateException
-  {
+	{
 		if (object != null)
 		{
 			try
-      {
+			{
 				beginTransaction() ;
-				
+
 				update(object) ;
-	      
-	      commitTransaction() ;
-      }
-	    catch (HibernateException e)
-	    {
-	    	rollbackTransaction() ;
 
-		    throw e ;
-	    }
+				commitTransaction() ;
+			}
+			catch (HibernateException e)
+			{
+				rollbackTransaction() ;
+
+				throw e ;
+			}
 		}
-  }
-	
+	}
+
 	public final void saveOrUpdateWithTransaction(Object object) throws HibernateException
-  {
+	{
 		if (object != null)
 		{
 			try
-      {
+			{
 				beginTransaction() ;
-				
-				saveOrUpdate(object) ;
-	      
-	      commitTransaction() ;
-      }
-	    catch (HibernateException e)
-	    {
-	    	rollbackTransaction() ;
 
-		    throw e ;
-	    }
+				saveOrUpdate(object) ;
+
+				commitTransaction() ;
+			}
+			catch (HibernateException e)
+			{
+				rollbackTransaction() ;
+
+				throw e ;
+			}
 		}
-  }
-	
+	}
+
 	public final void mergeWithTransaction(Object object) throws HibernateException
-  {
+	{
 		if (object != null)
 		{
 			try
-      {
+			{
 				beginTransaction() ;
-				
+
 				merge(object) ;
-	      
-	      commitTransaction() ;
-      }
-	    catch (HibernateException e)
-	    {
-	    	rollbackTransaction() ;
-	    	
-		    throw e ;
-	    }
+
+				commitTransaction() ;
+			}
+			catch (HibernateException e)
+			{
+				rollbackTransaction() ;
+
+				throw e ;
+			}
 		}
-  }
+	}
 
 	public final void deleteWithTransaction(Object object) throws HibernateException
-  {
+	{
 		if (object != null)
 		{
 			try
-      {
+			{
 				beginTransaction() ;
-				
+
 				delete(object) ;
-	      
-	      commitTransaction() ;
-      }
-	    catch (HibernateException e)
-	    {
-	    	rollbackTransaction() ;
-	    	
-		    throw e ;
-	    }
+
+				commitTransaction() ;
+			}
+			catch (HibernateException e)
+			{
+				rollbackTransaction() ;
+
+				throw e ;
+			}
 		}
-  }
-	
-	
+	}
+
+
 	public static final Properties createDatabaseProperties(DatabaseProperties databaseProperties) throws SQLUtilitiesException 
 	{
 		boolean usernameRequired = true ;
 		boolean passwordRequired = true ;
-		
+
 		String host = databaseProperties.getServerURL();
 		Integer port = databaseProperties.getPort();
 		String name = databaseProperties.getDatabaseName();
@@ -1056,7 +1062,7 @@ public class HibernateDAO
 					databasePropertiesMap.setProperty(Environment.TRANSACTION_STRATEGY, "org.hibernate.transaction.JDBCTransactionFactory");
 
 					databasePropertiesMap.setProperty(Environment.URL, "jdbc:mysql://" + host + ":" + port + "/" + name + "?autoReconnect=true");
-					
+
 					databasePropertiesMap.setProperty(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
 					// Defaults for MySQL
@@ -1073,7 +1079,7 @@ public class HibernateDAO
 						databasePropertiesMap.put(Environment.TRANSACTION_STRATEGY, "org.hibernate.transaction.JDBCTransactionFactory");
 
 						databasePropertiesMap.put(Environment.URL, "jdbc:postgresql://" + host + ":" + port + "/" + name);
-						
+
 						databasePropertiesMap.setProperty(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
 						// Defaults for PgSQL
@@ -1089,7 +1095,7 @@ public class HibernateDAO
 
 							usernameRequired = false ;
 							passwordRequired = false ;
-							
+
 							//databasePropertiesMap.setProperty(Environment.CURRENT_SESSION_CONTEXT_CLASS, "org.hibernate.context.ThreadLocalSessionContext");
 
 							databasePropertiesMap.setProperty(Environment.URL, "jdbc:sqlite:" + host + "/" + name);
@@ -1126,9 +1132,9 @@ public class HibernateDAO
 
 			if (usernameRequired)
 				if (usernameRequired && username != null && username.trim().length() > 0)
-				databasePropertiesMap.put(Environment.USER, username);
-			else
-				throw new IllegalArgumentException("Database username was not provided.") ;
+					databasePropertiesMap.put(Environment.USER, username);
+				else
+					throw new IllegalArgumentException("Database username was not provided.") ;
 
 			if (passwordRequired)
 				if (password != null)
@@ -1137,7 +1143,7 @@ public class HibernateDAO
 					throw new IllegalArgumentException("Database password was not provided.");
 
 			databasePropertiesMap.put(Environment.AUTO_CLOSE_SESSION, "false");
-			
+
 			// to turn off logging of sql statements
 			//databasePropertiesMap.put(Environment.SHOW_SQL, "true");
 			//databasePropertiesMap.put(Environment.FORMAT_SQL, "true");
@@ -1159,20 +1165,20 @@ public class HibernateDAO
 				{
 					Transaction transaction = null ;
 					try
-          {
+					{
 						transaction = this.beginTransaction() ;
-						
-	          invokeQuery("SHUTDOWN", false) ;
-	          
-	          transaction.commit() ;
-          }
-          catch (Exception e)
-          {
-          	if (transaction != null)
-          		transaction.rollback() ;
 
-	          e.printStackTrace();
-          }
+						invokeQuery("SHUTDOWN", false) ;
+
+						transaction.commit() ;
+					}
+					catch (Exception e)
+					{
+						if (transaction != null)
+							transaction.rollback() ;
+
+						e.printStackTrace();
+					}
 				}
 				this.sessionFactory.close();
 			}
@@ -1264,7 +1270,7 @@ public class HibernateDAO
 		return new Configuration().addProperties(properties).buildSessionFactory() ;
 		//return new Configuration().configure().setProperties(properties).buildSessionFactory() ;
 	}
-	
+
 	private Integer getEndRow(Integer endRow) 
 	{
 		return (endRow >= 0 ? (endRow <= Integer.MAX_VALUE - 1 ? endRow : Integer.MAX_VALUE - 1) : 0);
@@ -1284,7 +1290,7 @@ public class HibernateDAO
 		//make sure no negative integer is returned
 		return (startRow >= 0 ? startRow : 0);
 	}
-	
+
 	/**
 	 * Executes a query against the persistent store and returns the results.  This is where the call
 	 * to the database happens (through EntityManager).  This method is called by the methods which names
@@ -1651,7 +1657,7 @@ public class HibernateDAO
 				}
 			}
 		}
-		
+
 		return toreturn;
 	}
 

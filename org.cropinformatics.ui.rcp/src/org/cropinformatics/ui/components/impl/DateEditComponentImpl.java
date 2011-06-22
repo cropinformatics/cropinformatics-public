@@ -4,9 +4,6 @@ import java.util.Date;
 
 import org.cropinformatics.ui.Activator;
 import org.cropinformatics.ui.components.Component;
-import org.cropinformatics.ui.components.impl.AbstractDateEditComponent;
-import org.cropinformatics.ui.components.impl.DateEditComponent;
-import org.cropinformatics.ui.components.impl.SimpleControlComponent;
 import org.cropinformatics.ui.configuration.ComponentConfiguration;
 import org.cropinformatics.ui.configuration.ContainerConfiguration;
 import org.cropinformatics.ui.configuration.ControlConfiguration;

@@ -19,7 +19,6 @@ package org.cropinformatics.ui.utils;
 
 import java.io.File;
 
-import org.cropinformatics.ui.utils.FileUtils;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.FileDialog;
