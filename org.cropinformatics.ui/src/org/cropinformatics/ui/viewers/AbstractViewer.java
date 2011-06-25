@@ -187,7 +187,7 @@ public abstract class AbstractViewer<T extends ViewerConfiguration> extends Abst
   }
   
   @Override
-  protected final void disposeContainer()
+  protected void disposeContainer()
   {
     performCancel() ;
     removeListeners() ;
