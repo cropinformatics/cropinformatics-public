@@ -1148,7 +1148,7 @@ public class HibernateDAO
 			//databasePropertiesMap.put(Environment.SHOW_SQL, "true");
 			//databasePropertiesMap.put(Environment.FORMAT_SQL, "true");
 			//databasePropertiesMap.put(Environment.USE_SQL_COMMENTS, "true");
-
+			//databasePropertiesMap.put("hibernate.jdbc.batch_size", 0) ;
 		}
 
 		return databasePropertiesMap;
