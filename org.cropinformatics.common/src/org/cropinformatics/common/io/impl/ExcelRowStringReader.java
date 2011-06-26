@@ -16,38 +16,39 @@
 package org.cropinformatics.common.io.impl;
 
 import java.io.File;
+import java.io.IOException;
 
 import jxl.Cell;
 
 public class ExcelRowStringReader extends ExcelRowReader<String>
 {
 
-	public ExcelRowStringReader(String file)
+	public ExcelRowStringReader(String file) throws IOException
 	{
 		super(new File(file)) ;
 	}
 
-	public ExcelRowStringReader(File file)
+	public ExcelRowStringReader(File file) throws IOException
 	{
 		super(file) ;
 	}
 	
-	public ExcelRowStringReader(String file, int firstRow, int firstColumn)
+	public ExcelRowStringReader(String file, int firstRow, int firstColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn) ;
 	}
 
-	public ExcelRowStringReader(File file, int firstRow, int firstColumn)
+	public ExcelRowStringReader(File file, int firstRow, int firstColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn) ;
 	}
 	
-	public ExcelRowStringReader(String file, int firstRow, int firstColumn, int lastRow, int lastColumn)
+	public ExcelRowStringReader(String file, int firstRow, int firstColumn, int lastRow, int lastColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn, lastRow, lastColumn) ;
 	}
 
-	public ExcelRowStringReader(File file, int firstRow, int firstColumn, int lastRow, int lastColumn)
+	public ExcelRowStringReader(File file, int firstRow, int firstColumn, int lastRow, int lastColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn, lastRow, lastColumn) ;
 	}

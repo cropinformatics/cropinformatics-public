@@ -20,32 +20,32 @@ import java.io.IOException;
 
 public class ExcelTableObjectReader extends AbstractExcelTableReader<Object>
 {
-	public ExcelTableObjectReader(String file)
+	public ExcelTableObjectReader(String file) throws IOException
 	{
 		super(new File(file)) ;
 	}
 
-	public ExcelTableObjectReader(File file)
+	public ExcelTableObjectReader(File file) throws IOException
 	{
 		super(file) ;
 	}
 	
-	public ExcelTableObjectReader(String file, int firstRow, int firstColumn)
+	public ExcelTableObjectReader(String file, int firstRow, int firstColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn) ;
 	}
 
-	public ExcelTableObjectReader(File file, int firstRow, int firstColumn)
+	public ExcelTableObjectReader(File file, int firstRow, int firstColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn) ;
 	}
 	
-	public ExcelTableObjectReader(String file, int firstRow, int firstColumn, int lastRow, int lastColumn)
+	public ExcelTableObjectReader(String file, int firstRow, int firstColumn, int lastRow, int lastColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn, lastRow, lastColumn) ;
 	}
 
-	public ExcelTableObjectReader(File file, int firstRow, int firstColumn, int lastRow, int lastColumn)
+	public ExcelTableObjectReader(File file, int firstRow, int firstColumn, int lastRow, int lastColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn, lastRow, lastColumn) ;
 	}

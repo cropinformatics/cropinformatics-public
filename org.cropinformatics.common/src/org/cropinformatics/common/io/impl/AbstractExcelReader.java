@@ -43,33 +43,37 @@ public abstract class AbstractExcelReader<T extends Object>
 	private int columnIndex = 0;
 	private int sheetColumns;
 	private int sheetRows;
+	private int actualFirstRow ;		
+	private int actualFirstColumn ;
+	private int actualLastRow ;
+	private int actualLastColumn ;
 	
-	public AbstractExcelReader(String file)
+	public AbstractExcelReader(String file) throws IOException
 	{
 		this(new File(file), 0, 0, -1, -1) ;
 	}
 
-	public AbstractExcelReader(File file)
+	public AbstractExcelReader(File file) throws IOException
 	{
 		this(file, 0, 0, -1, -1) ;
 	}
 	
-	public AbstractExcelReader(String file, int firstRow, int firstColumn)
+	public AbstractExcelReader(String file, int firstRow, int firstColumn) throws IOException
 	{
 		this(file, firstRow, firstColumn, -1, -1) ;
 	}
 
-	public AbstractExcelReader(File file, int firstRow, int firstColumn)
+	public AbstractExcelReader(File file, int firstRow, int firstColumn) throws IOException
 	{
 		this(file, firstRow, firstColumn, -1, -1) ;
 	}
 	
-	public AbstractExcelReader(String file, int firstRow, int firstColumn, int lastRow, int lastColumn)
+	public AbstractExcelReader(String file, int firstRow, int firstColumn, int lastRow, int lastColumn) throws IOException
 	{
 		this(new File(file), firstRow, firstColumn, lastRow, lastColumn) ;
 	}
 
-	public AbstractExcelReader(File file, int firstRow, int firstColumn, int lastRow, int lastColumn)
+	public AbstractExcelReader(File file, int firstRow, int firstColumn, int lastRow, int lastColumn) throws IOException
 	{
 		this.file = file;
 		this.firstRow = firstRow ;
@@ -78,6 +82,8 @@ public abstract class AbstractExcelReader<T extends Object>
 		this.lastColumn = lastColumn ;
 		
 		reset() ;
+		
+		cacheSheet() ;
 	}
 	
   public final boolean ready()
@@ -210,26 +216,12 @@ public abstract class AbstractExcelReader<T extends Object>
 
 	protected boolean hasNextRow()
   {
-		try
-    {
-	    return rowIndex < getLastRow() ;
-    }
-    catch (IOException e)
-    {
-	    return false ;
-    }
+		return rowIndex < actualLastRow ;
   }
 	
 	protected boolean hasNextColumn()
   {
-		try
-    {
-	    return columnIndex < getLastColumn() ;
-    }
-    catch (IOException e)
-    {
-	    return false ;
-    }
+		return columnIndex < actualLastColumn ;
   }
 	
   protected List<List<T>> readCells() throws IOException
@@ -245,22 +237,17 @@ public abstract class AbstractExcelReader<T extends Object>
     {
 	    values = null;
 
-	    int firstRow = getFirstRow();
-	    int firstColumn = getFirstColumn();
-	    int lastRow = getLastRow() ;
-	    int lastColumn = getLastColumn() ;
-	    
-	    if (lastRow > firstRow && lastColumn > firstColumn)
+	    if (actualLastRow > actualFirstRow && actualLastColumn > actualFirstColumn)
 	    {
-	    	values = new ArrayList<List<T>>(lastRow - firstRow + 1) ;
+	    	values = new ArrayList<List<T>>(actualLastRow - actualFirstRow + 1) ;
 	    	
-	    	for (int i = firstRow; i <= lastRow; i++)
+	    	for (int i = actualFirstRow; i <= actualLastRow; i++)
 	    	{
-		    	row = new ArrayList<T>(lastColumn - firstColumn + 1) ;
+		    	row = new ArrayList<T>(actualLastColumn - actualFirstColumn + 1) ;
 		    	
-		    	for (int j = firstColumn; j <= lastColumn; j++)
+		    	for (int j = actualFirstColumn; j <= actualLastColumn; j++)
 		    	{
-		    		row.add(parseCell(getSheet().getCell(j, rowIndex))) ;
+		    		row.add(parseCell(sheet.getCell(j, rowIndex))) ;
 		    	}
 		    	
 		    	values.add(row) ;
@@ -272,10 +259,6 @@ public abstract class AbstractExcelReader<T extends Object>
 	    }
     }
     catch (IndexOutOfBoundsException e)
-    {
-	    throw new IOException(e.getLocalizedMessage(), e) ;
-    }
-    catch (BiffException e)
     {
 	    throw new IOException(e.getLocalizedMessage(), e) ;
     }
@@ -296,15 +279,10 @@ public abstract class AbstractExcelReader<T extends Object>
     {
 	    values = null;
 
-	    int firstRow = getFirstRow();
-	    int firstColumn = getFirstColumn();
-	    int lastRow = getLastRow() ;
-	    int lastColumn = getLastColumn() ;
-	    
-	    if (lastRow > firstRow && lastColumn > firstColumn)
+	    if (actualLastRow > actualFirstRow && actualLastColumn > actualFirstColumn)
 	    {
-	    	int rowCount = lastRow - firstRow + 1 ;
-	    	int columnCount = lastColumn - firstColumn + 1 ;
+	    	int rowCount = actualLastRow - actualFirstRow + 1 ;
+	    	int columnCount = actualLastColumn - actualFirstColumn + 1 ;
 	    	
 	    	values = createArray(rowCount, columnCount) ;
 
@@ -312,7 +290,7 @@ public abstract class AbstractExcelReader<T extends Object>
 	    	{
 	    		for (int i = 0; i < rowCount; i++)
 	    		{
-	    			values[i][j] = parseCell(getSheet().getCell(j+firstColumn, i+firstRow)) ;
+	    			values[i][j] = parseCell(sheet.getCell(j+actualFirstColumn, i+actualFirstRow)) ;
 	    		}
 	    	}
 	    }
@@ -322,10 +300,6 @@ public abstract class AbstractExcelReader<T extends Object>
 	    }
     }
     catch (IndexOutOfBoundsException e)
-    {
-	    throw new IOException(e.getLocalizedMessage(), e) ;
-    }
-    catch (BiffException e)
     {
 	    throw new IOException(e.getLocalizedMessage(), e) ;
     }
@@ -339,16 +313,13 @@ public abstract class AbstractExcelReader<T extends Object>
 		
     try
     {
-	    int firstColumn = getFirstColumn();
-	    int lastColumn = getLastColumn() ;
-	    
-	    if (hasNextRow())
+	    if (rowIndex <= actualLastRow)
 	    {
-	    	values = createArray(lastColumn - firstColumn + 1) ;
+	    	values = createArray(actualLastColumn - actualFirstColumn + 1) ;
 	    	
-	    	for (int j = firstColumn; j <= lastColumn; j++)
+	    	for (int j = actualFirstColumn; j <= actualLastColumn; j++)
 	    	{
-	    		values[j] = parseCell(getSheet().getCell(j, rowIndex)) ;
+	    		values[j] = parseCell(sheet.getCell(j, rowIndex)) ;
 	    	}
 	    }
     }
@@ -356,11 +327,7 @@ public abstract class AbstractExcelReader<T extends Object>
     {
 	    throw new IOException(e.getLocalizedMessage(), e) ;
     }
-    catch (BiffException e)
-    {
-	    throw new IOException(e.getLocalizedMessage(), e) ;
-    }
-
+    
 	  return values;
   }
 	
@@ -370,24 +337,17 @@ public abstract class AbstractExcelReader<T extends Object>
 		
     try
     {
-	    int firstRow = getFirstRow();
-	    int lastRow = getLastRow() ;
-	    
-	    if (hasNextColumn())
+	    if (columnIndex < actualLastColumn)
 	    {
-	    	values = createArray(lastRow - firstRow + 1) ;
+	    	values = createArray(actualLastRow - actualFirstRow + 1) ;
 	    	
-	    	for (int j = firstRow; j <= lastRow; j++)
+	    	for (int j = actualFirstRow; j <= actualLastRow; j++)
 	    	{
-	    		values[j] = parseCell(getSheet().getCell(columnIndex, j)) ;
+	    		values[j] = parseCell(sheet.getCell(columnIndex, j)) ;
 	    	}
 	    }
     }
     catch (IndexOutOfBoundsException e)
-    {
-	    throw new IOException(e.getLocalizedMessage(), e) ;
-    }
-    catch (BiffException e)
     {
 	    throw new IOException(e.getLocalizedMessage(), e) ;
     }
@@ -401,18 +361,13 @@ public abstract class AbstractExcelReader<T extends Object>
 		
     try
     {
-	    int firstRow = getFirstRow();
-	    int firstColumn = getFirstColumn();
-	    int lastRow = getLastRow() ;
-	    int lastColumn = getLastColumn() ;
-	    
-	    if (rowIndex <= lastRow  && rowIndex >= firstRow && lastColumn > firstColumn)
+	    if (rowIndex <= actualLastRow  && rowIndex >= actualFirstRow && actualLastColumn > actualFirstColumn)
 	    {
-	    	values = new ArrayList<T>(lastColumn - firstColumn + 1) ;
+	    	values = new ArrayList<T>(actualLastColumn - actualFirstColumn + 1) ;
 	    	
-	    	for (int j = firstColumn; j <= lastColumn; j++)
+	    	for (int j = actualFirstColumn; j <= actualLastColumn; j++)
 	    	{
-	    		values.add(parseCell(getSheet().getCell(j, rowIndex))) ;
+	    		values.add(parseCell(sheet.getCell(j, rowIndex))) ;
 	    	}
 	    }
 	    else
@@ -421,10 +376,6 @@ public abstract class AbstractExcelReader<T extends Object>
 	    }
     }
     catch (IndexOutOfBoundsException e)
-    {
-	    throw new IOException(e.getLocalizedMessage(), e) ;
-    }
-    catch (BiffException e)
     {
 	    throw new IOException(e.getLocalizedMessage(), e) ;
     }
@@ -438,18 +389,13 @@ public abstract class AbstractExcelReader<T extends Object>
 		
     try
     {
-	    int firstRow = getFirstRow();
-	    int firstColumn = getFirstColumn();
-	    int lastRow = getLastRow() ;
-	    int lastColumn = getLastColumn() ;
-	    
-	    if (columnIndex <= lastColumn  && columnIndex >= firstColumn && lastRow > firstRow)
+	    if (columnIndex <= actualLastColumn  && columnIndex >= actualFirstColumn && actualLastRow > actualFirstRow)
 	    {
-	    	values = new ArrayList<T>(lastRow - firstRow + 1) ;
+	    	values = new ArrayList<T>(actualLastRow - actualFirstRow + 1) ;
 	    	
-	    	for (int j = firstRow; j <= lastRow; j++)
+	    	for (int j = actualFirstRow; j <= actualLastRow; j++)
 	    	{
-	    		values.add(parseCell(getSheet().getCell(columnIndex, j))) ;
+	    		values.add(parseCell(sheet.getCell(columnIndex, j))) ;
 	    	}
 	    }
 	    else
@@ -461,10 +407,6 @@ public abstract class AbstractExcelReader<T extends Object>
     {
 	    throw new IOException(e.getLocalizedMessage(), e) ;
     }
-    catch (BiffException e)
-    {
-	    throw new IOException(e.getLocalizedMessage(), e) ;
-    }
 
 	  return values;
   }
@@ -473,13 +415,9 @@ public abstract class AbstractExcelReader<T extends Object>
   {
     try
     {
-	    return parseCell(getSheet().getCell(columnIndex, rowIndex)) ;
+	    return parseCell(sheet.getCell(columnIndex, rowIndex)) ;
     }
     catch (IndexOutOfBoundsException e)
-    {
-	    throw new IOException(e.getLocalizedMessage(), e) ;
-    }
-    catch (BiffException e)
     {
 	    throw new IOException(e.getLocalizedMessage(), e) ;
     }
@@ -515,12 +453,12 @@ public abstract class AbstractExcelReader<T extends Object>
 	
 	protected void resetRow() throws IOException
   {
-    rowIndex = getFirstRow() - 1 ;
+    rowIndex = actualFirstRow - 1 ;
   }
 
 	protected void resetColumn() throws IOException
   {
-    columnIndex = getFirstColumn() - 1;
+    columnIndex = actualFirstColumn - 1;
   }
 	
 	protected abstract T[] createArray(int i) ;
@@ -540,26 +478,6 @@ public abstract class AbstractExcelReader<T extends Object>
     }
   }
 	
-	private int getFirstRow() throws IOException
-  {
-	  return this.firstRow < getSheetRows() ? this.firstRow : getSheetRows() -1 ;
-  }
-	
-	private int getFirstColumn() throws IOException
-  {
-	  return this.firstColumn < getSheetColumns() ? this.firstColumn : getSheetColumns() -1 ;
-  }
-
-	private int getLastRow() throws IOException
-  {
-	  return this.lastRow != -1 && this.lastRow < getSheetRows()  ? this.lastRow : getSheetRows() -1;
-  }
-	
-	private int getLastColumn() throws IOException
-  {
-		return this.lastColumn != -1 && this.lastColumn < getSheetColumns() ? this.lastColumn : getSheetColumns() -1 ;
-  }
-
 	protected Object getCellValue(Cell cell)
 	{
 		Object value = null ;
@@ -666,30 +584,6 @@ public abstract class AbstractExcelReader<T extends Object>
 		
 	  return workbook;
   }
-	
-	private Sheet getSheet() throws BiffException, IndexOutOfBoundsException, IOException
-  {
-		if (sheet == null)
-			cacheSheet() ;
-		
-		return sheet ;
-  }
-	
-	private int getSheetRows() throws IOException
-  {
-    if (sheet == null)
-    	cacheSheet() ;
-    
-    return sheetRows ;
-  }
-	
-	private int getSheetColumns() throws IOException
-  {
-    if (sheet == null)
-    	cacheSheet() ;
-    
-    return sheetColumns ;
-  }
 
 	protected boolean isNull(Cell cell)
   {
@@ -703,17 +597,21 @@ public abstract class AbstractExcelReader<T extends Object>
 		{
 			if (sheet == null && getWorkbook() != null && spreadSheetIndex >=0)	
 			{
-
 				sheet = getWorkbook().getSheet(spreadSheetIndex) ;
 
 				sheetRows = 0 ;
 				sheetColumns = 0 ;
 
-
 				if (sheet != null)
 				{
 					sheetRows = sheet.getRows() ;
 					sheetColumns = sheet.getColumns() ;
+					
+					actualFirstRow = firstRow < sheetRows ? this.firstRow : sheetRows -1 ;		
+					actualFirstColumn = firstColumn < sheetColumns ? this.firstColumn : sheetColumns -1 ;
+
+					actualLastRow = lastRow != -1 && this.lastRow < sheetRows  ? this.lastRow : sheetRows -1;
+					actualLastColumn = lastColumn != -1 && this.lastColumn < sheetColumns ? this.lastColumn : sheetColumns -1 ;
 				}
 			}
 		}

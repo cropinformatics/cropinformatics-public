@@ -392,7 +392,7 @@ public class BundleUtils
     }
     catch (Exception e)
     {
-      return null ;
+      return Integer.MIN_VALUE ;
     }
   }
 

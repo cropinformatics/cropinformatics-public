@@ -23,32 +23,32 @@ import org.cropinformatics.common.io.TableReader;
 
 public class AbstractExcelTableReader<T extends Object> extends AbstractExcelReader<T> implements TableReader<T>
 {
-	public AbstractExcelTableReader(String file)
+	public AbstractExcelTableReader(String file) throws IOException
 	{
 		super(new File(file)) ;
 	}
 
-	public AbstractExcelTableReader(File file)
+	public AbstractExcelTableReader(File file) throws IOException
 	{
 		super(file) ;
 	}
 	
-	public AbstractExcelTableReader(String file, int firstRow, int firstColumn)
+	public AbstractExcelTableReader(String file, int firstRow, int firstColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn) ;
 	}
 
-	public AbstractExcelTableReader(File file, int firstRow, int firstColumn)
+	public AbstractExcelTableReader(File file, int firstRow, int firstColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn) ;
 	}
 	
-	public AbstractExcelTableReader(String file, int firstRow, int firstColumn, int lastRow, int lastColumn)
+	public AbstractExcelTableReader(String file, int firstRow, int firstColumn, int lastRow, int lastColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn, lastRow, lastColumn) ;
 	}
 
-	public AbstractExcelTableReader(File file, int firstRow, int firstColumn, int lastRow, int lastColumn)
+	public AbstractExcelTableReader(File file, int firstRow, int firstColumn, int lastRow, int lastColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn, lastRow, lastColumn) ;
 	}

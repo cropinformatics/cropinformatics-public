@@ -22,32 +22,32 @@ import jxl.Cell;
 
 public class ExcelTableStringReader extends AbstractExcelTableReader<String>
 {
-	public ExcelTableStringReader(String file)
+	public ExcelTableStringReader(String file) throws IOException
 	{
 		super(new File(file)) ;
 	}
 
-	public ExcelTableStringReader(File file)
+	public ExcelTableStringReader(File file) throws IOException
 	{
 		super(file) ;
 	}
 	
-	public ExcelTableStringReader(String file, int firstRow, int firstColumn)
+	public ExcelTableStringReader(String file, int firstRow, int firstColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn) ;
 	}
 
-	public ExcelTableStringReader(File file, int firstRow, int firstColumn)
+	public ExcelTableStringReader(File file, int firstRow, int firstColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn) ;
 	}
 	
-	public ExcelTableStringReader(String file, int firstRow, int firstColumn, int lastRow, int lastColumn)
+	public ExcelTableStringReader(String file, int firstRow, int firstColumn, int lastRow, int lastColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn, lastRow, lastColumn) ;
 	}
 
-	public ExcelTableStringReader(File file, int firstRow, int firstColumn, int lastRow, int lastColumn)
+	public ExcelTableStringReader(File file, int firstRow, int firstColumn, int lastRow, int lastColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn, lastRow, lastColumn) ;
 	}

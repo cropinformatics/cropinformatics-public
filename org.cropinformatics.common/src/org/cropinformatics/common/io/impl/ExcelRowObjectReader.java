@@ -16,36 +16,37 @@
 package org.cropinformatics.common.io.impl;
 
 import java.io.File;
+import java.io.IOException;
 
 public class ExcelRowObjectReader extends ExcelRowReader<Object>
 {
 
-	public ExcelRowObjectReader(String file)
+	public ExcelRowObjectReader(String file) throws IOException
 	{
 		super(new File(file)) ;
 	}
 
-	public ExcelRowObjectReader(File file)
+	public ExcelRowObjectReader(File file) throws IOException
 	{
 		super(file) ;
 	}
 	
-	public ExcelRowObjectReader(String file, int firstRow, int firstColumn)
+	public ExcelRowObjectReader(String file, int firstRow, int firstColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn) ;
 	}
 
-	public ExcelRowObjectReader(File file, int firstRow, int firstColumn)
+	public ExcelRowObjectReader(File file, int firstRow, int firstColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn) ;
 	}
 	
-	public ExcelRowObjectReader(String file, int firstRow, int firstColumn, int lastRow, int lastColumn)
+	public ExcelRowObjectReader(String file, int firstRow, int firstColumn, int lastRow, int lastColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn, lastRow, lastColumn) ;
 	}
 
-	public ExcelRowObjectReader(File file, int firstRow, int firstColumn, int lastRow, int lastColumn)
+	public ExcelRowObjectReader(File file, int firstRow, int firstColumn, int lastRow, int lastColumn) throws IOException
 	{
 		super(file, firstRow, firstColumn, lastRow, lastColumn) ;
 	}
