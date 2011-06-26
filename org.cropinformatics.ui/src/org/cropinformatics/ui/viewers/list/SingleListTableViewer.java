@@ -298,7 +298,7 @@ public class SingleListTableViewer<T extends Object>
 
       while (iterator.hasNext())
       {
-        indices[i] = getItems().indexOf(iterator.next()) ;
+        indices[i] = indexOfItem(iterator.next()) ;
         ++i ;
       }
 
@@ -306,7 +306,12 @@ public class SingleListTableViewer<T extends Object>
     }
   }
   
-  @Override
+  protected int indexOfItem(T item)
+  {
+	  return getItems().indexOf(item);
+  }
+
+	@Override
   protected void initialiseChecked()
   { 
     List<T> checkedItems = getCheckedItems() ;
@@ -319,9 +324,14 @@ public class SingleListTableViewer<T extends Object>
 
       while (iterator.hasNext())
       {
-        ((ICheckable)getTableViewer()).setChecked(iterator.next(), true) ;
+        ((ICheckable)getTableViewer()).setChecked(getItem(iterator.next()), true) ;
       }
     }
+  }
+	
+  protected T getItem(T item)
+  {
+	  return item ;
   }
 
   @Override

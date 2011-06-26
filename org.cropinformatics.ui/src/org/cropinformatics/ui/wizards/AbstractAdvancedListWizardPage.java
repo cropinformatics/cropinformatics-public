@@ -82,17 +82,17 @@ public abstract class AbstractAdvancedListWizardPage<T> extends AbstractListWiza
   }
 
   @Override
-  public final void setSelectedItem(T checkedItem)
+  public final void setSelectedItem(T selectedItem)
   {
     if (getAdvancedListViewer() != null && isCheckSelectionInUse())
     {
-    	getAdvancedListViewer().setCheckedItem(checkedItem);
+    	getAdvancedListViewer().setCheckedItem(selectedItem);
     	
     	updatePageComplete();
     }
     else
     {
-    	super.setSelectedItem(checkedItem);
+    	super.setSelectedItem(selectedItem);
     }
   }
 
@@ -110,15 +110,15 @@ public abstract class AbstractAdvancedListWizardPage<T> extends AbstractListWiza
   }
 
   @Override
-  public final void setSelectedItems(List<T> checkedItems)
+  public final void setSelectedItems(List<T> selectedItems)
   {
     if (getAdvancedListViewer() != null && isCheckSelectionInUse())
     {
-    	getAdvancedListViewer().setCheckedItems(checkedItems);
+    	getAdvancedListViewer().setCheckedItems(selectedItems);
     }
     else
     {
-    	super.setSelectedItems(checkedItems);
+    	super.setSelectedItems(selectedItems);
     }
   }
 
@@ -135,8 +135,6 @@ public abstract class AbstractAdvancedListWizardPage<T> extends AbstractListWiza
   	if (getAdvancedListViewer() != null && isCheckSelectionInUse())
   	{
     	getAdvancedListViewer().setCheckedItems(getAdvancedListViewer().getSelectedItems());
-    	
-    	getAdvancedListViewer().setSelectedItem(null) ;
   	}
   }
   
@@ -155,7 +153,10 @@ public abstract class AbstractAdvancedListWizardPage<T> extends AbstractListWiza
       Composite parent, ListViewerConfiguration listViewerConfiguration, List<T> items, 
       List<T> selectedItems, IRunnableContext runnableContext)
   {
-  	return createAdvancedListViewer(parent, listViewerConfiguration, items, selectedItems, runnableContext) ;
+  	if (isCheckSelectionInUse())
+  		return createAdvancedListViewer(parent, listViewerConfiguration, items, null, runnableContext) ;
+  	else
+  		return createAdvancedListViewer(parent, listViewerConfiguration, items, selectedItems, runnableContext) ;
   }
   
   protected abstract AdvancedListViewer<T> createAdvancedListViewer(
