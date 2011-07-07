@@ -133,4 +133,24 @@ public class PropertySetValueOperation extends AbstractOperation
   {
 	  return canUndo ;
   }
+
+	public final Object getBean()
+  {
+  	return bean;
+  }
+
+	public final String getProperty()
+  {
+  	return property;
+  }
+
+	public final Object getValue()
+  {
+  	return value;
+  }
+
+	public final Object getOldValue()
+  {
+  	return oldValue;
+  }
 }

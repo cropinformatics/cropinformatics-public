@@ -25,6 +25,10 @@ import org.cropinformatics.ui.configuration.ComponentConfiguration;
 import org.cropinformatics.ui.configuration.ContainerConfiguration;
 import org.cropinformatics.ui.configuration.ControlConfiguration;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.FocusEvent;
+import org.eclipse.swt.events.FocusListener;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.VerifyEvent;
@@ -37,6 +41,8 @@ public abstract class StringEditComponent<T> extends LabelledEditComponent<T>
   public static final String TEXT_COMPONENT_ID = "text";
   
   private Text text ;
+
+	private boolean textChanged;
 
   public StringEditComponent(Composite parent)
   {
@@ -106,24 +112,68 @@ public abstract class StringEditComponent<T> extends LabelledEditComponent<T>
         }
   
       }) ;
+      
+      text.addKeyListener(new KeyListener()
+      {
+				@Override
+        public void keyPressed(KeyEvent e)
+        {
+ 
+        }
+
+				@Override
+        public void keyReleased(KeyEvent e)
+        {
+	        if (e.keyCode == SWT.CR)
+	        	updateValueFromText() ;
+        }
+  
+      }) ;
+      
+      
+      text.addFocusListener(new FocusListener()
+      {
+				@Override
+        public void focusGained(FocusEvent e)
+        {
+
+        }
+
+				@Override
+        public void focusLost(FocusEvent e)
+        {
+					updateValueFromText() ;
+        }
+  
+      }) ;
     }
     
     return component ;
+  }
+  
+  protected void updateValueFromText()
+  {
+  	if (textChanged)
+  	{
+	    if (text.getText() != null && text.getText().trim().length() > 0)
+	    {
+	    	T value = parseString(text.getText()) ;
+	      setValueInternalWithEvent(value) ;
+	    }
+	    else
+	    {
+	      setValueInternalWithEvent(null) ;
+	    }
+	    
+	  	textChanged = false ;
+  	}
   }
   
   protected void handleModifyText(ModifyEvent event)
   {
   	boolean oldValue = isValid() ;
   	
-    if (text.getText() != null && text.getText().trim().length() > 0)
-    {
-    	T value = parseString(text.getText()) ;
-      setValueInternalWithEvent(value) ;
-    }
-    else
-    {
-      setValueInternalWithEvent(null) ;
-    }
+  	textChanged = true ;
   	
     getPropertyChangeSupport().firePropertyChange(VALID, oldValue, isValid()) ;
   }

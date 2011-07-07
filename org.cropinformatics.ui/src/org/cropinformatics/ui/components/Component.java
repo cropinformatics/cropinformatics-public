@@ -59,7 +59,7 @@ public interface Component<C extends ComponentConfiguration> extends Configurabl
   
   public boolean isEnabled() ;
   
-  public void setEnabled(boolean b) ;
+  public void setEnabled(boolean enabled) ;
   
   public boolean isVisible() ;
   

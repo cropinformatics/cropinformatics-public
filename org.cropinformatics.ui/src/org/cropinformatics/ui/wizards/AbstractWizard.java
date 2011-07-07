@@ -640,7 +640,7 @@ public abstract class AbstractWizard extends Wizard implements IWorkbenchWizard,
     {
 			PathNode pathNode = previousPathNode ;
 			
-			while (pathNode instanceof ControlNode)
+			while (pathNode instanceof ControlNode || (pathNode != null && !pathNode.isVisible()))
 			{
 				pathNode = pathNode.getPreviousPathNode() ;
 			}
@@ -655,7 +655,7 @@ public abstract class AbstractWizard extends Wizard implements IWorkbenchWizard,
     {
 			PathNode pathNode = nextPathNode ;
 			
-			while (pathNode instanceof ControlNode)
+			while (pathNode instanceof ControlNode || (pathNode != null && !pathNode.isVisible()))
 			{
 				pathNode = pathNode.getNextPathNode() ;
 			}
@@ -664,6 +664,11 @@ public abstract class AbstractWizard extends Wizard implements IWorkbenchWizard,
 				return pathNode.getPageNode() ;
 			else
 				return null ;
+    }
+
+		private boolean isVisible()
+    {
+	    return getPage() instanceof ConfigurableWizardPage && ((ConfigurableWizardPage)getPage()).isEnabled() ;
     }
 
 		public final IWizardPage getNextPage()

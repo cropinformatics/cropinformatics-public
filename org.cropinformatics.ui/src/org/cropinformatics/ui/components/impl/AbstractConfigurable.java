@@ -22,7 +22,10 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 import org.eclipse.core.commands.operations.IOperationHistory;
+import org.eclipse.core.commands.operations.IOperationHistoryListener;
 import org.eclipse.core.commands.operations.IUndoContext;
+import org.eclipse.core.commands.operations.IUndoableOperation;
+import org.eclipse.core.commands.operations.OperationHistoryEvent;
 import org.eclipse.ui.PlatformUI;
 
 public abstract class AbstractConfigurable
@@ -38,6 +41,7 @@ public abstract class AbstractConfigurable
   private boolean initialised = false ;
   
 	private IUndoContext undoContext = null ;
+	private IOperationHistoryListener operationHistoryListener;
 
   public AbstractConfigurable()
   {
@@ -52,11 +56,58 @@ public abstract class AbstractConfigurable
   public final void setUndoContext(IUndoContext undoContext)
   {
   	this.undoContext = undoContext;
+  	
+  	if (undoContext != null)
+  	{
+
+    	operationHistoryListener = new IOperationHistoryListener()
+    	{
+  			@Override
+        public void historyNotification(OperationHistoryEvent event)
+        {
+  				if (event.getEventType() ==	OperationHistoryEvent.UNDONE)
+  				{
+  					operationUndone(event.getOperation()) ;
+  				}
+  				else
+  				{
+    				if (event.getEventType() ==	OperationHistoryEvent.REDONE)
+    				{
+    					operationRedone(event.getOperation()) ;
+    				}
+  				}
+        }
+    	} ; 	
+    	
+	  	PlatformUI.getWorkbench().getOperationSupport()
+	    .getOperationHistory().addOperationHistoryListener(operationHistoryListener) ;
+  	}
+  	else
+  	{
+      if (operationHistoryListener != null)
+      	PlatformUI.getWorkbench().getOperationSupport()
+        .getOperationHistory().removeOperationHistoryListener(operationHistoryListener) ;
+  	}
+
   }
   
-  public void dispose()
+  protected void operationRedone(IUndoableOperation operation)
+  {
+
+  }
+
+	protected void operationUndone(IUndoableOperation operation)
+  {
+
+  }
+
+	public void dispose()
   {
     propertyChangeSupport = null ;
+    
+    if (operationHistoryListener != null)
+    	PlatformUI.getWorkbench().getOperationSupport()
+      .getOperationHistory().removeOperationHistoryListener(operationHistoryListener) ;
   }
 
   public final synchronized void addPropertyChangeListener(

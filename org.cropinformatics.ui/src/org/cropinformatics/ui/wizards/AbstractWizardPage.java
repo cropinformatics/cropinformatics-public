@@ -21,7 +21,6 @@ package org.cropinformatics.ui.wizards;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-import org.cropinformatics.ui.components.Configurable;
 import org.cropinformatics.ui.configuration.ComponentConfiguration;
 import org.cropinformatics.ui.configuration.ConfigurationFactory;
 import org.cropinformatics.ui.configuration.ControlConfiguration;
@@ -31,12 +30,14 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.widgets.Composite;
 
-public abstract class AbstractWizardPage<T extends ControlConfiguration> extends WizardPage implements Configurable<WizardPageConfiguration>
+public abstract class AbstractWizardPage<T extends ControlConfiguration> extends WizardPage implements ConfigurableWizardPage
 {
   public static final String VISIBILITY_PROPERTY = "visibility" ;
   
   private WizardPageConfiguration configuration ;
   private PropertyChangeSupport propertyChangeSupport;
+
+	private boolean enabled;
 
   public AbstractWizardPage(String pageName, String title, String description,
       ImageDescriptor titleImage, WizardPageConfiguration configuration)
@@ -45,15 +46,11 @@ public abstract class AbstractWizardPage<T extends ControlConfiguration> extends
     
     setDescription(description);
     setConfiguration(configuration) ;
+    enabled = getConfiguration().isEnabled() ;
     
     propertyChangeSupport = new PropertyChangeSupport(this);
   }
-
-  public final boolean isVisible()
-  {
-    return getControl() != null && getControl().isVisible() ;
-  }
-
+  
   public final void createControl(Composite parent)
   {
   	T childConfiguration = getChildControlConfiguration(getConfiguration()) ;
@@ -71,6 +68,21 @@ public abstract class AbstractWizardPage<T extends ControlConfiguration> extends
     disposeControl() ;
     
 	  super.dispose();
+  }
+
+  public boolean isEnabled()
+  {
+  	return enabled ;
+  }
+  
+  public void setEnabled(boolean enabled)
+  {
+  	this.enabled = enabled ;
+  }
+  
+  public final boolean isVisible()
+  {
+    return getControl() != null && getControl().isVisible() ;
   }
 
 	@Override
