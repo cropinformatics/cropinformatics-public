@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %bundleName
-Bundle-SymbolicName: org.daveneti.ui.rap
+Bundle-SymbolicName: org.cropinformatics.ui.rap
 Bundle-Version: 0.1.0
 Bundle-Vendor: %providerName
 Fragment-Host: org.daveneti.ui;bundle-version="[0.1.0,0.2.0)"

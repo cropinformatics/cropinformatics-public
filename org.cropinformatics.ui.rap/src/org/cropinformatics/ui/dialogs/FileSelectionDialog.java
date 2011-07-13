@@ -1,9 +1,9 @@
-package org.daveneti.ui.dialogs;
+package org.cropinformatics.ui.dialogs;
 
 
 import java.io.File;
 
-import org.daveneti.ui.components.impl.FileSelectionComponent;
+import org.cropinformatics.ui.components.impl.FileSelectionComponent;
 import org.daveneti.ui.configuration.ContainerConfiguration;
 import org.daveneti.ui.configuration.DialogConfiguration;
 import org.daveneti.ui.configuration.utils.ConfigurationUtils;

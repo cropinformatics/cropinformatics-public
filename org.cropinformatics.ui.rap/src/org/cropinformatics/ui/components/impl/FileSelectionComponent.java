@@ -1,4 +1,4 @@
-package org.daveneti.ui.components.impl;
+package org.cropinformatics.ui.components.impl;
 
 
 import java.io.File;

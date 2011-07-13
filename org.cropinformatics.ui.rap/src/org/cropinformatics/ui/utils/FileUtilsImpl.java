@@ -1,9 +1,9 @@
-package org.daveneti.ui.utils;
+package org.cropinformatics.ui.utils;
 
 
+import org.cropinformatics.ui.components.impl.DirectoryInputValidator;
+import org.cropinformatics.ui.dialogs.FileSelectionDialog;
 import org.daveneti.ui.Activator;
-import org.daveneti.ui.components.impl.DirectoryInputValidator;
-import org.daveneti.ui.dialogs.FileSelectionDialog;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.swt.widgets.Shell;
 
