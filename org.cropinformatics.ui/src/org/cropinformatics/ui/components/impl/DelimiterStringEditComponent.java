@@ -64,12 +64,11 @@ public class DelimiterStringEditComponent extends TextEditComponent
     super(parent, containerConfiguration, labelValue, value);
   }
   
-  @Override
-  public void setValue(String value)
+	@Override
+  protected void updateInternalComponents()
   {
-    if (String.valueOf(TAB_VALUE).equals(value))
+    if (String.valueOf(TAB_VALUE).equals(getValue()))
     {
-      setValueInternal(value) ;
       if (tabButton != null) 
         tabButton.setSelection(true) ;
       if (commaButton != null)
@@ -79,9 +78,8 @@ public class DelimiterStringEditComponent extends TextEditComponent
     }
     else
     {
-      if (String.valueOf(COMMA_VALUE).equals(value))
+      if (String.valueOf(COMMA_VALUE).equals(getValue()))
       {
-        setValueInternal(value) ;
         if (tabButton != null)
           tabButton.setSelection(false) ;
         if (commaButton != null)
@@ -91,7 +89,6 @@ public class DelimiterStringEditComponent extends TextEditComponent
       }
       else
       {
-        super.setValue(value);
         if (tabButton != null)
           tabButton.setSelection(false) ;
         if (commaButton != null)
@@ -188,7 +185,7 @@ public class DelimiterStringEditComponent extends TextEditComponent
   {
     if (tabButton.getSelection())
     {
-      setValueInternalWithEvent(String.valueOf(TAB_VALUE)) ;
+    	setValueInternalWithEvent(String.valueOf(TAB_VALUE)) ;
       diasbleText() ;
       if (commaButton != null)
         commaButton.setSelection(false) ;
@@ -203,7 +200,7 @@ public class DelimiterStringEditComponent extends TextEditComponent
   {
     if (commaButton.getSelection())
     {
-      setValueInternalWithEvent(String.valueOf(COMMA_VALUE)) ;
+    	setValueInternalWithEvent(String.valueOf(COMMA_VALUE)) ;
       diasbleText() ;
       if (tabButton != null) 
         tabButton.setSelection(false) ;
@@ -219,14 +216,14 @@ public class DelimiterStringEditComponent extends TextEditComponent
     if (getText() != null)
     {
       if (getText().getText() != null && getText().getText().trim().length() > 0)
-        setValueInternalWithEvent(getText().getText().trim()) ;
+      	setValueInternalWithEvent(getText().getText().trim()) ;
       else
-        setValueInternalWithEvent(null) ;
+      	setValueInternalWithEvent(null) ;
       getText().setEnabled(true) ;
     }
     else
     {
-      setValueInternalWithEvent(null) ;
+    	setValueInternalWithEvent(null) ;
     }  
   }
 

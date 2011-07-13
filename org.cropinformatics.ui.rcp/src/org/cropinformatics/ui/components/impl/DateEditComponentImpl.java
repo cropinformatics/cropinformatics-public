@@ -49,15 +49,14 @@ public class DateEditComponentImpl extends AbstractDateEditComponent
 	{
 		super(parent, containerConfiguration, labelValue, value);
 	}
-
-	public void setValue(Date value)
-	{
-		super.setValue(value) ;
-
-		if (dateChooserCombo != null)
-			dateChooserCombo.setValue(value) ;
-	}
   
+	@Override
+  protected void updateInternalComponents()
+  {
+		if (dateChooserCombo != null)
+			dateChooserCombo.setValue(getValue()) ;
+  }
+
 	@Override
 	protected Component<? extends ComponentConfiguration> initialiseChildComponent(Composite parent,
 			ComponentConfiguration configuration, String id)

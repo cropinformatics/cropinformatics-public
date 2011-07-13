@@ -53,11 +53,11 @@ public class BooleanEditComponent extends LabelledEditComponent<Boolean>
     super(parent, containerConfiguration, labelValue, value);
   }
   
-  public void setValue(Boolean value)
+	@Override
+  protected void updateInternalComponents()
   {
-    super.setValue(value) ;
     if (button != null)
-      button.setSelection(value) ;
+      button.setSelection(getValue()) ;
   }
   
   @Override
@@ -82,12 +82,12 @@ public class BooleanEditComponent extends LabelledEditComponent<Boolean>
       {
         public void widgetDefaultSelected(SelectionEvent e)
         {
-          setValueInternalWithEvent(button.getSelection()) ;
+        	setValueInternalWithEvent(button.getSelection()) ;
         }
 
         public void widgetSelected(SelectionEvent e)
         {
-          setValueInternalWithEvent(button.getSelection()) ;
+        	setValueInternalWithEvent(button.getSelection()) ;
         }
   
       }) ;

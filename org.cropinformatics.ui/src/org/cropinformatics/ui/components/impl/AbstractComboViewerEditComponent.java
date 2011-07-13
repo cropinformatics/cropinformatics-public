@@ -70,12 +70,16 @@ public abstract class AbstractComboViewerEditComponent<T, E> extends LabelledEdi
 		if (isValidValue(value))
 		{
 		  super.setValue(value);
-		  
-		  if (comboViewer != null)
-		  {
-	  		updateSelection() ;
-		  }
 		}
+  }
+
+	@Override
+  protected void updateInternalComponents()
+  {
+	  if (comboViewer != null)
+	  {
+  		updateSelection() ;
+	  }
   }
 
 	protected abstract void createCache() ;

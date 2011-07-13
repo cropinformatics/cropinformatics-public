@@ -54,7 +54,7 @@ public abstract class AbstractConfigurableEditComponent<T> extends
     return valid ;
   }
 
-  public final T getValue()
+  public T getValue()
   {
     return value;
   }
@@ -78,6 +78,8 @@ public abstract class AbstractConfigurableEditComponent<T> extends
 	{
   	if (ConfigurationUtils.isMandatory(getConfiguration()))
   		setErrorMessage(Activator.getDefault().getString(MANDATORY_VALUE_NOT_DEFINED)) ;
+  	else
+  		setErrorMessage(null) ;
 	}
 	
 	@Override

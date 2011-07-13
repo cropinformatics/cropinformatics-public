@@ -94,20 +94,31 @@ public class IntegerEditComponent extends LabelledEditComponent<Integer>
 
   public void setValue(Integer value)
   {
-  	if (value != null && value >= minimum && value <= minimum)
-  	{
-	    super.setValue(value) ;
-  	}
-  	else
+  	if (value == null || value < minimum && value <= maximum)
   	{
 	    super.setValue(minimum) ;
   	}
-  	
-    if (spinner != null)
-      spinner.setSelection(getValue());
+  	else
+  	{
+    	if (value > maximum)
+    	{
+  	    super.setValue(maximum) ;
+    	}
+    	else
+    	{
+  	    super.setValue(value) ;
+    	}
+  	}
   }
   
   @Override
+  protected void updateInternalComponents()
+  {
+    if (spinner != null)
+      spinner.setSelection(getValue());
+  }
+
+	@Override
   protected Component<? extends ComponentConfiguration> initialiseChildComponent(Composite parent,
       ComponentConfiguration configuration, String id)
   {
@@ -152,7 +163,7 @@ public class IntegerEditComponent extends LabelledEditComponent<Integer>
       {
         public void modifyText(ModifyEvent e)
         {
-          setValueInternalWithEvent(spinner.getSelection()) ;
+        	setValueInternalWithEvent(spinner.getSelection()) ;
         }
   
       }) ;

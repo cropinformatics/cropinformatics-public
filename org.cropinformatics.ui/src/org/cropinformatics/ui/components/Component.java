@@ -33,7 +33,8 @@ import org.eclipse.swt.widgets.Control;
 public interface Component<C extends ComponentConfiguration> extends Configurable<C>
 {
 	public static final String VALID = Component.class.getName() + ".valid";
-  
+	public static final String FOCUS = Component.class.getName() + ".focus";
+	
   /**
    * Determine if this component is valid, that is all the parts
    * text boxes, radio button, combo boxes etc contain valid values

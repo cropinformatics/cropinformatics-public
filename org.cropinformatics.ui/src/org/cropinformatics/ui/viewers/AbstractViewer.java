@@ -91,6 +91,7 @@ public abstract class AbstractViewer<T extends ViewerConfiguration> extends Abst
 
   protected void postInitialiseComponent()
   {
+  	super.postInitialiseComponent() ;
     if (!isInitialised())
     {
       addListeners() ;

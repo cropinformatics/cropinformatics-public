@@ -35,7 +35,7 @@ public abstract class AbstractIdentificationEditComponent<T> extends AbstractCon
   private static final String UNIQUE_IDENTIFIER_COMPONENT_LABEL = AbstractIdentificationEditComponent.class.getName() + ".uniqueIdenitfierLabel";
   private static final String NAME_COMPONENT_LABEL = AbstractIdentificationEditComponent.class.getName() + ".nameLabel";
   private static final String DESCRIPTION_COMPONENT_LABEL = AbstractIdentificationEditComponent.class.getName() + ".descriptionLabel";
-  
+	
   public AbstractIdentificationEditComponent(Composite parent,
       ContainerConfiguration configuration)
   {
@@ -84,15 +84,7 @@ public abstract class AbstractIdentificationEditComponent<T> extends AbstractCon
       {
         public void propertyChange(PropertyChangeEvent event)
         {
-    			if (EditComponent.VALUE_CHANGED.equals(event.getPropertyName()))
-    			{
-	          if (getValue() == null)
-	            intialiseDefaultValue() ;
-	          
-	          setName(((TextEditComponent)getChildComponent(NAME_COMPONENT_ID)).getValue()) ;
-	          // TODO perhaps should be handled as a new separate event
-	          getPropertyChangeSupport().firePropertyChange(event) ;
-    			}
+        	handleNameChanged(event) ;
         }
       }) ;
     }
@@ -106,15 +98,7 @@ public abstract class AbstractIdentificationEditComponent<T> extends AbstractCon
         {
           public void propertyChange(PropertyChangeEvent event)
           {
-      			if (EditComponent.VALUE_CHANGED.equals(event.getPropertyName()))
-      			{
-	            if (getValue() == null)
-	              intialiseDefaultValue() ;
-	            
-	            setUniqueIdentifier(((TextEditComponent)getChildComponent(UNIQUE_IDENTIFIER_COMPONENT_ID)).getValue()) ;
-	            // TODO perhaps should be handled as a new separate event
-	            getPropertyChangeSupport().firePropertyChange(event) ;
-      			}
+          	handleUniqueIdentifierChanged(event) ;
           }
         }) ;
       }
@@ -128,15 +112,7 @@ public abstract class AbstractIdentificationEditComponent<T> extends AbstractCon
           {
             public void propertyChange(PropertyChangeEvent event)
             {
-        			if (EditComponent.VALUE_CHANGED.equals(event.getPropertyName()))
-        			{
-	              if (getValue() == null)
-	                intialiseDefaultValue() ;
-	              
-	              setDescription(((TextEditComponent)getChildComponent(DESCRIPTION_COMPONENT_ID)).getValue()) ;
-	              // TODO perhaps should be handled as a new separate event
-	              getPropertyChangeSupport().firePropertyChange(event) ;
-        			}
+            	handleDescriptionChanged(event) ;
             }
           }) ;
         }
@@ -146,7 +122,75 @@ public abstract class AbstractIdentificationEditComponent<T> extends AbstractCon
     return component;
   }
   
-  @Override
+  protected void handleUniqueIdentifierChanged(PropertyChangeEvent event)
+  {
+		if (EditComponent.VALUE_CHANGED.equals(event.getPropertyName()))
+		{
+      if (getValue() == null)
+        intialiseDefaultValue() ;
+      
+      setUniqueIdentifier(((TextEditComponent)getChildComponent(UNIQUE_IDENTIFIER_COMPONENT_ID)).getValue()) ;
+      // TODO perhaps should be handled as a new separate event
+      getPropertyChangeSupport().firePropertyChange(event) ;
+		}
+		else
+		{
+	  	if (Component.FOCUS.equals(event.getPropertyName()))
+	  	{
+	  		if (event.getSource() instanceof Component && event.getNewValue() instanceof Boolean)
+	  			focusChanged(event.getSource(), (Boolean)event.getNewValue()) ;
+	  	}
+		}
+  }
+  
+  protected void handleNameChanged(PropertyChangeEvent event)
+  {
+		if (EditComponent.VALUE_CHANGED.equals(event.getPropertyName()))
+		{
+      if (getValue() == null)
+        intialiseDefaultValue() ;
+      
+      setName(((TextEditComponent)getChildComponent(NAME_COMPONENT_ID)).getValue()) ;
+      // TODO perhaps should be handled as a new separate event
+      getPropertyChangeSupport().firePropertyChange(event) ;
+		}
+		else
+		{
+	  	if (Component.FOCUS.equals(event.getPropertyName()))
+	  	{
+	  		if (event.getSource() instanceof Component && event.getNewValue() instanceof Boolean)
+	  			focusChanged(event.getSource(), (Boolean)event.getNewValue()) ;
+	  	}
+		}
+  }
+  
+  protected void handleDescriptionChanged(PropertyChangeEvent event)
+  {
+		if (EditComponent.VALUE_CHANGED.equals(event.getPropertyName()))
+		{
+      if (getValue() == null)
+        intialiseDefaultValue() ;
+      
+      setDescription(((TextEditComponent)getChildComponent(DESCRIPTION_COMPONENT_ID)).getValue()) ;
+      // TODO perhaps should be handled as a new separate event
+      getPropertyChangeSupport().firePropertyChange(event) ;
+		}
+		else
+		{
+	  	if (Component.FOCUS.equals(event.getPropertyName()))
+	  	{
+	  		if (event.getSource() instanceof Component && event.getNewValue() instanceof Boolean)
+	  			focusChanged(event.getSource(), (Boolean)event.getNewValue()) ;
+	  	}
+		}
+  }
+
+	protected void focusChanged(Object source, boolean gainedFocus)
+  {
+
+  }
+	
+	@Override
   protected List<String> getChildConpomentIds()
   {
 	  List<String> childConpomentIds = super.getChildConpomentIds();

@@ -92,10 +92,14 @@ public abstract class LabelledEditComponent<T> extends LabelledComponent impleme
     if (this.value != value)
     {
       this.value = value ;
+      
+      validateValue() ;
+      
+      updateInternalComponents() ;
     }
   }  
 
-	protected void setValueInternalWithEvent(T value)
+	protected final void setValueInternalWithEvent(T value)
   {
   	if (!ObjectUtils.equals(this.value, value))
   	{
@@ -110,14 +114,11 @@ public abstract class LabelledEditComponent<T> extends LabelledComponent impleme
   
   protected void validateValue()
   {
-  	if (isValid())
-  		setErrorMessage(Activator.getDefault().getString(MANDATORY_VALUE_NOT_DEFINED)) ;
+  	if (!isValid())
+  		setErrorMessage(Activator.getDefault().getString(MANDATORY_VALUE_NOT_DEFINED, this.getLabelValue())) ;
   	else
   		setErrorMessage(null) ;
   }
-
-	protected void setValueInternal(T value)
-  {
-    this.value = value ;
-  }
+  
+	protected abstract void updateInternalComponents() ;
 }

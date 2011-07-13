@@ -46,7 +46,7 @@ public abstract class AbstractConfigurableControl<T extends ControlConfiguration
   	
     this.parent = parent ;
     
-    errorMessage = null ;
+    //errorMessage = null ;
   }
 
   public final Composite getParent()

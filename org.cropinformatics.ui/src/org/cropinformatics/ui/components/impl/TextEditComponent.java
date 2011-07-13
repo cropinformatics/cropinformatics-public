@@ -59,7 +59,7 @@ public class TextEditComponent extends StringEditComponent<String>
     this.isPasswordField = isPasswordField ;
     this.maxLength = maxLength ;
   }
-
+ 
 	@Override
   protected int createStyle()
   {
@@ -68,19 +68,33 @@ public class TextEditComponent extends StringEditComponent<String>
     else
       return super.createStyle();
   }
-  
-  @Override
-  protected String parseValue(String value) 
-  {
-  	return value;
-  }
 
   @Override
   protected String parseString(String string) 
   {
-  	if (maxLength != null && string != null && string.length() > maxLength)
-  		return null ;
+  	if (string != null)
+  	{
+    	String trimmedString = string.trim() ; // TODO not sure if this is appropriate
+    	if (trimmedString.trim().length() == 0)
+    		return null ;
+    	else
+      	if (maxLength != null && trimmedString != null && trimmedString.length() > maxLength)
+      		return null ;
+      	else
+      		return string;
+  	}
   	else
-  		return string;
+  	{
+  		return null ;
+  	}
+  }
+
+	@Override
+  protected String parseValue(String value)
+  {
+		if (value != null)
+			return value ;
+		else
+			return "" ;
   }
 }

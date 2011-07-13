@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.cropinformatics.ui.components.Component;
 import org.cropinformatics.ui.components.Container;
@@ -52,7 +53,6 @@ public abstract class AbstractContainer<T extends ContainerConfiguration> extend
 				if (VALID.equals(event.getPropertyName()))
 					checkChildValidation() ;
       }
-			
 		} ;
   }
 
@@ -172,6 +172,18 @@ public abstract class AbstractContainer<T extends ContainerConfiguration> extend
   }
   
   /**
+   * Updates the child component of the given id, if has been initialised
+   * @param id the id of the component
+   */
+  public final void updateChildComponent(String id)
+  {
+  	Component<? extends ComponentConfiguration> childComponent = childComponents.get(id) ;
+  	
+  	if (childComponent != null)
+  		childComponent.updateComponent() ;
+  }
+
+  /**
    * Gets all of the child components
    * @return all of the child components
    */
@@ -194,6 +206,11 @@ public abstract class AbstractContainer<T extends ContainerConfiguration> extend
 			childComponentsValid = component.isValid() ;
 		
     return childComponents.put(id, component) ;
+  }
+  
+  protected void postInitialiseComponent()
+  {
+  	checkChildValidation() ;
   }
 
   protected final void disposeChildComponents()
@@ -228,24 +245,49 @@ public abstract class AbstractContainer<T extends ContainerConfiguration> extend
   	
   }
 
-	private void checkChildValidation()
+	protected final void checkChildValidation()
   {
-		boolean oldValue = childComponentsValid ;
+		boolean oldValue = isValid() ;
 		
 		childComponentsValid = true ;
 		
-    Iterator<Component<? extends ComponentConfiguration>> components = childComponents.values().iterator() ;
+    Iterator<Entry<String, Component<? extends ComponentConfiguration>>> components = childComponents.entrySet().iterator() ;
     
-    Component<? extends ComponentConfiguration> component ;
+    Entry<String, Component<? extends ComponentConfiguration>> entry ;
+    
+    String childErrorMessage = null ;
     
     while (childComponentsValid && components.hasNext())
     {
-    	component = components.next() ;
+    	entry = components.next() ;
     	
-    	childComponentsValid = component != null && component.isValid() ;
+    	childComponentsValid = entry.getValue() != null && isChildValid(entry.getKey(), entry.getValue()) ;
+    	
+    	if (!childComponentsValid && childErrorMessage == null)
+    		childErrorMessage = getChildErrorMessage(entry.getKey(), entry.getValue()) ;
     }
     
-		if (oldValue != childComponentsValid)
-			getPropertyChangeSupport().firePropertyChange(VALID, oldValue, childComponentsValid) ;
+    if (childComponentsValid)
+    	childErrorMessage = null ;
+    
+    setErrorMessage(childErrorMessage) ;
+    
+		if (oldValue != isValid())
+			getPropertyChangeSupport().firePropertyChange(VALID, oldValue, isValid()) ;
+  }
+
+	protected boolean isChildValid(String id,
+      Component<? extends ComponentConfiguration> component)
+  {
+	  return component.isValid() ;
+  }
+  
+  protected String getChildErrorMessage(String id,
+      Component<? extends ComponentConfiguration> component)
+  {
+  	if (component instanceof AbstractConfigurableControl)
+  		return ((AbstractConfigurableControl)component).getErrorMessage() ;  
+  	else
+  		return null ;
   }
 }

@@ -194,7 +194,7 @@ public abstract class AbstractConfigurableContainer<T extends ContainerConfigura
     return new LinkedList<String>() ;
   }
   
-	public final String getErrorMessage()
+	public String getErrorMessage()
 	{
 		String errorMessage = super.getErrorMessage() ;
 	  	

@@ -32,7 +32,7 @@ public interface EditComponent<C extends ComponentConfiguration, T> extends Comp
   public static final String VALUE_CHANGED = EditComponent.class.getName() + ".valueChanged";
   public static final String VALUE_UPDATED = EditComponent.class.getName() + ".valueUpdated";
   
-  public static final String MANDATORY_VALUE_NOT_DEFINED = EditComponent.class.getName() + ".valueNotValid";
+  public static final String MANDATORY_VALUE_NOT_DEFINED = EditComponent.class.getName() + ".mandatoryValueNotValid";
   
   /**
    * Gets the value in the edit component

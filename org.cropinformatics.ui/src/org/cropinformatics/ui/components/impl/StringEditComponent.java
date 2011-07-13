@@ -38,11 +38,9 @@ import org.eclipse.swt.widgets.Text;
 
 public abstract class StringEditComponent<T> extends LabelledEditComponent<T> 
 {
-  public static final String TEXT_COMPONENT_ID = "text";
+	public static final String TEXT_COMPONENT_ID = "text";
   
   private Text text ;
-
-	private boolean textChanged;
 
   public StringEditComponent(Composite parent)
   {
@@ -73,7 +71,7 @@ public abstract class StringEditComponent<T> extends LabelledEditComponent<T>
   {
     super(parent, containerConfiguration, labelValue, value);
   }
-  
+     
   @Override
   protected Component<? extends ComponentConfiguration> initialiseChildComponent(Composite parent,
       ComponentConfiguration configuration, String id)
@@ -113,36 +111,18 @@ public abstract class StringEditComponent<T> extends LabelledEditComponent<T>
   
       }) ;
       
-      text.addKeyListener(new KeyListener()
-      {
-				@Override
-        public void keyPressed(KeyEvent e)
-        {
- 
-        }
-
-				@Override
-        public void keyReleased(KeyEvent e)
-        {
-	        if (e.keyCode == SWT.CR)
-	        	updateValueFromText() ;
-        }
-  
-      }) ;
-      
-      
       text.addFocusListener(new FocusListener()
       {
 				@Override
         public void focusGained(FocusEvent e)
         {
-
+	        handleFocusChanged(e, true) ;
         }
 
 				@Override
         public void focusLost(FocusEvent e)
         {
-					updateValueFromText() ;
+	        handleFocusChanged(e, false) ; 
         }
   
       }) ;
@@ -150,49 +130,24 @@ public abstract class StringEditComponent<T> extends LabelledEditComponent<T>
     
     return component ;
   }
-  
-  protected void updateValueFromText()
+
+	protected void handleModifyText(ModifyEvent event)
   {
-  	if (textChanged)
-  	{
-	    if (text.getText() != null && text.getText().trim().length() > 0)
-	    {
-	    	T value = parseString(text.getText()) ;
-	      setValueInternalWithEvent(value) ;
-	    }
-	    else
-	    {
-	      setValueInternalWithEvent(null) ;
-	    }
-	    
-	  	textChanged = false ;
-  	}
-  }
+  	boolean oldValid = isValid() ;
   
-  protected void handleModifyText(ModifyEvent event)
-  {
-  	boolean oldValue = isValid() ;
+  	setValueInternalWithEvent(parseString(text.getText())) ;
   	
-  	textChanged = true ;
-  	
-    getPropertyChangeSupport().firePropertyChange(VALID, oldValue, isValid()) ;
+    getPropertyChangeSupport().firePropertyChange(VALID, oldValid, isValid()) ;
   }
   
   protected void handleVerifyText(VerifyEvent event)
   {
 
   }
-
-	@Override
-  public void setValue(T value)
-  {
-    super.setValue(value) ;
-    
-    if (text != null)
-    	if (value != null)
-    		text.setText(parseValue(value)) ;
-    	else
-    		text.setText("") ;
+  
+  protected void handleFocusChanged(FocusEvent event, boolean gainedFocus)
+  {    
+  	getPropertyChangeSupport().firePropertyChange(FOCUS, !gainedFocus, gainedFocus) ;
   }
 
   protected int createStyle()
@@ -200,21 +155,11 @@ public abstract class StringEditComponent<T> extends LabelledEditComponent<T>
     return SWT.NONE ;
   }
 
-  public final Text getText()
+  protected final Text getText()
   {
     return text;
   }
   
-  @Override
-  public void updateComponent()
-  {
-    if (text != null)
-	    if (getValue() != null)
-	      text.setText(parseValue(getValue())) ;
-	    else
-	    	text.setText("") ;
-  }
-
   @Override
   protected List<String> getChildConpomentIds()
   {
@@ -225,7 +170,17 @@ public abstract class StringEditComponent<T> extends LabelledEditComponent<T>
     return list ;
   }
   
+  @Override
+  protected void updateInternalComponents()
+  {
+  	if (text != null)
+	    if (getValue() != null)
+	      text.setText(parseValue(getValue())) ;
+	    else
+	    	text.setText("") ;
+  }
+  
   protected abstract String parseValue(T value) ;
   
-  protected abstract T parseString(String string) ;
+  protected abstract T parseString(String value) ;
 }

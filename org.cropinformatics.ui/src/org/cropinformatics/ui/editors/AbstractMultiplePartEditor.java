@@ -164,6 +164,8 @@ public abstract class AbstractMultiplePartEditor<T extends ContainerConfiguratio
     	editorHelper.setComponent(firstComponent) ;
     
     editorHelper.createControls() ;
+    
+    updateErrorMessage() ;
   }
   
   @Override
@@ -243,6 +245,11 @@ public abstract class AbstractMultiplePartEditor<T extends ContainerConfiguratio
 	  return null;
   }
 
+	protected boolean closeEditor(boolean save)
+	{
+		return getEditorSite().getPage().closeEditor(this, save);
+	}
+	
   protected final int getActivePageIndex()
   {
     return activePageIndex;
@@ -264,6 +271,11 @@ public abstract class AbstractMultiplePartEditor<T extends ContainerConfiguratio
     setPartName(input.getName());
     setTitleToolTip(input.getToolTipText());
   }
+  
+	protected void updateErrorMessage()
+	{
+		
+	}
   
   @Override
   protected final void pageChange(int newPageIndex)
@@ -299,9 +311,9 @@ public abstract class AbstractMultiplePartEditor<T extends ContainerConfiguratio
   
   protected void disposeData()
   {
-  	
+
   }
-  
+
   protected abstract Component<? extends ComponentConfiguration> initialiseComponent(Composite parent, ComponentConfiguration componentConfiguration, String id) ;
 
   protected void disposeComponent(Component<? extends ComponentConfiguration> component)
