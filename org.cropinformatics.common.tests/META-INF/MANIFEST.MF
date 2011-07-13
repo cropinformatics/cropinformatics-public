@@ -4,5 +4,5 @@ Bundle-Name: Tests
 Bundle-SymbolicName: org.cropinformatics.common.tests
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: org.cropinformatics.common;bundle-version="0.2.0",
+Require-Bundle: org.cropinformatics.common;bundle-version="0.3.0",
  org.junit4;bundle-version="4.3.1"
