@@ -25,6 +25,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.PlatformUI;
 
 public abstract class AbstractEditorTest extends BaseWorkbenchWindowActionDelegate
 {
@@ -32,7 +33,8 @@ public abstract class AbstractEditorTest extends BaseWorkbenchWindowActionDelega
   {
     try
     {
-    	//Activator.getDefault().openEditor(createEditorInput(), getEditorID(), getPerspectiveID()) ;
+      PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().openEditor(
+      		createEditorInput(), getEditorID()) ;
     }
     catch (Exception e)
     {
@@ -47,6 +49,4 @@ public abstract class AbstractEditorTest extends BaseWorkbenchWindowActionDelega
   protected abstract IEditorInput createEditorInput() throws Exception ;
 
   protected abstract String getEditorID() ;
-  
-  protected abstract String getPerspectiveID() ;
 }

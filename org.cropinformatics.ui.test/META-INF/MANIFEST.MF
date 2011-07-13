@@ -2,14 +2,16 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.cropinformatics.ui.test;singleton:=true
-Bundle-Version: 0.2.0
+Bundle-Version: 0.3.0
 Bundle-Localization: plugin
-Require-Bundle: org.eclipse.core.runtime,
+Require-Bundle: org.apache.commons.lang;bundle-version="2.3.0",
+ org.eclipse.core.runtime,
  org.cropinformatics.common;bundle-version="[0.3.0,0.4.0)",
  org.cropinformatics.ui;bundle-version="[0.3.0,0.4.0)",
  org.cropinformatics.ui.configuration;bundle-version="[0.3.0,0.4.0)"
 Bundle-Vendor: %providerName
-Export-Package: org.cropinformatics.ui.tests.actions.dialogs.chooser,
+Export-Package: org.cropinformatics.ui.tests,
+ org.cropinformatics.ui.tests.actions.dialogs.chooser,
  org.cropinformatics.ui.tests.actions.dialogs.list,
  org.cropinformatics.ui.tests.actions.editors
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
