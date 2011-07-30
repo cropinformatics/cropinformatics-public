@@ -26,20 +26,7 @@ import org.eclipse.swt.widgets.Shell;
 
 public class FileUtilsImpl extends FileUtils
 {
-	public String openFilePathDialog(Shell parent,
-      String fileExtensionFilter, String directory, boolean openFile)
-  {
-		String[] fileExtensionFilters = null ;
-  
-    if (fileExtensionFilter != null)
-    {
-    	fileExtensionFilters = new String[] { fileExtensionFilter } ;
-    }
-  
-    return openFilePathDialog(parent, fileExtensionFilters, directory, openFile) ;
-  }
-
-	public String openFilePathDialog(Shell parent, String[] fileExtensionFilters,
+	public String openFilePathDialog(Shell parent, String title, String[] fileExtensionFilters,
       String directory, boolean openFile)
   {
 		int style ;
@@ -48,6 +35,8 @@ public class FileUtilsImpl extends FileUtils
 			style = SWT.OPEN ;
 		else
 			style = SWT.SAVE ;
+		
+    // TOOD set title
 		
     FileDialog fileDialog = new FileDialog(parent, style);
     
@@ -72,8 +61,38 @@ public class FileUtilsImpl extends FileUtils
       return null;
     }
   }
+
+	@Override
+  public String[] openFilesPathDialog(Shell parent, String title,
+      String[] fileExtensionFilters, String directory)
+  {	
+    // TOOD set title
+		
+    FileDialog fileDialog = new FileDialog(parent, SWT.OPEN);
+    
+    if (directory != null)
+      fileDialog.setFilterPath(new File(directory).getAbsolutePath());
   
-  public String openDirectoryPathDialog(Shell parent, String directory, boolean openFile)
+    if (fileExtensionFilters != null)
+    {
+      fileDialog.setFilterExtensions(fileExtensionFilters);
+    }
+  
+    fileDialog.open();
+    
+    if (fileDialog.getFileName() != null
+        && fileDialog.getFileName().length() > 0)
+    {
+      return /*fileDialog.getFilterPath() + File.separator
+          + */fileDialog.getFileNames();
+    }
+    else
+    {
+      return null;
+    }
+  }
+	
+	public String openDirectoryPathDialog(Shell parent, String title, String directory, boolean openFile)
   {
 		int style ;
 		
@@ -83,6 +102,8 @@ public class FileUtilsImpl extends FileUtils
 			style = SWT.SAVE ;
 		
     DirectoryDialog directoryDialog = new DirectoryDialog(parent, style);
+    
+    // TOOD set title
   
     if (directory != null)
       directoryDialog.setFilterPath(new File(directory).getAbsolutePath());
