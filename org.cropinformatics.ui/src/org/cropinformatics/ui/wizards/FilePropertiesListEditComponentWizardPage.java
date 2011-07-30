@@ -19,7 +19,6 @@ import java.util.List;
 
 import org.cropinformatics.common.io.FileProperties;
 import org.cropinformatics.ui.components.EditComponent;
-import org.cropinformatics.ui.components.impl.FilePropertiesEditComponent;
 import org.cropinformatics.ui.components.impl.FilePropertiesListEditComponent;
 import org.cropinformatics.ui.configuration.ContainerConfiguration;
 import org.cropinformatics.ui.configuration.WizardPageConfiguration;
