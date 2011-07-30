@@ -139,7 +139,7 @@ public abstract class AbstractConfigurableControl<T extends ControlConfiguration
    * the text should not visible the method will return null 
    * 
    * @param configuration the parentConfiguration of the text
-   * @param defaultStyle default style if not defined in in configuration
+   * @param defaultStyle default style to be merged with the configuration style
    * @param id the configuration identifier of the text 
    * @return a new text or null if not visible
    */
@@ -166,7 +166,7 @@ public abstract class AbstractConfigurableControl<T extends ControlConfiguration
    * the label should not visible the method will return null 
    * 
    * @param configuration the configuration of the label
-   * @param defaultStyle default style if not defined in in configuration
+   * @param defaultStyle default style to be merged with the configuration style
    * @param id the configuration identifier of the label 
    * @return a new label or null if not visible
    */
@@ -193,7 +193,7 @@ public abstract class AbstractConfigurableControl<T extends ControlConfiguration
    * the button should not visible the method will return null 
    * 
    * @param configuration the configuration of the button
-   * @param defaultStyle default style if not defined in in configuration
+   * @param defaultStyle default style to be merged with the configuration style
    * @param id the configuration identifier of the button 
    * @return a new Button or null if not visible
    */
@@ -220,7 +220,7 @@ public abstract class AbstractConfigurableControl<T extends ControlConfiguration
    * the spinner should not visible the method will return null 
    * 
    * @param configuration the configuration of the spinner
-   * @param defaultStyle default style if not defined in in configuration
+   * @param defaultStyle default style to be merged with the configuration style
    * @param id the configuration identifier of the spinner 
    * @return a new Spinner or null if not visible
    */
@@ -247,7 +247,7 @@ public abstract class AbstractConfigurableControl<T extends ControlConfiguration
    * the spinner should not visible the method will return null 
    * 
    * @param configuration the configuration of the combo
-   * @param defaultStyle default style if not defined in in configuration
+   * @param defaultStyle default style to be merged with the configuration style
    * @param id the configuration identifier of the spinner 
    * @return a new button or null if not visible
    */

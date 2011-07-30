@@ -282,6 +282,7 @@ public abstract class AbstractContainer<T extends ContainerConfiguration> extend
 	  return component.isValid() ;
   }
   
+  @SuppressWarnings("rawtypes")
   protected String getChildErrorMessage(String id,
       Component<? extends ComponentConfiguration> component)
   {

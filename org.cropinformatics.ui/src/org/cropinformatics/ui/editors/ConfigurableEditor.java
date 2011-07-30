@@ -25,6 +25,8 @@ public interface ConfigurableEditor extends Configurable<EditorConfiguration>, I
 {
   public String getStatusMessage();
 
+	public boolean isDeleteEnabled();
+
   public void delete() ;
 
   public void setDirty(boolean b);
@@ -35,3 +37,4 @@ public interface ConfigurableEditor extends Configurable<EditorConfiguration>, I
 
 	public String getUndoContextLabel();
 }
+

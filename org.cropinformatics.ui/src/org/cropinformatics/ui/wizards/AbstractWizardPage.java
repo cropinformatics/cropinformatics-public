@@ -32,8 +32,6 @@ import org.eclipse.swt.widgets.Composite;
 
 public abstract class AbstractWizardPage<T extends ControlConfiguration> extends WizardPage implements ConfigurableWizardPage
 {
-  public static final String VISIBILITY_PROPERTY = "visibility" ;
-  
   private WizardPageConfiguration configuration ;
   private PropertyChangeSupport propertyChangeSupport;
 

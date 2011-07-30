@@ -138,6 +138,7 @@ public abstract class AbstractEditor<T extends ControlConfiguration> extends Edi
     return editorHelper.isDirty() ;
   }
 
+	@Override
   public final synchronized void setDirty(boolean dirty)
   {
     editorHelper.setDirty(dirty) ;
@@ -145,11 +146,13 @@ public abstract class AbstractEditor<T extends ControlConfiguration> extends Edi
     firePropertyChange(IEditorPart.PROP_DIRTY);
   }
   
+	@Override
   public final String getStatusMessage()
   {
     return editorHelper.getStatusMessage() ;
   }
 
+	@Override
   public final void dispose()
   {  	
     super.dispose() ;
@@ -161,6 +164,13 @@ public abstract class AbstractEditor<T extends ControlConfiguration> extends Edi
 
   }
   
+	@Override
+	public boolean isDeleteEnabled()
+	{
+		return false ;
+	}
+	
+	@Override
   public void delete()
   {
 

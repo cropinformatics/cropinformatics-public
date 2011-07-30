@@ -47,6 +47,7 @@ public abstract class FileComponent extends LabelledComponent
  
   private static final boolean DEFAULT_IS_DIRECTORY = false ;
   
+  private static final String FILE_DIALOG_TITLE = FileComponent.class.getName() + ".fileDialogTitle";
   private static final String BROWSE_BUTTON_LABEL = FileComponent.class.getName() + ".browseButtonLabel";
   private static final String CLEAR_BUTTON_LABEL = FileComponent.class.getName() + ".clearButtonLabel";
 	private static final String FILE_NOT_READABLE_ERROR_MESSAGE = FileComponent.class.getName() + ".fileNotReadableErrorMessage" ;
@@ -244,7 +245,7 @@ public abstract class FileComponent extends LabelledComponent
   
   protected void handleFileBrowse()
   {      
-    String fileName = PluginUtils.openFilePathDialog(getParent().getShell(), fileExtensions, Platform.getUserLocation().getURL().toString(), openFile);
+    String fileName = PluginUtils.openFilePathDialog(getParent().getShell(), Activator.getDefault().getString(FILE_DIALOG_TITLE), fileExtensions, Platform.getUserLocation().getURL().toString(), openFile);
     
     if (fileText != null)
     	if (fileName != null)
@@ -255,7 +256,7 @@ public abstract class FileComponent extends LabelledComponent
   
   protected void handleDirectoryBrowse()
   {
-    String directory = PluginUtils.openDirectoryPathDialog(getParent().getShell(), Platform.getUserLocation().getURL().toString(), openFile);
+    String directory = PluginUtils.openDirectoryPathDialog(getParent().getShell(), Activator.getDefault().getString(FILE_DIALOG_TITLE), Platform.getUserLocation().getURL().toString(), openFile);
 
     if (fileText != null)
       fileText.setText(directory);

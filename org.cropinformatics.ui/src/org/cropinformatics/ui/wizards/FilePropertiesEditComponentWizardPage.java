@@ -28,17 +28,15 @@ import org.eclipse.swt.widgets.Composite;
 public class FilePropertiesEditComponentWizardPage extends AbstractEditComponentWizardPage<ContainerConfiguration, FileProperties>
 {
 	private String labelValue;
-	private String[] fileExtensions ;
 	private boolean openFile;
 
 	public FilePropertiesEditComponentWizardPage(String pageName, String title,
       String description, ImageDescriptor titleImage,
-      WizardPageConfiguration configuration, String labelValue, String[] fileExtensions, boolean openFile, FileProperties value)
+      WizardPageConfiguration configuration, String labelValue,  boolean openFile, FileProperties value)
   {
 	  super(pageName, title, description, titleImage, configuration, value);
 	  
 	  this.labelValue = labelValue ;
-	  this.fileExtensions = fileExtensions ;
 	  this.openFile = openFile ;
   }
 
@@ -47,7 +45,7 @@ public class FilePropertiesEditComponentWizardPage extends AbstractEditComponent
       Composite parent, ContainerConfiguration controlConfiguration,
       FileProperties value, IRunnableContext runnableContext)
   {
-	  return new FilePropertiesEditComponent(parent, controlConfiguration, labelValue, fileExtensions, openFile, value);
+	  return new FilePropertiesEditComponent(parent, controlConfiguration, labelValue, openFile, value);
   }
 
 	@Override

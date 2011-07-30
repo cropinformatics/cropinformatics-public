@@ -31,11 +31,9 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.IPersistentPreferenceStore;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Device;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -177,52 +175,52 @@ public class PluginUtils extends BundleUtils
    * Opens a file path dialog for the given shell with the given style and file extension filter
    * 
    * @param parent a shell which will be the parent of the dialog
+   * @param title the title to be shown on the dialog
    * @param fileExtensionFilters filters which are used to filter the files shown in the dialog
    * @param directory the starting directory for the dialog
-   * @param style The style of the dialog can {@link SWT#SAVE} or {@link SWT#OPEN}, with optionally {@link SWT#MULTI}
+	 * @param openFile <code>true</code> if the dialog should be used to open a file or <code>false</code> if the dialog should used be to save a file 
    * @return the full path of the file chooser or <code>null</code> if the no path is chosen or the dialog is canceled
    * 
    * @see FileDialog
    */
-  public static final String openFilePathDialog(Shell parent,
+  public static final String openFilePathDialog(Shell parent, String title,
       String[] fileExtensionFilters, String directory, boolean openFile)
   {
-    return ((FileUtils)getImplementation(FileUtils.class)).openFilePathDialog(parent, fileExtensionFilters, directory, openFile);
+    return ((FileUtils)getImplementation(FileUtils.class)).openFilePathDialog(parent, title, fileExtensionFilters, directory, openFile);
   }
   
   /**
    * Opens a file path dialog for the given shell with the given style and file extension filter
    * 
    * @param parent a shell which will be the parent of the dialog
-   * @param fileExtensionFilter a filter which is used to filter the files shown in the dialog
+   * @param title the title to be shown on the dialog
+   * @param fileExtensionFilters filters which are used to filter the files shown in the dialog
    * @param directory the starting directory for the dialog
-   * @param style The style of the dialog can {@link SWT#SAVE} or {@link SWT#OPEN}, with optionally {@link SWT#MULTI}
-   * @return the full path of the file chooser or <code>null</code> if the no path is chosen or the dialog is canceled
+   * @return the full paths of the file chooser or <code>null</code> if no paths are chosen or the dialog is canceled
    * 
    * @see FileDialog
    */
-  public static final String openFilePathDialog(Shell parent,
-      String fileExtensionFilter, String directory, boolean openFile)
+  public static final String[] openFilesPathDialog(Shell parent, String title,
+      String[] fileExtensionFilters, String directory, boolean openFile)
   {
-    return ((FileUtils)getImplementation(FileUtils.class)).openFilePathDialog(parent, fileExtensionFilter, directory, openFile);
+    return ((FileUtils)getImplementation(FileUtils.class)).openFilesPathDialog(parent, title, fileExtensionFilters, directory);
   }
-
-  
 
   /**
    * Opens a directory dialog for the given shell with the given style
    * 
    * @param parent a shell which will be the parent of the dialog
+   * @param title the title to be shown on the dialog
    * @param directory the starting directory for the dialog
-   * @param style The style of the dialog can {@link SWT#SAVE} or {@link SWT#OPEN}, with optionally {@link SWT#MULTI}
+	 * @param openDirectory <code>true</code> if the dialog should be used to open a file or <code>false</code> if the dialog should be used to save to directory 
    * @return the full path of the file chooser or <code>null</code> if the no path is chosen or the dialog is canceled
    * 
    * @see DirectoryDialog
    */
-  public static final String openDirectoryPathDialog(Shell parent, String directory,
-      boolean openFile)
+  public static final String openDirectoryPathDialog(Shell parent, String title, String directory,
+      boolean openDirectory)
   {
-    return ((FileUtils)getImplementation(FileUtils.class)).openDirectoryPathDialog(parent, directory, openFile);
+    return ((FileUtils)getImplementation(FileUtils.class)).openDirectoryPathDialog(parent, title, directory, openDirectory);
   }
   
   /**

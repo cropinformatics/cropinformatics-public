@@ -576,9 +576,27 @@ public abstract class AbstractMappingViewer<F extends Object, T extends Object> 
     		Iterator<F> fromIterator = fromItems.iterator() ;
     		Iterator<T> toIterator = toItems.iterator() ;
     		
+  	    F fromItem ;
+  	    T toItem ;
+  	    Mapping<F, T> mapping ;
+    		
     		while (success && fromIterator.hasNext() && toIterator.hasNext())
     		{
-    			success = success && map(fromIterator.next(), toIterator.next()) ;
+    			fromItem = fromIterator.next() ;
+    			toItem = toIterator.next() ;
+    			
+    			mapping = createMapping(fromItem, toItem) ;
+    			
+    			success = mappedListViewer.addItem(mapping)  ;
+    			
+  	      if (isFromItemRemovedWhenMapped())
+  	        success = fromListViewer.removeItem(fromItem) ; 
+  	      
+  	      if (success && isToItemRemovedWhenMapped())
+  	        success = toListViewer.removeItem(toItem)  ;
+  	
+  	      if (!success)
+  	        mappedListViewer.removeItem(mapping)  ;
     		}
     		
         if (!success)

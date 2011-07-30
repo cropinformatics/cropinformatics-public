@@ -63,6 +63,16 @@ public abstract class AbstractViewer<T extends ViewerConfiguration> extends Abst
     this.runnableContext = runnableContext;
   }
 
+  public boolean isDeleteEnabled()
+	{
+		return false ;
+	}
+	
+  public void delete()
+  {
+
+  }
+  
   @SuppressWarnings({ "unchecked", "unused" })
   private T getChildViewerConfiguration(ContainerConfiguration containerConfiguration)
   {
@@ -135,9 +145,14 @@ public abstract class AbstractViewer<T extends ViewerConfiguration> extends Abst
   
   protected void createActions()
   {
-    
-  }
 
+  }
+  
+  protected void disposeActions()
+  {
+
+  }
+  
   protected void createListeners()
   {
 
@@ -154,11 +169,6 @@ public abstract class AbstractViewer<T extends ViewerConfiguration> extends Abst
   }
   
   protected void disposeListeners()
-  {
-
-  }
-
-  protected void disposeActions()
   {
 
   }

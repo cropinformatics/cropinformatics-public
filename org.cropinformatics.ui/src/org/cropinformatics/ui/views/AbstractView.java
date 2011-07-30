@@ -24,6 +24,7 @@ import org.cropinformatics.ui.configuration.ConfigurationFactory;
 import org.cropinformatics.ui.configuration.ControlConfiguration;
 import org.cropinformatics.ui.configuration.ViewConfiguration;
 import org.cropinformatics.ui.configuration.utils.ConfigurationUtils;
+import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
@@ -31,13 +32,17 @@ import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchPartSite;
+import org.eclipse.ui.actions.ActionFactory;
+import org.eclipse.ui.actions.ActionFactory.IWorkbenchAction;
 import org.eclipse.ui.part.ViewPart;
 
 public abstract class AbstractView<T extends ControlConfiguration> extends ViewPart implements Configurable<ViewConfiguration>
 {      
   private ViewConfiguration configuration;
   private Composite composite ;
+  private DeleteAction deleteAction ;
 
   public AbstractView()
   {
@@ -55,6 +60,7 @@ public abstract class AbstractView<T extends ControlConfiguration> extends ViewP
   {
     createListeners();
     createActions();
+    registerGlobalActionHandlers() ;
     
     T childConfiguration = getChildControlConfiguration(getConfiguration()) ;
     
@@ -68,6 +74,7 @@ public abstract class AbstractView<T extends ControlConfiguration> extends ViewP
 	public final void dispose()
   {
     disposeInternalViewer() ;
+    disposeGlobalActionHandlers() ;
     disposeActions();
     disposeListeners();
     
@@ -90,6 +97,22 @@ public abstract class AbstractView<T extends ControlConfiguration> extends ViewP
     return configuration ;
   }
 
+  protected boolean isDeleteEnabled()
+	{
+		return false ;
+	}
+	
+  protected void delete()
+  {
+
+  }
+  
+  protected void updateDeleteAction()
+  {
+  	if (deleteAction != null)
+  		deleteAction.setEnabled(isDeleteEnabled()) ;
+  }
+  
   protected ViewConfiguration createDefaultConfiguration()
   {
     ViewConfiguration viewConfiguration = ConfigurationUtils.getViewConfiguration(this);
@@ -137,13 +160,33 @@ public abstract class AbstractView<T extends ControlConfiguration> extends ViewP
   
   protected void createActions()
   {
-
+    deleteAction = new DeleteAction() ;
+    
+    updateDeleteAction() ;
   }
 
   protected void disposeActions()
   {
 
   }
+  
+  /*
+   * Create the global undo and redo action handlers.
+   */
+  protected void registerGlobalActionHandlers()
+  {
+    IActionBars actionBars = getViewSite().getActionBars();
+
+    actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(), deleteAction); 
+  }
+  
+  protected void disposeGlobalActionHandlers()
+  {
+    IActionBars actionBars = getViewSite().getActionBars();
+
+    actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(), null); 
+  }
+
   
   protected void hookContextMenus(IWorkbenchPartSite site)
   {
@@ -198,4 +241,18 @@ public abstract class AbstractView<T extends ControlConfiguration> extends ViewP
   protected abstract void createInternalViewer(Composite parent, T childConfiguration) ;
 
   protected abstract void disposeInternalViewer() ;
+  
+  private class DeleteAction extends Action implements IWorkbenchAction
+  {
+    @Override
+    public void run()
+    {
+      delete() ;
+    }
+
+    public void dispose()
+    {
+      
+    }
+  }
 }

@@ -20,16 +20,33 @@ package org.cropinformatics.ui.views;
 
 import org.cropinformatics.ui.configuration.ViewerConfiguration;
 import org.cropinformatics.ui.viewers.ConfigurableViewer;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.widgets.Composite;
 
 public abstract class AbstractViewWithViewer<T extends ViewerConfiguration> extends AbstractView<T>
 {
   private ConfigurableViewer<T> viewer ;
+	private ISelectionChangedListener selectionChangedListener;
   
   public AbstractViewWithViewer()
   {
 
+  }
+  
+  protected boolean isDeleteEnabled()
+	{
+  	if (viewer != null)
+  		return viewer.isDeleteEnabled() ;
+  	else
+  		return false ;
+	}
+  
+  protected void delete()
+  {
+  	if (viewer != null)
+  		viewer.delete() ;
   }
 
   @Override
@@ -40,12 +57,31 @@ public abstract class AbstractViewWithViewer<T extends ViewerConfiguration> exte
     viewer.initialise() ;
     
   	if (viewer instanceof ISelectionProvider)
+  	{
   		getSite().setSelectionProvider((ISelectionProvider)viewer);
+  		
+  		selectionChangedListener = new ISelectionChangedListener()
+  		{
+				@Override
+        public void selectionChanged(SelectionChangedEvent event)
+        {
+	        updateDeleteAction() ;
+        }
+  		} ;
+  		
+			((ISelectionProvider)viewer).addSelectionChangedListener(selectionChangedListener) ;
+  	}
   }
   
   @Override
   protected final void disposeInternalViewer()
   {
+  	if (viewer instanceof ISelectionProvider)
+  	{
+  		getSite().setSelectionProvider(null);
+			((ISelectionProvider)viewer).removeSelectionChangedListener(selectionChangedListener) ;
+  	}
+  	
     if (viewer != null)
       viewer.dispose() ;
     

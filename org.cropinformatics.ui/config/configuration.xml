@@ -21,8 +21,9 @@
     <layout>
       <numColumns>2</numColumns>
     </layout>
-    <components>
+    <components xsi:type="configuration:ControlConfiguration">
 	  <id>dateChooser</id>
+	  <style>2048</style>
 	</components>
   </Configuration>
   <Configuration xsi:type="configuration:ContainerConfiguration">
@@ -63,13 +64,39 @@
       <numColumns>3</numColumns>
       <verticalSpacing>0</verticalSpacing>
     </layout>
-	<components>
+	<components xsi:type="configuration:ControlConfiguration">
 	  <id>fileText</id>
+	  <layoutData>
+	  	<grabExcessHorizontalSpace>true</grabExcessHorizontalSpace>
+	  </layoutData>
 	</components>
 	<components>
 	  <id>browseButton</id>
 	</components>
   </Configuration> 
+  <Configuration xsi:type="configuration:ContainerConfiguration">
+    <id>org.cropinformatics.ui.components.impl.FilePropertiesComponent</id>
+    <extends>org.cropinformatics.ui.components.impl.FileComponent</extends>
+    <enclosed>true</enclosed>
+    <layout>
+      <marginHeight>0</marginHeight>
+      <marginWidth>0</marginWidth>
+      <numColumns>4</numColumns>
+      <verticalSpacing>0</verticalSpacing>
+    </layout>
+	<components xsi:type="configuration:ContainerConfiguration">
+	  <id>fileTypeCombo</id>
+	</components>
+	<components xsi:type="configuration:ListViewerConfiguration">
+	  <id>sheetSelectionViewer</id>
+	  <enclosed>true</enclosed>
+	  <layoutData>
+	  	<horizontalSpan>4</horizontalSpan>
+	  </layoutData>
+	  <multipleCheckInUse>true</multipleCheckInUse>
+	  <checkSelectionInUse>true</checkSelectionInUse>
+	</components>
+  </Configuration>  
   <Configuration xsi:type="configuration:ContainerConfiguration">
     <id>org.cropinformatics.ui.components.impl.OptionsComponent</id>
 	<components>
@@ -84,8 +111,9 @@
   <Configuration xsi:type="configuration:ContainerConfiguration">
     <id>org.cropinformatics.ui.components.impl.StringEditComponent</id>
     <extends>org.cropinformatics.ui.components.impl.LabelledEditComponent</extends>
-	<components>
+	<components xsi:type="configuration:ControlConfiguration">
 	  <id>text</id>
+	  <style>2048</style>
 	</components>
   </Configuration>  
   <Configuration xsi:type="configuration:ContainerConfiguration">

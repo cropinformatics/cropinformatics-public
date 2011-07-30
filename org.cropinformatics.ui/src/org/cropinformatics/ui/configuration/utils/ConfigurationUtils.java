@@ -1374,8 +1374,10 @@ public class ConfigurationUtils
    * Create a new text based on the configuration if not null. If the configuration defines that
    * the text should not visible the method will return null 
    * 
+   * @param parent the parent composite
    * @param configuration the parentConfiguration of the text
-   * @param id the configuration identifier of the text 
+   * @param defaultLayoutData the default layout data for the text 
+   * @param defaultStyle default style to be merged with the configuration style
    * @return a new text or null if not visible
    */
   public static final ControlComponent<ControlConfiguration, Text> createTextComponent(Composite parent, ControlConfiguration configuration, GridData defaultLayoutData, int defaultStyle)
@@ -1387,7 +1389,7 @@ public class ConfigurationUtils
       if (!configuration.isSetVisible() || configuration.isVisible())
       {
         if (configuration.isSetStyle())
-          text = new Text(parent, configuration.getStyle()) ;
+          text = new Text(parent, configuration.getStyle() | defaultStyle) ;
         else
           text = new Text(parent, defaultStyle) ;
         
@@ -1407,8 +1409,10 @@ public class ConfigurationUtils
    * Create a new label based on the configuration if not null. If the configuration defines that
    * the label should not visible the method will return null 
    * 
+   * @param parent the parent composite
    * @param configuration the configuration of the label
-   * @param id the configuration identifier of the label 
+   * @param defaultLayoutData the default layout data for the label 
+   * @param defaultStyle default style to be merged with the configuration style
    * @return a new label or null if not visible
    */
   public static final ControlComponent<ControlConfiguration, org.eclipse.swt.widgets.Label> createLabelComponent(Composite parent, ControlConfiguration configuration, GridData defaultLayoutData, int defaultStyle)
@@ -1420,7 +1424,7 @@ public class ConfigurationUtils
       if (configuration.isVisible())
       {
         if (configuration.isSetStyle())
-          label = new org.eclipse.swt.widgets.Label(parent, configuration.getStyle()) ;
+          label = new org.eclipse.swt.widgets.Label(parent, configuration.getStyle() | defaultStyle) ;
         else
           label = new org.eclipse.swt.widgets.Label(parent, defaultStyle) ;
         
@@ -1440,9 +1444,11 @@ public class ConfigurationUtils
    * Create a new button based on the configuration if not null. If the configuration defines that
    * the button should not visible the method will return null 
    * 
+   * @param parent the parent composite
    * @param configuration the configuration of the button
    * @param defaultButtonStyle default style if not defined in in configuration
    * @param id the configuration identifier of the button 
+   * @param defaultStyle default style to be merged with the configuration style
    * @return a new button or null if not visible
    */
   public static final ControlComponent<ControlConfiguration, Button> createButtonComponent(Composite parent, ControlConfiguration configuration, GridData defaultLayoutData, int defaultStyle)
@@ -1454,7 +1460,7 @@ public class ConfigurationUtils
       if (!configuration.isSetVisible() || configuration.isVisible())
       {
         if (configuration.isSetStyle())
-          button = new Button(parent, configuration.getStyle()) ;
+          button = new Button(parent, configuration.getStyle() | defaultStyle) ;
         else
           button = new Button(parent, defaultStyle) ;
     
@@ -1474,8 +1480,10 @@ public class ConfigurationUtils
    * Create a new spinner based on the configuration if not null. If the configuration defines that
    * the spinner should not visible the method will return null 
    * 
+   * @param parent the parent composite
    * @param configuration the configuration of the spinner
-   * @param id the configuration identifier of the spinner 
+   * @param defaultLayoutData the default layout data for the spinner 
+   * @param defaultStyle default style to be merged with the configuration style
    * @return a new button or null if not visible
    */
   public static final ControlComponent<ControlConfiguration, Spinner> createSpinnerComponent(Composite parent, ControlConfiguration configuration, GridData defaultLayoutData, int defaultStyle)
@@ -1487,7 +1495,7 @@ public class ConfigurationUtils
       if (!configuration.isSetVisible() || configuration.isVisible())
       {
         if (configuration.isSetStyle())
-          spinner = new Spinner(parent, configuration.getStyle()) ;
+          spinner = new Spinner(parent, configuration.getStyle() | defaultStyle) ;
         else
           spinner = new Spinner(parent, defaultStyle) ;
     
@@ -1507,8 +1515,10 @@ public class ConfigurationUtils
    * Create a new spinner based on the configuration if not null. If the configuration defines that
    * the spinner should not visible the method will return null 
    * 
+   * @param parent the parent composite
    * @param configuration the configuration of the combo
    * @param id the configuration identifier of the spinner 
+   * @param defaultStyle default style to be merged with the configuration style
    * @return a new button or null if not visible
    */
   public static final ControlComponent<ControlConfiguration, Combo> createComboComponent(Composite parent, ControlConfiguration configuration, GridData defaultLayoutData, int defaultStyle)
@@ -1520,7 +1530,7 @@ public class ConfigurationUtils
       if (!configuration.isSetVisible() || configuration.isVisible())
       {
         if (configuration.isSetStyle())
-          combo = new Combo(parent, configuration.getStyle()) ;
+          combo = new Combo(parent, configuration.getStyle() | defaultStyle) ;
         else
           combo = new Combo(parent, defaultStyle) ;
     

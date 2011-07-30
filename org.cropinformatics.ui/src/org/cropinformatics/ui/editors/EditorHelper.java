@@ -293,6 +293,8 @@ public class EditorHelper extends EventManager
   protected void createActions()
   {
     deleteAction = new DeleteAction() ;
+    deleteAction.setEnabled(editor.isDeleteEnabled()) ;
+    
     undoAction = new UndoActionHandler(editor.getSite(), undoContext);
     redoAction = new RedoActionHandler(editor.getSite(), undoContext);
   }

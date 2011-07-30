@@ -61,11 +61,13 @@ public abstract class AbstractMultiplePartEditor<T extends ContainerConfiguratio
     initialiseConfiguration() ;
   }
 
+	@Override
 	public final EditorConfiguration getConfiguration()
   {
     return configuration;
   }
 
+	@Override
   public String getId()
   {
     return getClass().getName() ;
@@ -174,6 +176,7 @@ public abstract class AbstractMultiplePartEditor<T extends ContainerConfiguratio
     return editorHelper.isDirty() ;
   }
 
+	@Override
   public final synchronized void setDirty(boolean dirty)
   {
     editorHelper.setDirty(dirty) ;
@@ -181,11 +184,13 @@ public abstract class AbstractMultiplePartEditor<T extends ContainerConfiguratio
     firePropertyChange(IEditorPart.PROP_DIRTY);
   }
   
+	@Override
   public final String getStatusMessage()
   {
     return editorHelper.getStatusMessage() ;
   }
   
+	@Override
   public final void dispose()
   {
   	disposeData(); 
@@ -202,6 +207,12 @@ public abstract class AbstractMultiplePartEditor<T extends ContainerConfiguratio
     super.dispose();
   }
 
+	@Override
+	public boolean isDeleteEnabled()
+	{
+		return false ;
+	}
+	
 	@Override
   public void delete()
   {

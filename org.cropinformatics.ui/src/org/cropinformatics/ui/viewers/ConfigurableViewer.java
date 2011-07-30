@@ -31,4 +31,8 @@ public interface ConfigurableViewer<T extends ViewerConfiguration> extends Compo
    * Cancels any long running tasks associated with the viewer
    */
   public void performCancel() ;
+  
+  public boolean isDeleteEnabled() ;
+
+  public void delete() ;
 }

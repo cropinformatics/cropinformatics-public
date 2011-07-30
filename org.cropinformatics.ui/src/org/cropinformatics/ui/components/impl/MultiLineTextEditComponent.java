@@ -40,7 +40,7 @@ public class MultiLineTextEditComponent extends TextEditComponent
   }
 
   @Override
-  protected int createStyle()
+  protected int createDefaultStyle()
   {
     return SWT.WRAP ;
   }

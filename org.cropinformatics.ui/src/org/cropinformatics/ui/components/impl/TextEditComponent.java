@@ -61,12 +61,12 @@ public class TextEditComponent extends StringEditComponent<String>
   }
  
 	@Override
-  protected int createStyle()
+  protected int createDefaultStyle()
   {
     if (isPasswordField)
       return SWT.PASSWORD ;
     else
-      return super.createStyle();
+      return super.createDefaultStyle();
   }
 
   @Override

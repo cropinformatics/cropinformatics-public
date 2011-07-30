@@ -33,7 +33,7 @@ import org.eclipse.jface.operation.IRunnableContext;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.widgets.Composite;
 
-public abstract class AbstractListWizardPage<T> extends AbstractViewerWizardPage<ListViewerConfiguration>
+public abstract class AbstractListWizardPage<T> extends AbstractViewerWizardPage<ListViewerConfiguration> implements ListWizardPage<T>
 {
   private SelectableMutableListViewer<T> listViewer;
   
@@ -89,6 +89,10 @@ public abstract class AbstractListWizardPage<T> extends AbstractViewerWizardPage
 	  super.disposeControl();
   }
 
+  /* (non-Javadoc)
+   * @see org.cropinformatics.ui.wizards.ListWizardPage#getItems()
+   */
+  @Override
   public final List<T> getItems()
   {
     if (listViewer != null)
@@ -101,6 +105,10 @@ public abstract class AbstractListWizardPage<T> extends AbstractViewerWizardPage
     }
   }
 
+  /* (non-Javadoc)
+   * @see org.cropinformatics.ui.wizards.ListWizardPage#setItems(java.util.List)
+   */
+  @Override
   public void setItems(List<T> items)
   {
     if (items != null)
@@ -116,6 +124,10 @@ public abstract class AbstractListWizardPage<T> extends AbstractViewerWizardPage
     updatePageComplete();
   }
  
+  /* (non-Javadoc)
+   * @see org.cropinformatics.ui.wizards.ListWizardPage#getSelectedCount()
+   */
+  @Override
   public int getSelectedCount()
   {
     if (listViewer != null)
@@ -135,6 +147,10 @@ public abstract class AbstractListWizardPage<T> extends AbstractViewerWizardPage
     }
   }
 
+  /* (non-Javadoc)
+   * @see org.cropinformatics.ui.wizards.ListWizardPage#getSelectedItem()
+   */
+  @Override
   public T getSelectedItem()
   {
     if (listViewer != null)
@@ -147,6 +163,10 @@ public abstract class AbstractListWizardPage<T> extends AbstractViewerWizardPage
     }
   }
 
+  /* (non-Javadoc)
+   * @see org.cropinformatics.ui.wizards.ListWizardPage#setSelectedItem(T)
+   */
+  @Override
   public void setSelectedItem(T selectedItem)
   {
     if (listViewer != null)
@@ -164,6 +184,10 @@ public abstract class AbstractListWizardPage<T> extends AbstractViewerWizardPage
     updatePageComplete();
   }
 
+  /* (non-Javadoc)
+   * @see org.cropinformatics.ui.wizards.ListWizardPage#getSelectedItems()
+   */
+  @Override
   public List<T> getSelectedItems()
   {
     if (listViewer != null)
@@ -176,6 +200,10 @@ public abstract class AbstractListWizardPage<T> extends AbstractViewerWizardPage
     }
   }
 
+  /* (non-Javadoc)
+   * @see org.cropinformatics.ui.wizards.ListWizardPage#setSelectedItems(java.util.List)
+   */
+  @Override
   public void setSelectedItems(List<T> selectedItems)
   {
     if (listViewer != null)
@@ -190,6 +218,10 @@ public abstract class AbstractListWizardPage<T> extends AbstractViewerWizardPage
     updatePageComplete();
   }
   
+  /* (non-Javadoc)
+   * @see org.cropinformatics.ui.wizards.ListWizardPage#isAllSelected()
+   */
+  @Override
   public final void isAllSelected()
   {
     if (listViewer != null)
@@ -212,9 +244,8 @@ public abstract class AbstractListWizardPage<T> extends AbstractViewerWizardPage
       public void propertyChange(PropertyChangeEvent event)
       {  
         handleViewerPropertyChanged(event) ;
-        
-        // TODO perhaps should be handled as a new separate event
-        getPropertyChangeSupport().firePropertyChange(event) ;
+
+        getPropertyChangeSupport().firePropertyChange(SELECTION_PROPERTY, event.getOldValue(), event.getNewValue()) ;
       }
     } ;
 
