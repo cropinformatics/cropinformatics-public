@@ -5,16 +5,16 @@ package org.cropinformatics.ui.components.impl;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
-import org.daveneti.ui.Activator;
-import org.daveneti.ui.components.Component;
-import org.daveneti.ui.configuration.ComponentConfiguration;
-import org.daveneti.ui.configuration.ContainerConfiguration;
+import org.cropinformatics.ui.Activator;
+import org.cropinformatics.ui.components.Component;
+import org.cropinformatics.ui.configuration.ComponentConfiguration;
+import org.cropinformatics.ui.configuration.ContainerConfiguration;
 import org.eclipse.swt.widgets.Composite;
 
 public class DateEditComponentImpl extends StringEditComponent<Date> implements DateEditComponent
 {
-	
 	private SimpleDateFormat format;
 
 	public DateEditComponentImpl(Composite parent)
@@ -46,30 +46,12 @@ public class DateEditComponentImpl extends StringEditComponent<Date> implements 
 	{
 		super(parent, containerConfiguration, labelValue, value);
 	}
-	
-	@Override
-	protected Component<? extends ComponentConfiguration> initialiseChildComponent(Composite parent,
-			ComponentConfiguration configuration, String id)
-	{
-		Component<? extends ComponentConfiguration> component ;
-		
-		if (getText() != null && (DATE_CHOOSER_COMPONENT_ID.equals(id) || TEXT_COMPONENT_ID.equals(id)))
-		{
-			component = super.initialiseChildComponent(parent, configuration, TEXT_COMPONENT_ID) ;
-		}
-		else
-		{
-			component = super.initialiseChildComponent(parent, configuration, id) ;
-		}
-
-		return component ;
-	}
 
 	public boolean isValid()
 	{
 		try
     {
-	    return getFormat().parse(getText().getText()) != null ;
+	    return getText() != null && getFormat().parse(getText().getText()) != null ;
     }
     catch (ParseException e)
     {
@@ -83,6 +65,34 @@ public class DateEditComponentImpl extends StringEditComponent<Date> implements 
 		return DateEditComponent.class.getName() ;
 	}
 
+	@Override
+	protected Component<? extends ComponentConfiguration> initialiseChildComponent(Composite parent,
+			ComponentConfiguration configuration, String id)
+	{
+		Component<? extends ComponentConfiguration> component ;
+		
+		if (DATE_CHOOSER_COMPONENT_ID.equals(id) || TEXT_COMPONENT_ID.equals(id))
+		{
+			component = super.initialiseChildComponent(parent, configuration, TEXT_COMPONENT_ID) ;
+		}
+		else
+		{
+			component = super.initialiseChildComponent(parent, configuration, id) ;
+		}
+
+		return component ;
+	}
+	
+  @Override
+  protected List<String> getChildConpomentIds()
+  {
+    List<String> list = super.getChildConpomentIds() ;
+    
+    list.add(DATE_CHOOSER_COMPONENT_ID) ;
+    
+    return list ;
+  }
+  
 	protected SimpleDateFormat getFormat()
 	{
 		if (format == null)
