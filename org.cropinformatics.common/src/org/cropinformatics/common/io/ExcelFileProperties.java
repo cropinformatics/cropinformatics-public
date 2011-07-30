@@ -16,9 +16,13 @@
 package org.cropinformatics.common.io;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
 
 public class ExcelFileProperties extends FileProperties
 {
@@ -126,5 +130,37 @@ public class ExcelFileProperties extends FileProperties
 	public String[] getSheetsAsArray()
 	{
 		return sheets.toArray(new String[sheets.size()]) ;
+	}
+	
+	public static List<String> getSheets(File file) throws IOException
+	{
+		List<String> sheetNameList = null ;
+		
+		if (file != null)
+		{
+			Workbook workbook = null ;
+			
+	    try
+	    {
+		    workbook = Workbook.getWorkbook(file);
+	    }
+	    catch (BiffException e)
+	    {
+	    	throw new IOException(e) ;
+	    }
+			
+			String[] sheetNames = workbook.getSheetNames() ;
+	
+			sheetNameList = new ArrayList<String>(sheetNames.length) ;
+			
+			for (int i = 0 ; i < sheetNames.length ; ++i)
+				sheetNameList.add(sheetNames[i]) ;
+		}
+		else
+		{
+			sheetNameList = new ArrayList<String>(0) ;
+		}
+				
+		return sheetNameList ;
 	}
 }

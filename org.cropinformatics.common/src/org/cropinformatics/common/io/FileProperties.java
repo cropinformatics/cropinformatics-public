@@ -8,6 +8,7 @@ public class FileProperties
 	public static final String FILE_PROPERTY = FileProperties.class.getName() + ".file";
 	public static final String FILE_TYPE_PROPERTY = FileProperties.class.getName() + ".fileType";
 	
+	public static final int UNKNOWN = -1 ;
 	public static final int EXCEL = 0 ;
 	public static final int TAB_SEPARATED_TEXT = 1 ;
 	public static final int COMMA_SEPARATED_TEXT = 2 ;
@@ -16,6 +17,11 @@ public class FileProperties
 	private PropertyChangeSupport propertyChangeSupport ;
 
 	private int fileType = TAB_SEPARATED_TEXT;
+	
+	public FileProperties(File file)
+  {
+		this(file, TAB_SEPARATED_TEXT) ;
+  }
 	
 	public FileProperties(File file, int fileType)
   {
