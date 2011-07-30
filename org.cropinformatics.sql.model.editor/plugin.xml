@@ -15,9 +15,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="org.cropinformatics.sql.utilities.schema.presentation.SchemaModelWizardID"
+            id="org.cropinformatics.sql.properties.presentation.PropertiesModelWizardID"
             name="%_UI_SchemaModelWizard_label"
-            class="org.cropinformatics.sql.utilities.schema.presentation.SchemaModelWizard"
+            class="org.cropinformatics.sql.properties.presentation.PropertiesModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/SchemaModelFile.gif">
          <description>%_UI_SchemaModelWizard_description</description>
@@ -27,12 +27,12 @@
 
    <extension point="org.eclipse.ui.editors">
       <editor
-            id="org.cropinformatics.sql.utilities.schema.presentation.SchemaEditorID"
+            id="org.cropinformatics.sql.properties.presentation.PropertiesEditorID"
             name="%_UI_SchemaEditor_label"
             icon="icons/full/obj16/SchemaModelFile.gif"
             extensions="schema"
-            class="org.cropinformatics.sql.utilities.schema.presentation.SchemaEditor"
-            contributorClass="org.cropinformatics.sql.utilities.schema.presentation.SchemaActionBarContributor">
+            class="org.cropinformatics.sql.properties.presentation.PropertiesEditor"
+            contributorClass="org.cropinformatics.sql.properties.presentation.PropertiesActionBarContributor">
       </editor>
    </extension>
 

@@ -4,7 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.cropinformatics.sql.model.editor;singleton:=true
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
-Bundle-Activator: org.cropinformatics.sql.utilities.schema.presentation.SQLUtilitiesEditorPlugin$Implementation
+Bundle-Activator: org.cropinformatics.sql.properties.presentation.SQLUtilitiesEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
