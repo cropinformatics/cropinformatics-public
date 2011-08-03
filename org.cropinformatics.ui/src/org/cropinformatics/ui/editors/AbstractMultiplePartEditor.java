@@ -23,6 +23,7 @@ import java.util.Iterator;
 
 import org.cropinformatics.ui.Activator;
 import org.cropinformatics.ui.components.Component;
+import org.cropinformatics.ui.components.impl.AbstractIdentificationEditComponent;
 import org.cropinformatics.ui.configuration.ComponentConfiguration;
 import org.cropinformatics.ui.configuration.ConfigurationFactory;
 import org.cropinformatics.ui.configuration.ContainerConfiguration;
@@ -30,8 +31,10 @@ import org.cropinformatics.ui.configuration.EditorConfiguration;
 import org.cropinformatics.ui.configuration.utils.ConfigurationUtils;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
@@ -41,7 +44,9 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
 public abstract class AbstractMultiplePartEditor<T extends ContainerConfiguration> extends MultiPageEditorPart implements ConfigurableEditor
 {
-  private int activePageIndex;
+  private static final String BLANK_COMPONENT_LABEL = AbstractMultiplePartEditor.class.getName() + ".blankComponentLabel" ;
+  
+	private int activePageIndex;
   private HashMap<String, Component<? extends ComponentConfiguration>> childComponents;
   
   protected EditorHelper editorHelper ;
@@ -125,7 +130,7 @@ public abstract class AbstractMultiplePartEditor<T extends ContainerConfiguratio
     Component<? extends ComponentConfiguration> component ;
     Component<? extends ComponentConfiguration> firstComponent = null ;
     
-    if (childConfiguration != null)
+    if (childConfiguration != null && !childConfiguration.getComponents().isEmpty())
     {
       Iterator<ComponentConfiguration> iterator = childConfiguration.getComponents().iterator() ;
       
@@ -162,6 +167,9 @@ public abstract class AbstractMultiplePartEditor<T extends ContainerConfiguratio
       }
     }
     
+    if (getPageCount() == 0)
+    	addPage(createBlankControl(getContainer())) ;
+    
     if (firstComponent == null)
     	editorHelper.setComponent(firstComponent) ;
     
@@ -169,8 +177,8 @@ public abstract class AbstractMultiplePartEditor<T extends ContainerConfiguratio
     
     updateErrorMessage() ;
   }
-  
-  @Override
+
+	@Override
   public final boolean isDirty()
   {
     return editorHelper.isDirty() ;
@@ -349,6 +357,15 @@ public abstract class AbstractMultiplePartEditor<T extends ContainerConfiguratio
     	return ConfigurationUtils.createComposite(parent, childConfiguration) ;
     else
     	return parent ;
+  }
+  
+  protected Control createBlankControl(Composite container)
+  {
+	  Label label = new Label(container, SWT.NONE) ;
+	  
+	  label.setText(Activator.getDefault().getString(BLANK_COMPONENT_LABEL)) ;
+	  
+	  return label;
   }
   
   private final void initialiseConfiguration()
