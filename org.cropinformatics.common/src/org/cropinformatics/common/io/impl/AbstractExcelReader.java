@@ -617,7 +617,7 @@ public abstract class AbstractExcelReader<T extends Object>
 		}
 		catch (AssertionFailed e)
 		{
-			throw new IOException("Can not read excel file. Cells may contain linked content! Please try to remove link content from cells. See http://jira.pentaho.com/browse/PDI-2447", e) ;
+			throw new IOException("Can not read excel file : " + file + " Cells may contain linked content! Please try to remove link content from cells. See http://jira.pentaho.com/browse/PDI-2447", e) ;
 		}
     catch (Exception e)
     {
