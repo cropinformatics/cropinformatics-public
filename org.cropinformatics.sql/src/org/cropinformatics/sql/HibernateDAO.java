@@ -845,6 +845,11 @@ public class HibernateDAO
 	{
 		return databaseProperties;
 	}
+	
+	public Object get(@SuppressWarnings("rawtypes") Class clazz, String uniqueIdentifer) throws HibernateException
+	{
+		return getCurrentSession().get(clazz.getSimpleName(), uniqueIdentifer) ;
+	}
 
 	public void persist(Object transientEntity) throws HibernateException
 	{
@@ -870,7 +875,12 @@ public class HibernateDAO
 	{
 		getCurrentSession().delete(attachedEntity) ;
 	}
-
+	
+	public void evict(Object attachedEntity) throws HibernateException 
+	{
+		getCurrentSession().evict(attachedEntity) ;
+	}
+	
 	public Object read(@SuppressWarnings("rawtypes") Class type, Serializable id) throws HibernateException
 	{
 		return getCurrentSession().get(type, id);
