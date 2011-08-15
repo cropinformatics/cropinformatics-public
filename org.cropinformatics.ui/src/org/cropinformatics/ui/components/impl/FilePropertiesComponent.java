@@ -15,10 +15,10 @@
  *******************************************************************************/
 package org.cropinformatics.ui.components.impl;
 
-import static org.cropinformatics.common.io.FileProperties.UNKNOWN;
 import static org.cropinformatics.common.io.FileProperties.COMMA_SEPARATED_TEXT;
 import static org.cropinformatics.common.io.FileProperties.EXCEL;
 import static org.cropinformatics.common.io.FileProperties.TAB_SEPARATED_TEXT;
+import static org.cropinformatics.common.io.FileProperties.UNKNOWN;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

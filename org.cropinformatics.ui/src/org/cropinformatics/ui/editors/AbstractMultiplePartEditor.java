@@ -23,7 +23,6 @@ import java.util.Iterator;
 
 import org.cropinformatics.ui.Activator;
 import org.cropinformatics.ui.components.Component;
-import org.cropinformatics.ui.components.impl.AbstractIdentificationEditComponent;
 import org.cropinformatics.ui.configuration.ComponentConfiguration;
 import org.cropinformatics.ui.configuration.ConfigurationFactory;
 import org.cropinformatics.ui.configuration.ContainerConfiguration;
