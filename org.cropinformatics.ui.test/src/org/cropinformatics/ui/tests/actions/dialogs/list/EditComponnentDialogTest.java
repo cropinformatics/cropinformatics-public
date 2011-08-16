@@ -45,7 +45,7 @@ public abstract class EditComponnentDialogTest<T> extends BaseWorkbenchWindowAct
       System.out.println("OK") ;
       
       outputValue(dialog.getValue()) ;
-      compareValues(value, dialog.getValue()) ;
+      compareValues(value, dialog.getValue(), false) ;
     }
     else
     {
@@ -65,7 +65,7 @@ public abstract class EditComponnentDialogTest<T> extends BaseWorkbenchWindowAct
   {
   }
 	
-	protected void compareValues(T before, T after)
+	protected void compareValues(T before, T after, boolean test)
   {
 	  System.out.print("Same value :" + org.apache.commons.lang.ObjectUtils.equals(before, after)) ;
   }
