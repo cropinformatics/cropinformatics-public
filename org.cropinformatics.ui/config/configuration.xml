@@ -23,7 +23,6 @@
     </layout>
     <components xsi:type="configuration:ControlConfiguration">
 	  <id>dateChooser</id>
-	  <style>2048</style>
 	</components>
   </Configuration>
   <Configuration xsi:type="configuration:ContainerConfiguration">
@@ -113,7 +112,6 @@
     <extends>org.cropinformatics.ui.components.impl.LabelledEditComponent</extends>
 	<components xsi:type="configuration:ControlConfiguration">
 	  <id>text</id>
-	  <style>2048</style>
 	</components>
   </Configuration>  
   <Configuration xsi:type="configuration:ContainerConfiguration">
