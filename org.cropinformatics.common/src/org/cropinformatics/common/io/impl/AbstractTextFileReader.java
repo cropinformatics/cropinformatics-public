@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -833,11 +834,11 @@ public abstract class AbstractTextFileReader<T extends Object>
   
   private void parseRowCells() throws IOException
   {
-		row = new LinkedList<T>() ;
-
 		if (line != null)
 		{
 			String[] tokens = pattern.split(line) ;
+			
+			row = new ArrayList<T>(tokens.length) ;
 			
 			updateRowSize(tokens.length) ;
 			
@@ -848,6 +849,10 @@ public abstract class AbstractTextFileReader<T extends Object>
 				row.add(parseValue(convertToken(tokens[i]), getRowIndex(), i)) ;
 				++i ;
 			}
+		}
+		else
+		{
+			row = new ArrayList<T>() ;
 		}
 
 		updateRowFromSize(row) ;

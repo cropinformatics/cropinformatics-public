@@ -255,7 +255,7 @@ public abstract class AbstractExcelReader<T extends Object>
 	    }
 	    else
 	    {
-	    	values = new LinkedList<List<T>>() ;
+	    	values = new ArrayList<List<T>>() ;
 	    }
     }
     catch (IndexOutOfBoundsException e)

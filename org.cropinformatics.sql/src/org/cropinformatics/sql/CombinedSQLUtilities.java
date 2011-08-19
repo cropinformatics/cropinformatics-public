@@ -21,6 +21,7 @@ package org.cropinformatics.sql;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -38,13 +39,14 @@ public class CombinedSQLUtilities extends AbstractSQLPropertyUtilities
   {
 	  super();
 	  
-	  List<SQLPropertyUtilities> sqlUtilitiesList = new LinkedList<SQLPropertyUtilities>() ;
+	  List<SQLPropertyUtilities> sqlUtilitiesList = new ArrayList<SQLPropertyUtilities>(sqlUtilitiesArray != null ? sqlUtilitiesArray.length : 0) ;
 	  
 	  if (sqlUtilitiesArray != null)
 	  {
 	  	for (int i = 0 ; i < sqlUtilitiesArray.length ; ++i)
 	  		sqlUtilitiesList.add(sqlUtilitiesArray[i]) ;
 	  }
+	  
 	  setSQLUtilitiesList(sqlUtilitiesList) ;
   }
 

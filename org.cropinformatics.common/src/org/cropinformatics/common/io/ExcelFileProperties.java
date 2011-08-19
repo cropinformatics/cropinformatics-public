@@ -38,7 +38,7 @@ public class ExcelFileProperties extends FileProperties
   {
 	  super(file, EXCEL);
 	  
-	  this.sheets = new LinkedList<String>() ;
+	  this.sheets = new ArrayList<String>() ;
 	  if (sheets != null)
 	  	this.sheets.addAll(sheets) ;
   }
