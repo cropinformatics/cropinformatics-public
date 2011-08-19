@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %bundleName
-Bundle-SymbolicName: org.cropinformatics.ui.rap
+Bundle-SymbolicName: org.cropinformatics.ui.rap;singleton:=true
 Bundle-Version: 0.1.0
 Bundle-Vendor: %providerName
 Fragment-Host: org.cropinformatics.ui;bundle-version="[0.3.0,0.4.0)"
