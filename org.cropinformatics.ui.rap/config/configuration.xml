@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<configuration:ConfigurationList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.cropinformatics.org/ui/configuration ../../org.cropinformatics.ui.configuration/schema/definition.xsd"
+  xmlns:configuration="http://www.cropinformatics.org/ui/configuration">
+  <Configuration xsi:type="configuration:ContainerConfiguration">
+    <id>org.cropinformatics.ui.components.impl.DateEditComponent</id>
+    <extends>org.cropinformatics.ui.components.impl.LabelledEditComponent</extends>
+    <layout>
+      <numColumns>2</numColumns>
+    </layout>
+    <components xsi:type="configuration:ControlConfiguration">
+	  <id>dateChooser</id>
+	  <style>2048</style>
+	</components>
+  </Configuration>
+  <Configuration xsi:type="configuration:ContainerConfiguration">
+    <id>org.cropinformatics.ui.components.impl.StringEditComponent</id>
+    <extends>org.cropinformatics.ui.components.impl.LabelledEditComponent</extends>
+	<components xsi:type="configuration:ControlConfiguration">
+	  <id>text</id>
+	  <style>2048</style>
+	</components>
+  </Configuration>
+</configuration:ConfigurationList>
