@@ -44,7 +44,6 @@ public abstract class AbstractComponent<T extends ComponentConfiguration> extend
     setEditable(ConfigurationUtils.isEditable(getConfiguration())) ;
   }
 
-
   public final T getConfiguration()
   {
     return configuration ;

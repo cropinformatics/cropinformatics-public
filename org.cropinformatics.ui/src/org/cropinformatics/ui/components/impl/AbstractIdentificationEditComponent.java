@@ -40,12 +40,18 @@ public abstract class AbstractIdentificationEditComponent<T> extends AbstractCon
       ContainerConfiguration configuration)
   {
     super(parent, configuration);
+    
+		if (getValue() == null)
+			intialiseDefaultValue() ;
   }
   
   public AbstractIdentificationEditComponent(Composite parent,
       ContainerConfiguration configuration, T value)
   {
     super(parent, configuration, value);
+    
+		if (getValue() == null)
+			intialiseDefaultValue() ;
   }
   
   @SuppressWarnings({ "unchecked", "rawtypes" })
@@ -126,9 +132,6 @@ public abstract class AbstractIdentificationEditComponent<T> extends AbstractCon
   {
 		if (EditComponent.VALUE_CHANGED.equals(event.getPropertyName()))
 		{
-      if (getValue() == null)
-        intialiseDefaultValue() ;
-      
       setUniqueIdentifier(((TextEditComponent)getChildComponent(UNIQUE_IDENTIFIER_COMPONENT_ID)).getValue()) ;
       // TODO perhaps should be handled as a new separate event
       getPropertyChangeSupport().firePropertyChange(event) ;
@@ -147,9 +150,6 @@ public abstract class AbstractIdentificationEditComponent<T> extends AbstractCon
   {
 		if (EditComponent.VALUE_CHANGED.equals(event.getPropertyName()))
 		{
-      if (getValue() == null)
-        intialiseDefaultValue() ;
-      
       setName(((TextEditComponent)getChildComponent(NAME_COMPONENT_ID)).getValue()) ;
       // TODO perhaps should be handled as a new separate event
       getPropertyChangeSupport().firePropertyChange(event) ;
@@ -167,10 +167,7 @@ public abstract class AbstractIdentificationEditComponent<T> extends AbstractCon
   protected void handleDescriptionChanged(PropertyChangeEvent event)
   {
 		if (EditComponent.VALUE_CHANGED.equals(event.getPropertyName()))
-		{
-      if (getValue() == null)
-        intialiseDefaultValue() ;
-      
+		{ 
       setDescription(((TextEditComponent)getChildComponent(DESCRIPTION_COMPONENT_ID)).getValue()) ;
       // TODO perhaps should be handled as a new separate event
       getPropertyChangeSupport().firePropertyChange(event) ;

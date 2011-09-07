@@ -57,9 +57,11 @@ public abstract class AbstractWizardPage<T extends ControlConfiguration> extends
     
     initialiseControl(composite, childConfiguration) ;
     
+    postInitialiseControl(composite) ;
+    
     setControl(composite);
   }
-
+ 
   @Override
   public final void dispose()
   {
@@ -135,6 +137,11 @@ public abstract class AbstractWizardPage<T extends ControlConfiguration> extends
     	return ConfigurationUtils.createComposite(parent, childConfiguration) ;
     else
     	return parent ;
+  }
+
+  protected void postInitialiseControl(Composite composite)
+  {
+  	setPageComplete(false) ;
   }
 
   protected void disposeControl()

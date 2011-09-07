@@ -122,7 +122,7 @@ public abstract class BaseUIPlugin extends AbstractUIPlugin
    * @param parameters to be substituted into the returned string
    * @return the required string
    */
-  public final String getString(String key, String[] parameters)
+  public final String getString(String key, String... parameters)
   {
     return PluginUtils.getString(getResourceBundle(), key, parameters) ;
   }
@@ -137,20 +137,21 @@ public abstract class BaseUIPlugin extends AbstractUIPlugin
    * @param parameters to be substituted into the returned string
    * @return the required string
    */
-  public final String getString(String key, int[] parameters)
+  public final String getString(String key, int... parameters)
   {
     return PluginUtils.getString(getResourceBundle(), key, parameters) ;
   }
 
-	public final String getString(String key, double[] parameters)
+	public final String getString(String key, double... parameters)
   {
     return PluginUtils.getString(getResourceBundle(), key, parameters) ;
   }
 	
-	public final String getString(String key, Object[] parameters)
+	public final String getString(String key, Object... parameters)
   {
     return PluginUtils.getString(getResourceBundle(), key, parameters) ;
   }
+
 
   /**
    * Gets a string array for the given key from the given resource bundle or one of its parents.

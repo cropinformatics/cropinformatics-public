@@ -63,7 +63,7 @@ public abstract class AbstractControlWizardPage<C extends ControlConfiguration> 
 
 		}) ;
   }
-
+	
   protected void handlePropertyChange(PropertyChangeEvent event)
   {
   	if (component != null)

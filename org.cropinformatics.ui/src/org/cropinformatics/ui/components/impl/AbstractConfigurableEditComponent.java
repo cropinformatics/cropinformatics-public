@@ -39,6 +39,7 @@ public abstract class AbstractConfigurableEditComponent<T> extends
       ContainerConfiguration configuration, T value)
   {
     super(parent, configuration);
+    
     setValue(value) ;
   }
   

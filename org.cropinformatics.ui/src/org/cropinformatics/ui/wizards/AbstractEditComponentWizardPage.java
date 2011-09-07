@@ -71,14 +71,28 @@ public abstract class AbstractEditComponentWizardPage<C extends ControlConfigura
     }
   }
   
+  @Override
   protected final Component<C> createComponent(Composite parent, C configuration, IRunnableContext runnableContext)
   {
 		return createEditComponent(parent, configuration, value, runnableContext) ;
   }
-  
+
+	@Override
+  protected void postInitialiseControl(Composite composite)
+  {
+	  super.postInitialiseControl(composite);
+	  
+	  checkValidation() ;
+  }
+
 	@Override
   protected void handlePropertyChange(PropertyChangeEvent event)
   {
+		checkValidation() ;
+  }
+	
+	protected void checkValidation()
+	{
   	if (getEditComponent() != null)
   	{
   		if (getEditComponent().isValid())
@@ -96,7 +110,7 @@ public abstract class AbstractEditComponentWizardPage<C extends ControlConfigura
   	{
   		setErrorMessage(null) ;
   	}
-  }
+	}
 
   @SuppressWarnings("unchecked")
   protected final EditComponent<C, T> getEditComponent()
