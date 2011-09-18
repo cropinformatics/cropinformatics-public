@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests
+Bundle-SymbolicName: org.cropinformatics.sql.tests
+Bundle-Version: 0.3.0
+Require-Bundle: org.cropinformatics.sql;bundle-version="[0.3.0,0.4.0)",
+ org.junit4,
+ org.cropinformatics.common.tests;bundle-version="0.3.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.cropinformatics.sql.tests
