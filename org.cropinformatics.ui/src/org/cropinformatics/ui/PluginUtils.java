@@ -19,7 +19,6 @@
 
 package org.cropinformatics.ui;
 
-import java.awt.FileDialog;
 import java.io.File;
 import java.io.IOException;
 import java.util.MissingResourceException;
@@ -34,7 +33,6 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Device;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
