@@ -10,7 +10,7 @@ Require-Bundle: org.apache.commons.lang;bundle-version="2.3.0",
  org.cropinformatics.ui;bundle-version="[0.3.0,0.4.0)",
  org.cropinformatics.ui.configuration;bundle-version="[0.3.0,0.4.0)",
  org.cropinformatics.common.tests;bundle-version="[0.3.0,0.4.0)"
-Bundle-Vendor: %providerName
+Bundle-Vendor: Crop Informatics (www.cropinformatics.com)
 Export-Package: org.cropinformatics.ui.tests,
  org.cropinformatics.ui.tests.actions.dialogs.chooser,
  org.cropinformatics.ui.tests.actions.dialogs.list,

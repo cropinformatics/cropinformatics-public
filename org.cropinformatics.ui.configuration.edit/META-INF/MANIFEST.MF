@@ -5,7 +5,7 @@ Bundle-SymbolicName: org.cropinformatics.ui.configuration.edit;singleton:=true
 Bundle-Version: 0.3.0
 Bundle-ClassPath: .
 Bundle-Activator: org.cropinformatics.ui.configuration.provider.ConfigurationEditPlugin$Implementation
-Bundle-Vendor: %providerName
+Bundle-Vendor: Crop Informatics (www.cropinformatics.com)
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.cropinformatics.ui.configuration.provider
