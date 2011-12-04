@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Crop Informatics Common Plugin
 Bundle-SymbolicName: org.cropinformatics.common
-Bundle-Version: 0.3.0
+Bundle-Version: 0.3.0.qualifier
 Bundle-Vendor: Crop Informatics (www.cropinformatics.com)
 Require-Bundle: org.eclipse.osgi;bundle-version="3.7.0",
  org.apache.commons.lang;bundle-version="2.3.0",
