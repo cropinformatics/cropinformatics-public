@@ -21,7 +21,7 @@ package org.cropinformatics.ui.components.impl;
 import java.io.File;
 import java.util.List;
 
-import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang3.ObjectUtils;
 import org.cropinformatics.ui.Activator;
 import org.cropinformatics.ui.PluginUtils;
 import org.cropinformatics.ui.components.Component;

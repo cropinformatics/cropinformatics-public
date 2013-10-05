@@ -18,7 +18,7 @@
  *******************************************************************************/
 package org.cropinformatics.ui.components.impl;
 
-import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang3.ObjectUtils;
 import org.cropinformatics.ui.Activator;
 import org.cropinformatics.ui.components.EditComponent;
 import org.cropinformatics.ui.configuration.ContainerConfiguration;

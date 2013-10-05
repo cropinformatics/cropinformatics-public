@@ -21,7 +21,7 @@ package org.cropinformatics.ui.viewers.list;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.cropinformatics.common.Identification;
 import org.cropinformatics.common.LSID;
 import org.eclipse.jface.viewers.Viewer;

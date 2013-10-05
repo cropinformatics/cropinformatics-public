@@ -15,7 +15,7 @@
  *******************************************************************************/
 package org.cropinformatics.common;
 
-import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang3.ObjectUtils;
 
 public class Mapping<F, T>
 {

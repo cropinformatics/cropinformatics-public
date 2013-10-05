@@ -67,6 +67,6 @@ public abstract class EditComponnentDialogTest<T> extends BaseWorkbenchWindowAct
 	
 	protected void compareValues(T before, T after, boolean test)
   {
-	  System.out.print("Same value :" + org.apache.commons.lang.ObjectUtils.equals(before, after)) ;
+	  System.out.print("Same value :" + org.apache.commons.lang3.ObjectUtils.equals(before, after)) ;
   }
 }
