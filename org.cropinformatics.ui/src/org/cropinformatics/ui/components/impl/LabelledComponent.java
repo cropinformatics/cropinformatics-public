@@ -86,14 +86,12 @@ public class LabelledComponent extends AbstractConfigurableContainer<ContainerCo
     return ConfigurationUtils.getContainerConfiguration(this);
   }
   
-  @Override
-  protected List<String> getChildConpomentIds()
+	@Override
+  protected void registerChildComponentIDs()
   {
-    List<String> list = new LinkedList<String>() ;
-    
-    list.add(LABEL_TEXT_COMPONENT_ID) ;
-    
-    return list ;
+		super.registerChildComponentIDs(); 
+		
+  	registerChildComponentID(LABEL_TEXT_COMPONENT_ID) ;
   }
 
   protected final String getLabelValue()

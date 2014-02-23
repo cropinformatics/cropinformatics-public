@@ -142,15 +142,13 @@ public abstract class AbstractComboViewerEditComponent<T, E> extends LabelledEdi
   	
   	setValueInternalWithEvent(parseToValue(selectedValue)) ;
   }
-
+  
 	@Override
-  protected List<String> getChildConpomentIds()
+  protected void registerChildComponentIDs()
   {
-    List<String> list = super.getChildConpomentIds() ;
-    
-    list.add(VIEWER_COMPONENT_ID) ;
-    
-    return list ;
+		super.registerChildComponentIDs(); 
+		
+  	registerChildComponentID(VIEWER_COMPONENT_ID) ;
   }
   
 	protected IStructuredContentProvider createContentProvider()

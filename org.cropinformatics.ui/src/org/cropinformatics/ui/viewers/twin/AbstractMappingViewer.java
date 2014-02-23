@@ -256,17 +256,15 @@ public abstract class AbstractMappingViewer<F extends Object, T extends Object> 
 	  return null;
   }
   
-  @Override
-  protected List<String> getChildConpomentIds()
+	@Override
+  protected void registerChildComponentIDs()
   {
-    List<String> list = super.getChildConpomentIds() ;
-    
-    list.add(FROM_VIEWER_COMPONENT_ID) ;
-    list.add(TO_VIEWER_COMPONENT_ID) ;
-    list.add(MAPPING_BUTTONS_COMPONENT_ID) ;
-    list.add(MAPPED_VIEWER_COMPONENT_ID) ;
-    
-    return list ;
+		super.registerChildComponentIDs(); 
+		
+  	registerChildComponentID(FROM_VIEWER_COMPONENT_ID) ;
+  	registerChildComponentID(TO_VIEWER_COMPONENT_ID) ;
+  	registerChildComponentID(MAPPED_VIEWER_COMPONENT_ID) ;
+  	registerChildComponentID(MAPPED_VIEWER_COMPONENT_ID) ;
   }
 
   protected final Component<? extends ComponentConfiguration> createFromListComposite(Composite parent, ListViewerConfiguration configuration)

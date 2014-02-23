@@ -172,13 +172,11 @@ public class IntegerEditComponent extends LabelledEditComponent<Integer>
     return component ;
   }
   
-  @Override
-  protected List<String> getChildConpomentIds()
+	@Override
+  protected void registerChildComponentIDs()
   {
-    List<String> list = super.getChildConpomentIds() ;
-    
-    list.add(INTEGER_SPINNER_COMPONENT_ID) ;
-    
-    return list ;
+		super.registerChildComponentIDs(); 
+		
+  	registerChildComponentID(INTEGER_SPINNER_COMPONENT_ID) ;
   }
 }

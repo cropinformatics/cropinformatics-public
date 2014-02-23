@@ -245,14 +245,12 @@ public class IndexViewer extends AbstractViewer<ListViewerConfiguration>
 	  return null;
   }
   
-  @Override
-  protected List<String> getChildConpomentIds()
+	@Override
+  protected void registerChildComponentIDs()
   {
-    List<String> list = super.getChildConpomentIds() ;
-    
-    list.add(LIST_VIEWER_COMPONENT_ID) ;
-    
-    return list ;
+		super.registerChildComponentIDs(); 
+		
+  	registerChildComponentID(LIST_VIEWER_COMPONENT_ID) ;
   }
 
   protected void handlePropertyChange(PropertyChangeEvent event)

@@ -234,15 +234,13 @@ public class DelimiterStringEditComponent extends TextEditComponent
       getText().setEnabled(false) ;
     }
   }
-  
-  @Override
-  protected List<String> getChildConpomentIds()
+ 
+	@Override
+  protected void registerChildComponentIDs()
   {
-    List<String> list = super.getChildConpomentIds() ;
-    
-    list.add(TAB_BUTTON_COMPONENT_ID) ;
-    list.add(COMMA_BUTTON_COMPONENT_ID) ;
-    
-    return list ;
+		super.registerChildComponentIDs(); 
+		
+  	registerChildComponentID(TAB_BUTTON_COMPONENT_ID) ;
+  	registerChildComponentID(COMMA_BUTTON_COMPONENT_ID) ;
   }
 }

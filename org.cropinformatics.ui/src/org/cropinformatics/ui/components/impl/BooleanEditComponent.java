@@ -96,13 +96,11 @@ public class BooleanEditComponent extends LabelledEditComponent<Boolean>
     return component ;
   }
   
-  @Override
-  protected List<String> getChildConpomentIds()
+	@Override
+  protected void registerChildComponentIDs()
   {
-    List<String> list = super.getChildConpomentIds() ;
-    
-    list.add(BOOLEAN_BUTTON_COMPONENT_ID) ;
-    
-    return list ;
+		super.registerChildComponentIDs(); 
+		
+  	registerChildComponentID(BOOLEAN_BUTTON_COMPONENT_ID) ;
   }
 }

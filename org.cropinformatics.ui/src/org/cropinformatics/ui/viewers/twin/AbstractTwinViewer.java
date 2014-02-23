@@ -411,16 +411,14 @@ public abstract class AbstractTwinViewer<L extends Object, R extends Object> ext
 	  return null;
   }
   
-  @Override
-  protected List<String> getChildConpomentIds()
+	@Override
+  protected void registerChildComponentIDs()
   {
-    List<String> list = super.getChildConpomentIds() ;
-    
-    list.add(LEFT_VIEWER_COMPONENT_ID) ;
-    list.add(MAPPING_BUTTONS_COMPONENT_ID) ;
-    list.add(RIGHT_VIEWER_COMPONENT_ID) ;
-    
-    return list ;
+		super.registerChildComponentIDs(); 
+		
+  	registerChildComponentID(LEFT_VIEWER_COMPONENT_ID) ;
+  	registerChildComponentID(MAPPING_BUTTONS_COMPONENT_ID) ;
+  	registerChildComponentID(MAPPING_BUTTONS_COMPONENT_ID) ;
   }
 
 	@Override

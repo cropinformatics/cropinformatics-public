@@ -191,12 +191,10 @@ public class ComboViewerComponent<T> extends LabelledComponent
   }
 
 	@Override
-  protected List<String> getChildConpomentIds()
+  protected void registerChildComponentIDs()
   {
-    List<String> list = super.getChildConpomentIds() ;
-    
-    list.add(COMBO_VIEWER_ID) ;
-    
-    return list ;
+		super.registerChildComponentIDs(); 
+		
+  	registerChildComponentID(COMBO_VIEWER_ID) ;
   }
 }

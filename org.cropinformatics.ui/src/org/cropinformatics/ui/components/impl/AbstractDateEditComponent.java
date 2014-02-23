@@ -56,13 +56,11 @@ public abstract class AbstractDateEditComponent extends LabelledEditComponent<Da
     super(parent, containerConfiguration, labelValue, value);
   }
   
-  @Override
-  protected List<String> getChildConpomentIds()
+	@Override
+  protected void registerChildComponentIDs()
   {
-    List<String> list = super.getChildConpomentIds() ;
-    
-    list.add(DATE_CHOOSER_COMPONENT_ID) ;
-    
-    return list ;
+		super.registerChildComponentIDs(); 
+		
+  	registerChildComponentID(DATE_CHOOSER_COMPONENT_ID) ;
   }
 }

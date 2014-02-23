@@ -165,15 +165,13 @@ public class FilePropertiesComponent extends FileComponent
     return component ;
   }
 
-  @Override
-  protected List<String> getChildConpomentIds()
+	@Override
+  protected void registerChildComponentIDs()
   {
-    List<String> list = super.getChildConpomentIds() ;
-    
-    list.add(FILE_TYPE_COMPONENT_ID) ;
-    list.add(SHEET_SELECTION_VIEWER_ID) ;
-    
-    return list ;
+		super.registerChildComponentIDs(); 
+		
+  	registerChildComponentID(FILE_TYPE_COMPONENT_ID) ;
+  	registerChildComponentID(SHEET_SELECTION_VIEWER_ID) ;
   }
 
 	protected void handleFileTypeChanged()

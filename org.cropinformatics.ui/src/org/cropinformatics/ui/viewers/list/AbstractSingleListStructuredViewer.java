@@ -863,29 +863,26 @@ public abstract class AbstractSingleListStructuredViewer<T extends Object> exten
               						else
               							return null ;
   }
-  
 
 	@Override
-  protected List<String> getChildConpomentIds()
+  protected void registerChildComponentIDs()
   {
-    List<String> list = super.getChildConpomentIds() ;
-    
-    list.add(VIEWER_COMPONENT_ID) ;
-    list.add(FILTER_COMPONENT_ID) ;
-    list.add(STRING_FILTER_COMPONENT_ID) ;
-    list.add(REORDER_COMPONENT_ID) ;
-    list.add(CLEAR_SELECTION_COMPONENT_ID) ;
-    list.add(CLEAR_CHECK_COMPONENT_ID) ;
-    list.add(CHECK_ALL_COMPONENT_ID) ;
-    list.add(ADD_ITEM_COMPONENT_ID) ;
-    list.add(REMOVE_ITEM_COMPONENT_ID) ;
-    list.add(EDIT_ITEM_COMPONENT_ID) ;
-    list.add(ALL_SELECTED_COMPONENT_ID) ;
-    list.add(REGEX_COMPONENT_ID) ;
-    
-    return list ;
+		super.registerChildComponentIDs(); 
+		
+  	registerChildComponentID(VIEWER_COMPONENT_ID) ;
+  	registerChildComponentID(FILTER_COMPONENT_ID) ;
+  	registerChildComponentID(STRING_FILTER_COMPONENT_ID) ;
+  	registerChildComponentID(REORDER_COMPONENT_ID) ;
+  	registerChildComponentID(CLEAR_SELECTION_COMPONENT_ID) ;
+  	registerChildComponentID(CLEAR_CHECK_COMPONENT_ID) ;
+  	registerChildComponentID(CHECK_ALL_COMPONENT_ID) ;
+  	registerChildComponentID(ADD_ITEM_COMPONENT_ID) ;
+  	registerChildComponentID(REMOVE_ITEM_COMPONENT_ID) ; 	
+  	registerChildComponentID(EDIT_ITEM_COMPONENT_ID) ;
+  	registerChildComponentID(ALL_SELECTED_COMPONENT_ID) ;
+  	registerChildComponentID(REGEX_COMPONENT_ID) ;
   }
-  
+	
   protected final Component<? extends ComponentConfiguration> createFiltersComponent(Composite parent, ControlConfiguration configuration)
   {
     Composite container = new Composite(parent, SWT.NULL);

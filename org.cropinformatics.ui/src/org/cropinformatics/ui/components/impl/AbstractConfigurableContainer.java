@@ -36,6 +36,10 @@ public abstract class AbstractConfigurableContainer<T extends ContainerConfigura
       T configuration)
   {
     super(parent, configuration);
+    
+    childConpomentIds = new LinkedList<String>() ;
+    
+    registerChildComponentIDs() ;
   }
   
 	@Override
@@ -81,8 +85,6 @@ public abstract class AbstractConfigurableContainer<T extends ContainerConfigura
    */
   protected final boolean canProvideChildComponent(String id)
   {
-    if (childConpomentIds == null)
-      childConpomentIds = getChildConpomentIds() ;
     return childConpomentIds.contains(id) ;
   }
 
@@ -189,9 +191,9 @@ public abstract class AbstractConfigurableContainer<T extends ContainerConfigura
    * 
    * @return a list child component ids that that are used by this components
    */
-  protected List<String> getChildConpomentIds()
-  {
-    return new LinkedList<String>() ;
+  protected final List<String> getChildConpomentIds()
+  { 	
+  	return childConpomentIds ;  
   }
   
 	public String getErrorMessage()
@@ -220,4 +222,13 @@ public abstract class AbstractConfigurableContainer<T extends ContainerConfigura
   protected abstract Component<? extends ComponentConfiguration> initialiseChildComponent(Composite parent,
       ComponentConfiguration configuration, String id)  ;
 
+  protected void registerChildComponentIDs()
+  {
+  	
+  }
+  
+  protected void registerChildComponentID(String childComponentId) 
+  {
+  	childConpomentIds.add(childComponentId) ;
+  }
 }

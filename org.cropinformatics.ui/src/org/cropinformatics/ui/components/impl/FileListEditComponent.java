@@ -140,15 +140,12 @@ public class FileListEditComponent extends FileComponent implements EditComponen
 	  // TODO Auto-generated method stub
 	  
   }
-
-	@Override
-  protected List<String> getChildConpomentIds()
-  {
-    List<String> list = super.getChildConpomentIds() ;
-    
-    list.add(ADD_FILE_BUTTON_ID) ;
-    
-    return list ;
-  }
   
+	@Override
+  protected void registerChildComponentIDs()
+  {
+		super.registerChildComponentIDs(); 
+		
+  	registerChildComponentID(ADD_FILE_BUTTON_ID) ;
+  }
 }

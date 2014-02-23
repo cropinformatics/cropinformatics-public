@@ -188,15 +188,13 @@ public abstract class AbstractIdentificationEditComponent<T> extends AbstractCon
   }
 	
 	@Override
-  protected List<String> getChildConpomentIds()
+  protected void registerChildComponentIDs()
   {
-	  List<String> childConpomentIds = super.getChildConpomentIds();
-	  
-	  childConpomentIds.add(UNIQUE_IDENTIFIER_COMPONENT_ID) ;
-	  childConpomentIds.add(NAME_COMPONENT_ID) ;
-	  childConpomentIds.add(DESCRIPTION_COMPONENT_ID) ;
-	  
-	  return childConpomentIds ;
+		super.registerChildComponentIDs(); 
+		
+  	registerChildComponentID(UNIQUE_IDENTIFIER_COMPONENT_ID) ;
+  	registerChildComponentID(NAME_COMPONENT_ID) ;
+  	registerChildComponentID(DESCRIPTION_COMPONENT_ID) ;
   }
 
 	protected final void intialiseDefaultValue()

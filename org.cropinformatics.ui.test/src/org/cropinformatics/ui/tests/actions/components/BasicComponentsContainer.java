@@ -255,25 +255,23 @@ public class BasicComponentsContainer extends AbstractConfigurableContainer<Cont
 
 		return component ;
 	}
-
+	
 	@Override
-	protected List<String> getChildConpomentIds()
+	protected void registerChildComponentIDs()
 	{
-		List<String> list = new LinkedList<String>() ;
+		super.registerChildComponentIDs();
 
-		list.add(BOOLEAN_COMPONENT_ID) ;
-		list.add(INTEGER_COMPONENT_ID) ;
-		list.add(STRING_COMPONENT_ID) ;
-		list.add(TEXT_COMPONENT_ID) ;
-		list.add(DATE_COMPONENT_ID) ;
-		list.add(OPTIONS_WITH_BUTTONS_COMPONENT_ID) ;
-		list.add(OPTIONS_WITH_BUTTONS_COMPONENT_ID2) ;
-		list.add(OPTIONS_WITH_COMBO_COMPONENT_ID) ;
-		list.add(FILE_COMPONENT_ID) ;
-		list.add(DELIMITER_COMPONENT_ID) ;
-		list.add(IDENTIFICATION_COMPONENT_ID) ;
-
-		return list ;
+		registerChildComponentID(BOOLEAN_COMPONENT_ID);
+		registerChildComponentID(INTEGER_COMPONENT_ID);
+		registerChildComponentID(STRING_COMPONENT_ID);
+		registerChildComponentID(TEXT_COMPONENT_ID);
+		registerChildComponentID(DATE_COMPONENT_ID);
+		registerChildComponentID(OPTIONS_WITH_BUTTONS_COMPONENT_ID);
+		registerChildComponentID(OPTIONS_WITH_BUTTONS_COMPONENT_ID2);
+		registerChildComponentID(OPTIONS_WITH_COMBO_COMPONENT_ID);
+		registerChildComponentID(FILE_COMPONENT_ID);
+		registerChildComponentID(DELIMITER_COMPONENT_ID);
+		registerChildComponentID(IDENTIFICATION_COMPONENT_ID);
 	}
 
 	private void handlePropertyChanged() 

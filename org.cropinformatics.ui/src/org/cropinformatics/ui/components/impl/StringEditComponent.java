@@ -158,14 +158,12 @@ public abstract class StringEditComponent<T> extends LabelledEditComponent<T>
     return text;
   }
   
-  @Override
-  protected List<String> getChildConpomentIds()
+	@Override
+  protected void registerChildComponentIDs()
   {
-    List<String> list = super.getChildConpomentIds() ;
-    
-    list.add(TEXT_COMPONENT_ID) ;
-    
-    return list ;
+		super.registerChildComponentIDs(); 
+		
+  	registerChildComponentID(TEXT_COMPONENT_ID) ;
   }
   
   @Override

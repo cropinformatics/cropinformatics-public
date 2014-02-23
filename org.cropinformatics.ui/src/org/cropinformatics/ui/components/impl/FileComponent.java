@@ -299,18 +299,16 @@ public abstract class FileComponent extends LabelledComponent
     this.isDirectory = isDirectory;
   }
   
-  @Override
-  protected List<String> getChildConpomentIds()
+	@Override
+  protected void registerChildComponentIDs()
   {
-    List<String> list = super.getChildConpomentIds() ;
-    
-    list.add(FILE_TEXT_COMPONENT_ID) ;
-    list.add(BROWSE_BUTTON_COMPONENT_ID) ;
-    list.add(CLEAR_BUTTON_COMPONENT_ID) ;
-    
-    return list ;
+		super.registerChildComponentIDs(); 
+		
+  	registerChildComponentID(FILE_TEXT_COMPONENT_ID) ;
+  	registerChildComponentID(BROWSE_BUTTON_COMPONENT_ID) ;
+  	registerChildComponentID(CLEAR_BUTTON_COMPONENT_ID) ;
   }
-  
+	
   private void updateErrorMessage()
   {
     if (getFile() != null)
