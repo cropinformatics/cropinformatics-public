@@ -1051,7 +1051,8 @@ public class HibernateDAO
 				databasePropertiesMap.setProperty(Environment.POOL_SIZE,"1") ;
 
 				// Disable the second-level cache
-				databasePropertiesMap.setProperty(Environment.CACHE_PROVIDER, "org.hibernate.cache.NoCacheProvider") ;
+				// TODO something changed here since previous version
+				//databasePropertiesMap.setProperty(Environment.CACHE_PROVIDER, "org.hibernate.cache.NoCacheProvider") ;
 
 				// Drop and re-create the database schema on startup
 				//databasePropertiesMap.put("hbm2ddl.auto", "update") ;
